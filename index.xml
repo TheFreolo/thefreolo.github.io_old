@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Federico Reali</title>
+    <link>http://thefreolo.github.io/</link>
+    <description>Recent content on Federico Reali</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 May 2017 11:51:48 +0200</lastBuildDate>
+    
+	<atom:link href="http://thefreolo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lezione1</title>
+      <link>http://thefreolo.github.io/teaching/lezione1/</link>
+      <pubDate>Tue, 09 May 2017 11:51:48 +0200</pubDate>
+      
+      <guid>http://thefreolo.github.io/teaching/lezione1/</guid>
+      <description>&lt;h1 id=&#34;primi-passi-con-r&#34;&gt;Primi passi con R&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;perché-r&#34;&gt;Perché R&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;/p&gt;
+
+&lt;p&gt;&lt;cite&gt; The R Foundation &lt;cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>http://thefreolo.github.io/teaching/teaching/</link>
+      <pubDate>Tue, 09 May 2017 10:49:04 +0200</pubDate>
+      
+      <guid>http://thefreolo.github.io/teaching/teaching/</guid>
+      <description>&lt;p&gt;This part of the site contains a selection of material useful for the courses I am teaching or teaching assisting.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://thefreolo.github.io/about/</link>
+      <pubDate>Tue, 09 May 2017 10:26:04 +0200</pubDate>
+      
+      <guid>http://thefreolo.github.io/about/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
