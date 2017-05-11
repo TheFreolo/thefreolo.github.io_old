@@ -145,7 +145,7 @@ tan() # tangente
 
 <p>Questa parte, così come alcune successive sono anche coperte dalle utili <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">dispense</a>, di cui ho già consigliato la lettura.</p>
 
-<p>E&rsquo; possibile assegnare un valore ad una variabile usando la freccina <code>-&gt;</code>. Stesso risultato si può ottenere usando <code>_</code> oppure <code>assign()</code>, tuttavia il primo è decisamente il comando più usato e di più facile lettura.</p>
+<p>E&rsquo; possibile assegnare un valore ad una variabile usando la freccina <code>-&gt;</code>. Stesso risultato si può ottenere usando <code>=</code> oppure <code>assign()</code>, tuttavia il primo è decisamente il comando più usato e di più facile lettura.</p>
 
 <pre><code class="language-r">x  &lt;- 6
 </code></pre>
@@ -160,7 +160,7 @@ Il comando</p>
 y[1]
 </code></pre>
 
-<p>assegna a y i valori contenuti nel comando <code>c()</code>. Tale comando combina i valori in un vettore riga. L&rsquo;accesso ai vettori avviene attraverso indicandone il nome, seguito da parentesi quadre. Ovviamente è possibile svolgere operazioni aritmetiche anche tra vettori, usando la stessa sintassi vista prima.
+<p>assegna a y i valori contenuti nel comando <code>c()</code>. Tale comando combina i valori in un vettore colonna ( ma viene visualizzato come riga). L&rsquo;accesso ai vettori avviene attraverso indicandone il nome, seguito da parentesi quadre. Ovviamente è possibile svolgere operazioni aritmetiche anche tra vettori, usando la stessa sintassi vista prima.
 Di default R considera operazioni puntuali tra vettori, cioè l&rsquo;operazione richiesta viene svolta entrata per entrata. Questo richiede le dimensioni siano le stesse. Qualora non lo fossero, il contenuto del vettore più piccolo viene ripetuto un numero di volte sufficienti da rendere possibile l&rsquo;operazione. Questo viene anche segnalato da un warnign.</p>
 
 <p>E&rsquo; possibile ottenere le dimensioni di un vettore usando il comando <code>length()</code>.</p>
@@ -233,7 +233,7 @@ as.integer(is_bigger)
 
 <p>Come abbiamo visto i vettori sono considerati in generale vettori riga, e non è possibile generare una matrice usando il comando <code>c()</code>.</p>
 
-<p>Tuttavia le matrici esistono e si possono definire usando la funzione <code>cbind()</code> che unisce i vettori passati come argomento in una matrice dove i vettori argomento sono le colonne. La funzione <code>rbind()</code> ha la stessa funzione, ma i vettori passati come argomento saranno le righe della matrice. La funzione <code>dim()</code> restituisce le dimensioni dell&rsquo;oggetto passato come argomento. La funzione <code>length()</code> (che avevamo visto con i vettori) ci restituisce il <em>prodotto</em> delle dimensioni.</p>
+<p>Tuttavia le matrici esistono e si possono definire usando la funzione <code>cbind()</code> che unisce i vettori passati come argomento in una matrice dove i vettori argomento sono le colonne. La funzione <code>rbind()</code> ha la stessa funzione, ma i vettori passati come argomento saranno le righe della matrice. In tutti e due i casi, i vettori passati come argomento devono avere stessa dimensione (no uno riga e uno colonna). La funzione <code>dim()</code> restituisce le dimensioni dell&rsquo;oggetto passato come argomento. La funzione <code>length()</code> (che avevamo visto con i vettori) ci restituisce il <em>prodotto</em> delle dimensioni.</p>
 
 <pre><code class="language-r">a &lt;- cbind(c(1, 2, 3), c(4, 5, 6))
 dim(a)
