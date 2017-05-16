@@ -1,0 +1,252 @@
+---
+title: "Visualizzare i dati"
+author: "Federico Reali"
+output: 
+  html_notebook:
+    toc: yes
+    toc_depth: 2
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+    number_sections: true
+    theme: yeti
+    highlight: tango
+---
+
+![](../../media/Cholera.jpg)
+This [John Snow](https://it.wikipedia.org/wiki/John_Snow_(medico)) knew something!
+
+# Visualizzare i dati
+
+
+La Visualizzazione dei dati può permettere di individuare trend, connessioni e carpire informazioni dai dati che in forma tabulare non sono ovvie.
+
+I comandi che seguono aiutano in tali indagini. Tutti questi comandi possono essere personalizzati usando diversi colori, personalizzando le label degli assi o affiancando le immagini.
+
+Un pacchetto che permette non solo di produrre immagini (un po' più belle), ma anche di utilizzare funzioni avanzate è [ggplot2](http://ggplot2.org/) che però non tratteremo in questo corso.
+
+Oltre ad introdurre alcune funzioni che permettono di ottenere dei grafici, esploreremo anche alcuni dataset.
+
+
+## Box plot
+
+A lezione abbiamo già incontrato i boxplot. Usando R è molto semplice produrre dei boxplot usando gli appositi comandi. Vediamoli usando il dataset *birthwt*, contenuto in MASS.
+
+```{r}
+library(MASS)
+boxplot(birthwt$bwt)
+```
+
+La seguente notazione permette di produrre più boxplot relativi a bwt, divisi rispetto alla variabile race.
+
+```{r}
+boxplot(bwt ~ race, data = birthwt )
+```
+
+_Esercizio_
+Si investighi la variabile lwt rispetto a race e smoke.
+
+
+Si noti che il pacchetto *car* contiene una funzione chiamata `Boxplot()`, con la maiuscola, che vicino ai potenziali outliers indica l'indice dell'elemento.
+
+## Istogrammi e scatter plost
+
+Usando il comando `hist()` è possibile ottenere degli istogrammi per le variabili, passando gli argomenti in modo analogo ai boxplot.
+
+Analogamente, con i comandi `plot(x,y)` or `scatterplot(x,y)` è possibile rappresentare i dati come punti. 
+
+Vedremo che questo può essere molto utile per ottenere degli indizi sulle relazioni tra variabili.
+
+# BodyTemperature
+
+BodyTemperature è un dataset che contiene la misurazione di quattro variabili (sesso, età, frequenza cardiaca e temperatura corporea ascellare) di 100 pazienti. Possiamo leggere importare il file specificando invece che il percorso, l'indirizzo url.
+
+```{r, eval = FALSE}
+BodyTemperature <- read.csv(url('http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt'))
+```
+Se però visualizziamo questo dataset qualosa non torna.
+Il comando giusto specifica quale separatore viene considerato: in questo caso lo spazio, che è diverso da quello di default di `read.csv`
+.
+```{r}
+(BodyTemperature <- read.csv(url('http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt'), sep = " "))
+```
+
+Esploriamo un po' il dataset per capirne il contenuto e le variabili
+```{r}
+head(BodyTemperature)
+names(BodyTemperature)
+```
+Solo a scopo didattico, vediamo l'applicazione di uno dei comandi visti: `levels()`:
+```{r, eval=FALSE}
+BodyTemperature$GenderLong <- BodyTemperature$Gender
+levels(BodyTemperature$GenderLong) <- c("Female", "Male")
+```
+
+
+
+```{r}
+summary(BodyTemperature)
+
+range(BodyTemperature[,-1])
+```
+
+In modo analogo possiamo cercare di ottenere la distanza interquartile per i gli elementi del dataset con `IQR(BodyTemperature[,2:4])`, tuttavia questo ci da errore.
+
+Possiamo aggirare questa limitazione usando il comando `apply()`. La stessa funzione la possiamo usare per individuare, ad esempio, il  valore minimo rispetto alle variabili (numeriche) e quale indice lo assume.
+
+```{r}
+apply(BodyTemperature[,-1], 2, IQR)
+apply(BodyTemperature[,-1], 2, min)
+apply(BodyTemperature[,-1], 2, which.min)
+```
+
+Possiamo notare che la temperatura non è espressa in gradi Celsius (°C), bensì in Fahrenheit (F). Usando delle semplici operazioni di base possiamo trasformare le temperature in gradi Celsius e salvare questi nuovi dati nella colonna che chiamiamo *TempC*.
+
+```{r}
+fromFtoC <- function(dataF) {
+return((dataF - 32)*(5/9)) 
+}
+BodyTemperature$TempC <- (BodyTemperature$Temperature -32)*5/9
+
+head(BodyTemperature)
+```
+
+```{r, echo= FALSE}
+range(x <- sort(round(stats::rnorm(10) - 1.2, 1)))
+if(any(x < 0)) cat("x contains negative values\n")
+
+#Occhio ad usare round
+```
+
+## Visualizzare il dataset BodyTemperature
+
+Passiamo ora a visualizzare il contenuto del dateset.
+
+```{r}
+hist(BodyTemperature$TempC )
+```
+
+```{r}
+boxplot(TempC ~ Gender, data = BodyTemperature)
+```
+
+Vediamo ora come affiancare diversi plot e usiamo alcuni dei parametri delle funzioni di plot.
+
+```{r}
+par(mfrow=c(1, 2))
+hist(BodyTemperature$TempC, main = "", xlab = "°C")
+boxplot(TempC ~ Gender, data = BodyTemperature, xlab = "Gender", ylab = "Temperature [°C]")
+```
+
+
+
+```{r}
+par(mfrow=c(1, 2))
+boxplot(BodyTemperature$TempC , ylab = "Temperature [°C]")
+boxplot(TempC ~ Gender, data = BodyTemperature, xlab = "Gender")
+```
+
+```{r}
+par(mfrow=c(1, 2))
+boxplot(BodyTemperature$TempC , ylab = "Temperature [°C]")
+boxplot(TempC ~ Gender, data = BodyTemperature, xlab = "Gender")
+title("Boxplots for Temperature", outer = T, line = -2)
+```
+
+
+```{r, fig.width = 10, fig.height = 10}
+par(mfrow=c(2, 2))
+hist((BodyTemperature$TempC) , xlab = "Temperature [°C]", main = "")
+boxplot(TempC ~ Gender, data = BodyTemperature, xlab = "Gender")
+hist(BodyTemperature$TempC[BodyTemperature$Gender == "F"],freq = FALSE ,main = "Female", col = "pink", xlab = "Temperature [°C]")
+hist(BodyTemperature$TempC[BodyTemperature$Gender == "M"],freq = FALSE ,main = "Male", col = "skyblue" , xlab = "Temperature [°C]")
+```
+
+Esistono altri comandi che si possono abbinare a quelli di visualizzazione visti fin qui, ad esempio `abline()`, `text()` e `lines()`. 
+
+_Esercizio_ Usare l'help per capire le funzionalità dei comandi precedenti e si usino per aggiungere informazioni ai grafici precedenti.
+
+# Pima.tr2 
+
+
+
+```{r}
+library(MASS) # necessario per accedere al dataset
+View(Pima.tr2)
+dim(Pima.tr2)
+names(Pima.tr2)
+?Pima.tr2
+summary(Pima.tr2)
+```
+
+```{r}
+which(is.na(Pima.tr2))
+# amico di apply
+lapply(lapply(Pima.tr2 , is.na),which)
+```
+
+Cosa possiamo fare con i diversi NA?
+
+Un'idea ovviamente è quella di rimuovere le righe dove compare un NA
+
+```{r}
+data_no_Na <- na.omit(Pima.tr2)
+
+dim(data_no_Na)
+```
+
+Abbiamo rimosso un terzo del dataset.....
+
+Rimuovere così tanti dati impoverisce significativamente il dataset, quindi magari si possono trovare soluzioni meno radicali.
+
+Ad esempio, possiamo notare come gran parte dei NA siano nella variabile *skin*... se questa non ci interessa, possiamo evitare di rimuovere quelle righe!
+
+```{r}
+data_no_Na <- na.omit(Pima.tr2[,-4])
+
+dim(data_no_Na)
+```
+
+In questo modo abbiamo rimosso molte meno righe.
+Si noti che alcune funzioni (vedi mean) hanno specifici argomenti per gestire i NA e si può quindi evitare di rimuoverli dal dataset ma gestirli i vari casi dalle funzioni
+
+
+In alcuni casi, si preferisce non rimuovere alcun dato, ma piuttosto si sostituiscono i valori mancanti con informazioni prese dai dati correnti.
+
+Ad esempio, si possono sostituire con la media, la mediana o si possono anche definire modelli più complessi per definire i sostituti.
+
+## Visualizzare il dataset Pima.tr2
+
+Usando gli strumenti di visualizzazione visti, si esplorino le relazioni tra le variabili del dataset.
+
+Si faccia attenzione agli NA e si confrontino i risultati nei casi in cui:
+
+- vengono rimosse tutte le righe contenenti NA;
+- vengono solo le righe contenenti NA nelle variabili di interesse;
+- vengono sostituiti gli NA con la media o la mediana della variabile;
+
+```{r, include=FALSE}
+plot(glu ~ bmi, data = Pima.tr2)
+plot( Pima.tr2$bmi, Pima.tr2$glu)
+plot(bp ~ bmi, data = Pima.tr2)
+plot(npreg ~ bmi, data = Pima.tr2)
+plot(npreg ~ age, data = Pima.tr2)
+boxplot(npreg ~ type, data = Pima.tr2)
+hist(Pima.tr2$glu)
+#Occhio g o G su glucose (concentration) -> importante sapere le unità di misura!
+```
+
+
+
+```{r, include=FALSE}
+par(mfrow=c(1, 2))
+hist(Pima.tr2[ Pima.tr2$type == "Yes"  ,"glu"], main = "Diabete",    xlab = "Glucose")
+hist(Pima.tr2[ Pima.tr2$type == "No"   ,"glu"], main = "No Diabete", xlab = "Glucose")
+
+```
+
+
+
+
+
+

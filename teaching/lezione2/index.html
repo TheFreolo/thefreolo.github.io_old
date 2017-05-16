@@ -145,7 +145,7 @@ tan() # tangente
 
 <p>Questa parte, così come alcune successive sono anche coperte dalle utili <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">dispense</a>, di cui ho già consigliato la lettura.</p>
 
-<p>E&rsquo; possibile assegnare un valore ad una variabile usando la freccina <code>-&gt;</code>. Stesso risultato si può ottenere usando <code>=</code> oppure <code>assign()</code>, tuttavia il primo è decisamente il comando più usato e di più facile lettura.</p>
+<p>E&rsquo; possibile assegnare un valore ad una variabile usando la freccina <code>-&gt;</code>. Stesso risultato si può ottenere usando <code>=</code> oppure <code>assign()</code>, tuttavia il primo è decisamente il comando più usato e di più facile lettura. <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and">Qui</a> è possibile leggere una discussione sulle differenze nell&rsquo;uso di <code>=</code> o di <code>-&gt;</code>.</p>
 
 <pre><code class="language-r">x  &lt;- 6
 </code></pre>
@@ -283,7 +283,7 @@ nomi_e_numeri &lt;- c(&quot;Francesco&quot;, &quot;Sofia&quot;, &quot;Alessandro
 
 <p>Questa funzione può essere molto utile, ad esempio, se si devono creare vettori di nomi per delle variabili.</p>
 
-<p>Per capire il tipo di dati contenuto in un vettore possiamo usare il comando <code>typeof()</code>.</p>
+<p>Per capire il tipo di dati contenuto in un vettore possiamo usare il comando <code>typeof()</code> o `class().</p>
 
 <h2 id="liste-e-data-frame">Liste e data frame</h2>
 
@@ -314,8 +314,6 @@ fac &lt;- sample(L3, 10, replace = TRUE)
 data.frame(rep(1,10), 1:10, fac)
 data.frame(1, 1:10, sample(L3, 10, replace = TRUE))
 </code></pre>
-
-<p>Inoltre è possibile riempire manualmente un dataframe attraverso il comando <code>fix()</code>.</p>
 
 <h3 id="tidy-data-please">Tidy data, please!</h3>
 
@@ -389,7 +387,7 @@ return(y + a*b + c)
 <h3 id="esercizio-1">Esercizio 1</h3>
 
 <p>Si trovino 2 modi differenti per calcolare la somma dai cavalli vapore (hp) di quelle auto contenute in mtcars che hanno più di 100 cavalli (hp).
-<em>Suggerimento</em> In un caso si definisca una funzione apposita e nell&rsquo;altro si usino i comandi visti, così da ottenere il risultato con una sola riga di comandi.</p>
+<em>Suggerimento:</em> In un caso si definisca una funzione apposita (senza usare funzioni di libreria) e nell&rsquo;altro si usino i comandi visti, così da ottenere il risultato con una sola riga di comandi.</p>
 
 <h2 id="esercizio-2">Esercizio 2</h2>
 

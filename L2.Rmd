@@ -1,0 +1,347 @@
+---
+title: "Lezione 2"
+author: "Federico Reali"
+output: 
+  html_notebook:
+    toc: yes
+    toc_depth: 2
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+    number_sections: true
+    theme: yeti
+    highlight: tango
+---
+
+# Primi comandi di R
+![](./media/abacus.jpg)
+
+
+## Operazioni Aritmetiche
+
+Come abbiamo già visto è possibile usare R per svolgere operazioni matematiche, usando i simboli standard. 
+
+Ad esempio, l'uso di `+` più tra due numeri farà comparire la loro somma. 
+In modo analogo è possibile farne la differenza (`-`), il prodotto (`*`) e la divisione(`/`).
+
+```{r}
+2+2 
+2-2
+2*2
+2/2
+```
+
+Le potenze si possono esprimere usando il simbolo `^`. Lo stesso simbolo si può utilizzare per il calcolo delle radici, anche se è possibile richiamare la radice quadrata usando il comando `sqrt()`. Si noti che tale funzione accetta anche valori complessi.
+
+Per la divisione intera tra due numeri è possibile usare il simbolo `%/%`, mentre `%%` restituisce il resto di tale divisione.
+
+Un altro comando di base che può risultare utile è il calcolo del valore assoluto ottenuto con il comando `abs()`.
+
+In modo analogo sono già definite alcune delle funzioni che sono alla base dei calcoli matematici più frequenti. Le vedremo nei prossimi paragrafi.
+
+## Esponenziale e logaritmi
+
+E' possibile calcolare i valori della funzione esponenziale usando il comando `exp()` mentre per il calcolo dei logaritmi è possibile usare più funzioni:
+`log(), log10()` e `log2()` che restituiscono il logaritmo naturale, base 10 e base 2 rispettivamente. Il comando `log()` permette anche di specificare una base differente da ***e***, che è quella di default. Ad esempio, `log( 5 , base = 3)` restituisce il logaritmo in base 3 di 5.
+
+## Funzioni Trigonometriche
+
+Le principali funzioni trigonometriche sono già implementate in R e si possono richiamare usando i comandi elencati sotto, i cui nomi richiamano le funzioni stesse. Va notato che l'input di queste funzioni è atteso in radianti, **non gradi**.
+
+```{r, eval = FALSE}
+sin() # seno
+cos() # cosen
+tan() # tangente
+```
+
+E' possibile utilizzare le stesse funzioni ma con desinenza ***pi*** (`sinpi()`, `cospi()` e `tanpi()`) se si intende considerare dei multipli di pi-greco.
+
+Anche le funzioni inverse sono già implementate e si possono richiamare con i comandi `acos(), asin(), atan()`.
+
+## Assegnazione e vettori
+
+Fin ora abbiamo usato R per calcolare dei singoli valori, in modo analogo a come avremmo usato una calcolatrice. Tuttavia R permette di fare molto di più. 
+
+Come primo passo per scoprirne  le potenzialità vedremo la possibilità di assegnare valori e di richiamarli successivamente, così come di lavorare con vettori o matrici, invece che con singoli valori.
+
+Questa parte, così come alcune successive sono anche coperte dalle utili [dispense](https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf), di cui ho già consigliato la lettura.
+
+E' possibile assegnare un valore ad una variabile usando la freccina `->`. Stesso risultato si può ottenere usando `=` oppure `assign()`, tuttavia il primo è decisamente il comando più usato e di più facile lettura. [Qui](http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and) è possibile leggere una discussione sulle differenze nell'uso di `=` o di `->`.
+
+```{r}
+x  <- 6
+```
+
+Usando il precedente comando viene assegnato il valore 6 alla variabile x. In questo modo è possibile richiamarla successivamente, così come è possibile scrivere espressioni più complesse che coinvolgono x a prescindere dal suo valore. Questo sarà particolarmente utile se dovremo definire delle funzioni a cui è possibile passare per argomento diversi valori.
+Si noti che il comando `6 -> x` produce gli stessi risultati del precedente.
+
+Oltre ad assegnare un singolo valore, è possibile  considerati dei vettori.
+Il comando 
+```{r}
+y <- c(1,2,3,4)
+y[1]
+```
+assegna a y i valori contenuti nel comando `c()`. Tale comando combina i valori in un vettore colonna (ma lo visualizza come una riga!). L'accesso ai vettori avviene attraverso indicandone il nome, seguito da parentesi quadre. Ovviamente è possibile svolgere operazioni aritmetiche anche tra vettori, usando la stessa sintassi vista prima. 
+Di default R considera operazioni puntuali tra vettori, cioè l'operazione richiesta viene svolta entrata per entrata. Questo richiede le dimensioni siano le stesse. Qualora non lo fossero, il contenuto del vettore più piccolo viene ripetuto un numero di volte sufficienti da rendere possibile l'operazione. Questo viene anche segnalato da un warnign.
+
+E' possibile ottenere le dimensioni di un vettore usando il comando `length()`.
+
+Un comando utile tra vettori è `t()` che traspone il vettore passato per argomento.
+
+```{r}
+z <- t(y)
+y
+print(z)
+z
+```
+Chiamare una variabile senza indicare operazioni ne permette la stampa a video. Inserendo l'assegnazione tra parentesi tonde si ottiene lo stesso risultato. Anche il comando `print()` permetta la stampa a video. Inoltre questo comando, diversamente dai precedenti, permette di mostrare l'output anche quando è chiamata dentro una funzione o uno script.
+
+Dal comando precedente vediamo che y e z hanno stessi valori ma dimensioni diverse. Tuttavia R permette di svolgere operazioni matematiche su di essi senza warning o errori.
+
+Per svolgere operazioni tra vettori, come il prodotto righe per colonne si può considerare il comando `%*%`. In questo caso il risultato dipende dall'ordine.
+
+```{r}
+y %*% z
+z %*% y
+```
+
+## Sequenze
+
+Nel caso si debba indicare una successione di valori è possibile farlo senza indicarli espressamente tutti, purché essi siano una sequenza regolare.
+
+Ad esempio con `a:b` possiamo usare i due punti per indicare una sequenza di valori con passo 1  da *a* fino a *b* . Per indicare un passo diverso possiamo usare il comando `seq(a,b,passo)` che  produrrà una sequenza di elementi da *a* fino a *b* distanziati di un valore uguale al *passo* indicato. Se il passo viene omesso è considerato 1 di default. 
+
+Per tutte le funzioni è possibile accedere all'help di R usando il comando `help(Nome_funzione)`. Leggendo l'help di `seq()` vediamo ad esempio che possiamo anche indicare in ordine diverso i parametri, a patto di specificarli usando il nome indicato nell'help. Ad esempio `seq(to = b, by = passo, from = a)` restituisce lo stesso output di `seq(a,b,passo)`.
+
+Inoltre è possibile ripetere un valore o un vettore usando il comando `rep()`, ad esempio `rep(1,5)` restituisce cinque volte il valore 1. Nel caso di un vettore, il comando ripeterà 5 volte il vettore.
+
+## Operazioni su vettori
+
+Oltre alle operazioni che abbiamo già visto esistono altre funzioni di R appositamente pensate per i vettori. Ad esempio le funzioni `min` e `max` restituiscono, rispettivamente, il minimo ed il massimo valore contenuto in un vettore. Per accedere alla posizione di tali valori si combinano i precedenti comandi con `which`. Ad esempio
+
+```{r}
+x <- c(3, 5, 7, 1, 3, 3, 9, 8)
+min(x)
+which.min(x)
+max(x)
+which.max(x)
+```
+
+Altre funzioni molto utili per lavorare con i vettori sono la funzione `sum()` che calcola la somma di tutti gli elementi di un vettore e la funzione `diff()`
+che calcola la differenza di un valore da uno dei precedenti (è possibile indicare quanto prima "guardare").
+
+```{r}
+sum(x)
+diff(x)
+diff(x,2)
+```
+
+## Operatori relazionali e logici
+
+R ci permette anche di valutare espressioni relazionali o logiche. Il loro risultato sarà un valore logico indicato con TRUE o FALSE.
+```{r}
+6 > 10
+6 <= 10
+is_bigger <- 6> 10
+is_bigger
+as.integer(is_bigger)
+```
+
+R permette di valutare diverse espressioni relazionari, oltre a maggiore (uguale) o minore (uguale). Ad esempio è possibile valutare se due valori o variabili siano diversi `!=` o uguali `==`. Questo può essere particolarmente utile quando si definiscono delle funzioni proprie e si valuta se una condizione è soddisfatta.
+
+R permette anche di valutare gli operatori logici `&` (and), `|` (or), `xor` e `!` (not). 
+
+Questi operatori possono essere valutati sia su vettori logici, che di numeri qualsiasi. Nel secondo caso, tuttavia, tutto ciò che è diverso da zero conterà come TRUE, e solo lo 0 conterà come FALSE. Nel caso in cui si definiscano dei vettori misti (dove sono presenti sia valori logici che interi/reali/complessi), verranno tutti convertiti nel formato numerico presente.
+
+## Matrici
+
+Come abbiamo visto i vettori sono considerati in generale vettori riga, e non è possibile generare una matrice usando il comando `c()`. 
+
+Tuttavia le matrici esistono e si possono definire usando la funzione `cbind()` che unisce i vettori passati come argomento in una matrice dove i vettori argomento sono le colonne. La funzione `rbind()` ha la stessa funzione, ma i vettori passati come argomento saranno le righe della matrice. La funzione `dim()` restituisce le dimensioni dell'oggetto passato come argomento. La funzione `length()` (che avevamo visto con i vettori) ci restituisce il *prodotto* delle dimensioni.
+
+
+```{r}
+a <- cbind(c(1, 2, 3), c(4, 5, 6))
+dim(a)
+b <- cbind(c(1, 2, 3), c(4, 5, 6))
+dim(b)
+a
+b
+```
+
+E' possibile variare la dimensione di un oggetto usando gli stessi comandi `length` e `dim` come assegnazioni. 
+```{r}
+dim(a) <- c(2,3)
+a
+```
+
+Il comando precedente cambia la forma della matrice, secondo la forma indicata. Tali comandi vanno comunque usati con attenzione, visto che non si ha controllo su come il contenuto verrà ridistribuito.
+
+Altra utile funzione per creare matrici è la funzione `array()` che chiede di specificare gli elementi della matrice e le dimensioni. Risultato analogo si può otenere con la funzione `matrix(elementi, num righe, num colonne)`. Si noti che con `array()` è possibile definire strutture con più di due dimensioni.
+
+Gli elementi una matrice si accedono usando le parentesi quadre, indicando la posizione dell'elemento.
+
+```{r}
+a[2,3]
+```
+
+Se si intende selezionare un'intera riga o colonna, basta lasciare vuoto tale campo. Per esempio `a[1,]` restitusce l'intera prima riga. Il comando `sum()`, visto in precedenza funziona anche con matrici, restituendo la somma di tutte le entrate. Per ottenere la somma delle righe o delle colonne è possibile usare i comandi `rowSum()` o `colSum()`, rispettivamente.
+Anche i comandi `min()` e `max()` restituiscono il min/max tra _tutte_ le entrate. Mentre gli stessi comandi con il `which` restituiscono l'indice contando per colonne gli elementi.
+
+Alcune funzioni come `contour(), persp(), image()` permettono di ottenere dei grafici, partendo da matrici.
+
+## Stringhe (vettori di caratteri)
+R permette di manipolare anche vettori di caratteri, o stringhe, che possono essere salvati anche come vettori. Le stringhe vengono delimitate da doppie virgolette `" "` (o anche semplici virgolette `' '`).
+
+```{r}
+nomi <- c("Francesco", "Sofia", "Alessandro")
+nomi[1]
+
+nomi_e_numeri <- c("Francesco", "Sofia", "Alessandro", 45)
+```
+
+In R non possono convivere nello stesso array caratteri e numeri. Se ad esempio nell'assegnazione indichiamo nomi e numeri, questi ultimi verranno convertiti in caratteri.
+
+Una funzione molto utile per maneggiare stringhe, ma anche altri risultati, è la funzione `paste()` che concatena dei vettori dopo averli trasformati in stringhe.
+
+```{r}
+paste(1:12) 
+
+(nth <- paste0(1:12, c("st", "nd", "rd", rep("th", 9))))
+```
+
+Questa funzione può essere molto utile, ad esempio, se si devono creare vettori di nomi per delle variabili.
+
+Per capire il tipo di dati contenuto in un vettore possiamo usare il comando `typeof()`.
+
+## Liste e data frame
+
+Possiamo pensare ad una matrice come ad un metodo efficace per immagazzinare informazioni numeriche, ed è così! Però se il tipo di informazioni che dobbiamo immagazzinare è misto, ad esempio contiene sia numeri che caratteri, la loro efficienza viene meno e si possono preferire altri metodi.
+
+Una lista è un insieme ordinato di oggetti. Si possono definire liste usando il comando `list()`. 
+
+```{r}
+c <- list(destinazione = c("London", "Madrid"), compagnia = c("Ryanair", "EasyJet"), costo = c(60, 80), valuta = c("£", "€") )
+```
+
+Si può accedere al contenuto di una lista sia per posizione con le doppie parentesi `c[[2]]`  oppure per nome `c[["compagnia"]]` o `c$compagnia`. Tutti  i precedenti comandi restituiscono il contenuto della lista definito da *compagnia*. Se vogliamo accedere direttamente ad un elemento possiamo usare indifferentemente i comandi `c[[2]][2]`, `c[["compagnia"]][2]` o `c$compagnia[2]`.
+
+### Data frame
+
+Un'altra struttura dati che permette di immagazzinate dati di tipo misto sono i *data frame*. Questa struttura è di gran lunga la più usata per leggere e manipolare dati in R. 
+
+I *data frame* sono liste di tipo "data.frame" contenenti variabili con lo stesso numero di righe, il identificativo per la riga è univoco. 
+
+```{r}
+L3 <- LETTERS[1:3]
+fac <- sample(L3, 10, replace = TRUE)
+(d <- data.frame(x = 1, y = 1:10, fac = fac))
+```
+
+```{r}
+data.frame(1, 1:10, fac)
+```
+
+```{r}
+## The "same" with automatic column names:
+data.frame(rep(1,10), 1:10, fac)
+data.frame(1, 1:10, sample(L3, 10, replace = TRUE))
+```
+
+Inoltre è possibile riempire manualmente un dataframe attraverso il comando `fix()`.
+
+### Tidy data, please!
+
+>   A huge amount of effort is spent cleaning data to get it ready for 
+> analysis, but there has been little research on how to make data cleaning as easy and effective as possible. This paper tackles a small, but important, component of data cleaning: data tidying. **Tidy datasets** are easy to manipulate, model and visualize, and **have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table**. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets. This structure also makes it easier to develop tidy tools for data analysis, tools that both input and output tidy datasets. The advantages of a consistent data structure and matching tools are demonstrated with a case study free from mundane data manipulation chores.
+> 
+<cite> [Tidy data](https://www.jstatsoft.org/article/view/v059i10) - Hadley Wickham <cite>
+
+Visto l'importanza dei dati nel mondo moderno e l'innegabile importanza del tempo nella nostra società, evitiamo di perdere troppo tempo a risistemare i nostri dati e cerchiamo di uniformarci ai *tidy data* da quando creiamo un dataset in poi. Questo ci farà risparmiare molto tempo e migliorerà la ripetibilità delle nostre analisi!
+
+
+## Programmazione in R 
+
+R permette di eseguire comandi che permetto l'iterazione, la valutazione di espressioni condizionali e la definizione di funzioni.
+
+### Condizioni: if
+
+```{r, eval = FALSE}
+if (condizione) comando1 else comando2
+#Oppure
+ifelse(condizione,comando1,comando2)
+```
+
+La prima espressione verifica una *condizione* **solo** su singolo elemento. Al contrario, il comando `ifelse` permette di vettorializzare il controllo. Se la *condizione* è va valutata su un vettore, il comando `ifelse` la valuta su tutte le entrate e applica *comando1* se soddisfatta per quell'entrata e *comando2* in caso contrario. Qualora venisse passato un vettore all'espressione `if`, questo valuterebbe la *condizione* solo rispetto al primo elemento del vettore ed eseguirebbe il comando opportuno.
+
+Si possono raggruppare più comandi usando le parentesi graffe e il punto e virgola. Ad esempio, nell'`if` è possibile in questo modo fare più operazioni per ogni caso.
+
+### Iterazioni: for - while - repeat
+
+Si possono iterare dei comandi usando i comandi `for`, `while`o `repeat`.
+
+```{r, eval = FALSE}
+for (i in sequenza) comando1
+```
+
+`for` permette di iterare comando1 al variare di una variabile, in questo caso *i*. Questa espressione è molto utile quando si visitano dei vettori e alle diverse entrate viene applicato comando1. Usando le parentesi graffe è possibile indicare più comandi.
+
+```{r, eval = FALSE}
+while (condizione) comando1
+```
+
+`while` ripete comando1 finche la condizione è vera. L'uso di `while` può essere rischioso qualora la condizione sia sempre soddisfatta e si rimanga bloccati in un *loop infinito*.
+
+`repeat` ripete semplicemente un comando. `break` permette di interrompere qualsiasi iterazione ed è l'unico modo per fermare un ciclo `repeat`.
+
+### Definire funzioni
+
+R permette all'utente di definire funzioni, attraverso il comando `function`.
+
+```{r, eval = FALSE}
+nomeFunzione <- function( lista_argomenti ) comando1
+return(valore)
+```
+
+La sintassi precedente permette di definire una funzione chiamata *nomeFunzione* che valuterà comando1 e restituirà *valore*.
+
+L'uso di funzioni *user-defined* permette di richiamare nei passaggi successivi la funzione che è stata definita passando diversi argomenti. Usando le parentesi graffe è possibile specificare più comandi.
+
+
+```{r}
+my_fun <- function( a , b , c) {
+return(a*b + c)    
+}
+```
+
+```{r}
+my_fun2 <- function( a , b , c) {
+    y <- a**b 
+return(y + a*b + c)    
+}
+```
+
+Si possono salvare funzioni e script (usando l'estensione .R), che possono essere poi eseguiti attraverso il comando `source(“nome_della_funzione.R”)`. Per richiamare tali funzioni è essenziale che siano nella cartella di lavoro, altrimenti va indicato il path per raggiungere il file.
+
+## Esercizi
+
+### Esercizio 1
+Si trovino 2 modi differenti per calcolare la somma dai cavalli vapore (hp) di quelle auto contenute in mtcars che hanno più di 100 cavalli (hp).
+*Suggerimento* In un caso si definisca una funzione apposita e nell'altro si usino i comandi visti, così da ottenere il risultato con una sola riga di comandi.
+
+
+### Esercizio 2
+Si definisca una funzione chiamata my_max che senza usare funzioni di libreria restituisce il massimo di un vettore.
+
+### Esercizio 3
+Si definisca una funzione chiamata funzione my_mean che senza usare funzioni di libreria restituisce la media di un vettore.
+
+### Esercizio 4
+Si definisca una funzione chiamata my_cov che verifica se una matrice può essere la matrice di covarianza di due variabili aleatorie.
+
+
+### Esercizio 5
+Si definisca una funzione chiamata my_monte che al variare del numero di punti N, approssimi l'integrale delle funzioni, usando un metodo Monte Carlo:
+
+- $$f(x) = x^2, x \in (-1,1) $$
+- $$f(x) = e^{-x^2}, x\in \mathbb{R}$$
