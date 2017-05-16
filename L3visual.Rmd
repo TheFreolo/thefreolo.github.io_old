@@ -172,7 +172,7 @@ _Esercizio_ Usare l'help per capire le funzionalità dei comandi precedenti e si
 
 ```{r}
 library(MASS) # necessario per accedere al dataset
-View(Pima.tr2)
+(Pima.tr2)
 dim(Pima.tr2)
 names(Pima.tr2)
 ?Pima.tr2
