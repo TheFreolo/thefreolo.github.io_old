@@ -159,7 +159,7 @@ biocLite(&quot;RnaSeqTutorial&quot;)
 
 <p>Gli argomenti del comando, oltre a specificare il percorso in cui si trova il file da leggere, indicano che sono presenti degli <em>header</em>, cioè intestazioni che riportano il nome delle variabili, e che il separatore usato nel file per indicare i diversi elementi delle righe è lo spazio. Lo spazio è il separatore di default di <code>read.table()</code> ma è possibile indicarne di diversi. Se il file fosse stato un csv (<em>comma separated values</em>) avremmo indicato <code>sep=&quot;,&quot;</code>. Allo stesso modo avremmo potuto usare la funzione <code>read.csv()</code> che considera la virgola come separatore di default. Se i valori fossero stati separati da punto e virgola avremmo potuto usare <code>read.csv2()</code> e <code>read.delim()</code> se separate da tab (\t).</p>
 
-<p>In modo del tutto simile, la funzione <code>write.table()</code> permette di scrivere un data frame (o una variabile) in un file. Ad esempio, il comando seguente scrive il dataset scaricato da internet nella cartella data</p>
+<p>In modo del tutto simile, la funzione <code>write.table()</code> permette di scrivere un data frame (o una variabile) in un file. Ad esempio, il comando seguente scrive il dataset scaricato da internet nella cartella data come file csv.</p>
 
 <pre><code class="language-r">write.csv(BodyTemperature, &quot;./data/BodyTemperature.txt&quot;)
 </code></pre>
@@ -168,14 +168,15 @@ biocLite(&quot;RnaSeqTutorial&quot;)
 
 <p>Una volta letto o caricato il dataset che ci interessa è ora di iniziare ad analizzare i <a href="http://phdcomics.com/comics.php?f=1816">dati</a> che contiene. Spesso i dataset sono accompagnati da delle descrizioni che ne spiegano il contenuto ed è buona regola leggerle.</p>
 
-<p>Possiamo visualizzare la testa del dataset o la coda, usando i comandi <code>head()</code> e <code>tail()</code>. Possiamo anche visualizzare l&rsquo;intero dataset nella finestra di R Studio usando il comando <code>View()</code>. Possiamo conoscerne le dimensioni con la funzione <code>dim()</code> e possiamo conoscere i nomi delle colonne con la funzione <code>names()</code>. L&rsquo;uso di queste funzioni è sempre utile per iniziare a capire i dati con cui si ha a che fare.</p>
+<p>Possiamo visualizzare la testa del dataset o la coda, usando i comandi <code>head()</code> e <code>tail()</code> o anche visualizzare l&rsquo;intero dataset in una finestra di R Studio usando il comando <code>View()</code>. Possiamo conoscerne le dimensioni con la funzione <code>dim()</code> e possiamo conoscere i nomi delle colonne con la funzione <code>names()</code>.
+<code>str()</code> restituisce invece informazioni sulla struttura del dataset. In R Studio, l&rsquo;equivalente di questo comando è accessibile nella finesta <strong>Environment</strong>. L&rsquo;uso di queste funzioni è sempre utile per iniziare a capire i dati con cui si ha a che fare.</p>
 
-<p>Un funzione utilissima è <code>summary()</code> che restituisce diverse informazioni per le <em>variabili numeriche</em>: minimo, massimo, media e i quartili. Va specificato <em>numeriche</em> in quanto un data frame potrebbe anche contenere delle variabili non numeriche. Nel caso di BodyTemperature ad esempio, la prima colonna è la variabile categorica del sesso del paziente.</p>
+<p>Una funzione utilissima è <code>summary()</code>. Qeusta restituisce diverse informazioni per le <em>variabili numeriche</em>: minimo, massimo, media e i quartili. Va specificato <em>numeriche</em> in quanto un data frame potrebbe anche contenere delle variabili non numeriche. Nel caso di BodyTemperature ad esempio, la prima colonna è la variabile categorica del sesso del paziente.</p>
 
 <p>Altre funzione utili sono le funzioni come <code>mean()</code> e <code>sd()</code> che ci restituiscono media e standard deviation dell&rsquo;argomento passato.
-Le funzioni <code>IQR()</code> e <code>range()</code>  restituiscono la distanza interquartile ed il range. <code>str()</code> restituisce invece informazioni sulla struttura del dataset.</p>
+Le funzioni <code>IQR()</code> e <code>range()</code>  restituiscono la distanza interquartile ed il range.</p>
 
-<p>Un utile comando per applicare funzioni pensate per elementi scalari agli elementi di un array o una matrice è la funzione <code>apply()</code>. Tale funzione è utile anche per applicare funzioni lungo una sola dimensione. Un altro comando per la manipolazione di dati è <code>round()</code> che arrotonda un valore o un vettore all&rsquo;intero più vicino, o indicando il numero di cifre decimali, arrotonda fino alle cifre decimali indicati.</p>
+<p>Un utile comando per applicare funzioni pensate per elementi scalari agli elementi di un array o una matrice è la funzione <code>apply()</code>. Tale funzione è utile anche per applicare funzioni lungo una sola dimensione. Le varianti <code>lapply()</code> e <code>tapply()</code> funzionano in modo simile. Un altro comando per la manipolazione di dati è <code>round()</code> che arrotonda un valore o un vettore all&rsquo;intero più vicino, o indicando il numero di cifre decimali, arrotonda fino alle cifre decimali indicati.</p>
 
 <p>Altre funzioni utili sono <code>sort()</code>, che ordina gli elementi di un vettore, <code>unique()</code> che rimuove le entrate ripetute da array o data frame. Le funzioni come  <code>any()</code> e <code>which()</code> verificano se una condizione è soddisfatta. La prima restituisce <code>TRUE</code> se almeno un elemento che verifica la condizione, mentre <code>which()</code> che riporta l&rsquo;indice degli elementi che la soddisfano.</p>
 
@@ -189,15 +190,15 @@ Le funzioni <code>IQR()</code> e <code>range()</code>  restituiscono la distanza
 birthwt1$race &lt;- as.factor(birthwt1$race)
 </code></pre>
 
-<p>Dalla descrizione delle variabili fornita da R Studio, possiamo vedere che dopo l&rsquo;assegnazione, race è indicato come factor, non più integer.</p>
+<p>Dalla descrizione delle variabili fornita da R Studio nella finestra <strong>Environment</strong>, possiamo vedere che dopo l&rsquo;assegnazione, race è indicato come factor, non più integer.</p>
 
-<p>La funzione <code>table()</code> costruisce una contingency table tra le combinazioni di factors. La funzione <code>levels()</code> restituisce gli attributi di livello di una variabile. Usato come con l&rsquo;assegnazione permette di variarli.</p>
+<p>La funzione <code>table()</code> costruisce una contingency table tra le combinazioni di factors mentre <code>levels()</code> restituisce gli attributi di livello di una variabile. Usando <code>levels()</code> è anche possibile assegnare o variare gli attributi di livello.</p>
 
 <h2 id="missing-data">Missing data</h2>
 
 <p>Spesso i dati forniti contengono valori non affidabili, oppure ci sono errori in qualche riga o ancora mancano dei valori. Questo è un grande problema, sia perché, se non riconosciuti in anticipo, questi valori possono influenzare i nostri risultati, sia perché non esistono protocolli standard per affrontare questi casi.</p>
 
-<p>Alcuni elementi posso non essere stati inseriti ed essi solitamente vengono segnalati con NA (not available). R ha una funzione dedicata per trovare questi elementi: <code>is.na()</code>. Tale funzione restituisce valori booleani per indicare se il contenuto è NA o no. Analogamente <code>na.omit()</code> restituisce l&rsquo;argomento privato delle righe contenenti NA.</p>
+<p>Alcuni elementi posso non essere stati inseriti ed essi solitamente vengono segnalati con NA (not available). R ha una funzione dedicata per trovare questi elementi: <code>is.na()</code>. Tale funzione restituisce valori booleani per indicare se il contenuto è NA o no. Analogamente, <code>na.omit()</code> restituisce l&rsquo;argomento privato delle righe contenenti NA.</p>
 
 <p>In modo del tutto analogo funziona il comando <code>is.nan()</code> che però verifica se il contenuto è NaN (not a number). Esistono anche i controlli <code>is.infinite()</code> e <code>is.finite()</code> che verificano se ci sono valori <code>Inf/-Inf</code>.</p>
 
@@ -207,13 +208,11 @@ birthwt1$race &lt;- as.factor(birthwt1$race)
 
 <h2 id="esercizio-1">Esercizio 1</h2>
 
-<ul>
-<li>Si scarichi il dataset <a href="http://extras.springer.com/2012/978-1-4614-1301-1">AstmaLOS.txt</a> (<a href="https://www.dropbox.com/s/kjhafwojufpwaga/AsthmaLOS_description.txt?dl=0">descrizione</a>).  Dopo averlo analizzato ed aver individuato eventuali errori nei dati relativi a  age e owner.type, si analizzi e visualizzi la variabile age. Si provino almeno due tecniche di rimozione degli errori dai dati e si confrontino i risultati.</li>
-</ul>
+<p>Si scarichi il dataset <a href="http://extras.springer.com/2012/978-1-4614-1301-1">AstmaLOS.txt</a> (<a href="https://www.dropbox.com/s/kjhafwojufpwaga/AsthmaLOS_description.txt?dl=0">descrizione</a>).  Dopo averlo analizzato ed aver individuato eventuali errori nei dati relativi a  age e owner.type, si analizzi e visualizzi la variabile age. Si provino almeno due tecniche di rimozione degli errori dai dati e si confrontino i risultati.</p>
 
 <h2 id="esercizio-2">Esercizio 2</h2>
 
-<p>Si analizzi il dataset <em>hflights</em> e si scelga una destinazione. Si analizzino e visualizzino i dati relativi a lunghezza del volo e ritaardi per tale destinazione. Inoltre si determini:</p>
+<p>Si analizzi il dataset <em>hflights</em> e si scelga una destinazione. Si analizzino e visualizzino i dati relativi a lunghezza del volo e ritardi per tale destinazione. Inoltre si determini:</p>
 
 <ul>
 <li>il giorno in cui è possibile volare con minore probabilità di subire ritardo.</li>
@@ -222,15 +221,15 @@ birthwt1$race &lt;- as.factor(birthwt1$race)
 
 <h2 id="esercizio-3">Esercizio 3</h2>
 
-<p>Si importi il <a href="https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv">dataset</a> contenente i dati relativi alla aspettativa di vita, popolazione e prodotto interno lordo pro capite relativo a 142 paesi del mondo.
-Si studino i dati aggregati per continenti e si visualizzi l&rsquo;andamento dell&rsquo;aspettativa di vita rispetto alle variabili reddito pro capite e popolazione.</p>
+<p>Si importi il <a href="https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv">dataset</a> contenente i dati relativi alla aspettativa di vita, popolazione e prodotto interno lordo pro capite di 142 paesi del mondo.
+Si studino i dati aggregati per continenti e si visualizzi l&rsquo;andamento dell&rsquo;aspettativa di vita rispetto alle variabili reddito pro capite e popolazione. Si investighi una possibile trasformazione dei dati per rendere più informativa l&rsquo;analisi e la si ripeta sui dati trasformati.</p>
 
 <h1 id="link-utili">Link utili</h1>
 
 <ul>
 <li><p>Questo sito presenta diversi <a href="http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html">datasets</a> che possono essere interessanti da esaminare.</p></li>
 
-<li><p>A questo link è possibile trovare gli appunti di un corso di <a href="http://vissoc.co">data visualization</a> (in inglese).</p></li>
+<li><p>A questo link è possibile trovare gli appunti di un ottimo corso di <a href="http://vissoc.co">data visualization</a> (in inglese).</p></li>
 </ul>
 			</div>
 
