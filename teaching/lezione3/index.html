@@ -171,7 +171,7 @@ biocLite(&quot;RnaSeqTutorial&quot;)
 <p>Possiamo visualizzare la testa del dataset o la coda, usando i comandi <code>head()</code> e <code>tail()</code> o anche visualizzare l&rsquo;intero dataset in una finestra di R Studio usando il comando <code>View()</code>. Possiamo conoscerne le dimensioni con la funzione <code>dim()</code> e possiamo conoscere i nomi delle colonne con la funzione <code>names()</code>.
 <code>str()</code> restituisce invece informazioni sulla struttura del dataset. In R Studio, l&rsquo;equivalente di questo comando è accessibile nella finesta <strong>Environment</strong>. L&rsquo;uso di queste funzioni è sempre utile per iniziare a capire i dati con cui si ha a che fare.</p>
 
-<p>Una funzione utilissima è <code>summary()</code>. Qeusta restituisce diverse informazioni per le <em>variabili numeriche</em>: minimo, massimo, media e i quartili. Va specificato <em>numeriche</em> in quanto un data frame potrebbe anche contenere delle variabili non numeriche. Nel caso di BodyTemperature ad esempio, la prima colonna è la variabile categorica del sesso del paziente.</p>
+<p>Una funzione utilissima è <code>summary()</code>. Questa restituisce diverse informazioni per le <em>variabili numeriche</em>: minimo, massimo, media e i quartili. Va specificato <em>numeriche</em> in quanto un data frame potrebbe anche contenere delle variabili non numeriche. Nel caso di BodyTemperature ad esempio, la prima colonna è la variabile categorica del sesso del paziente.</p>
 
 <p>Altre funzione utili sono le funzioni come <code>mean()</code> e <code>sd()</code> che ci restituiscono media e standard deviation dell&rsquo;argomento passato.
 Le funzioni <code>IQR()</code> e <code>range()</code>  restituiscono la distanza interquartile ed il range.</p>
@@ -224,7 +224,7 @@ birthwt1$race &lt;- as.factor(birthwt1$race)
 <h2 id="esercizio-3">Esercizio 3</h2>
 
 <p>Si importi il <a href="https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv">dataset</a> contenente i dati relativi alla aspettativa di vita, popolazione e prodotto interno lordo pro capite di 142 paesi del mondo.
-Si studino i dati aggregati per continenti e si visualizzi l&rsquo;andamento dell&rsquo;aspettativa di vita rispetto alle variabili reddito pro capite e popolazione. Si investighi una possibile trasformazione dei dati per rendere più informativa l&rsquo;analisi e la si ripeta sui dati trasformati.</p>
+Si studino i dati aggregati per continenti e si visualizzi l&rsquo;andamento dell&rsquo;aspettativa di vita rispetto alle variabili reddito pro capite e popolazione. Si investighi una possibile trasformazione dei dati per rendere più informativa l&rsquo;analisi e si ripetano le analisi sui dati trasformati.</p>
 
 <h1 id="link-utili">Link utili</h1>
 

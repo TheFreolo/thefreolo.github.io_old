@@ -1,0 +1,131 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Lezione4 &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2017  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Lezione4</h1>
+			  <span class="post-date">Wed, May 24, 2017</span>
+			      <h1 id="stime-e-intervalli-di-confidenza">Stime e intervalli di confidenza</h1>
+
+<p><img src="https://imgs.xkcd.com/comics/extrapolating.png" alt="" />
+Originally posted <a href="https://xkcd.com/605/">here</a>.</p>
+
+<p></p>
+
+<p>In questa lezione lavorerete molto più voi di me, e per questo ci saranno meno note. Nonostante questo, inizieremo vedendo alcuni comandi e funzioni che risultano utili.</p>
+
+<h2 id="operazioni-su-dati">Operazioni su dati</h2>
+
+<p>Abbiamo ampiamente visto come lavorare e manipolare i dati. Tuttavia un importante funzione che permette di raggrupare i dati non è stata spiegata in classe. si tratta di <code>aggregate()</code>. Tale comando, permette di applicare una funzione ad un sottoinsieme dei dati, seguendo uno schema preciso. Vediamo alcuni esempi.</p>
+
+<pre><code class="language-r">
+
+</code></pre>
+
+<h2 id="distribuzioni-di-probabilità">Distribuzioni di probabilità</h2>
+
+<p>R ci permette di accedere a molte distribuzioni di probabilità attraverso delle apposite funzioni che sono contenuto nel pacchetto <em>stast</em>, che va quindi caricato.</p>
+
+<p>Le distribuzioni sono accessibili attraverso delle funzioni che richiamano il nome della distribuzione, ad esempio con <em>norm</em>, <em>binom</em> e <em>gamma</em>, solo per citarne alcune, si accede alla distribuzione normale, binomiale e gamma. A tale nome si aggiunge un <em>prefisso</em>, che serve a specificare se si è interessati alla funzione densità (d), alla distribuzione (p), alla funzione che riporta i quantili (q) o se si vogliono generare dei numeri usando tale distribuzione &reg;.</p>
+
+<p>Cercando <em>distribution</em> nell&rsquo;help è possibile accedere all&rsquo;elenco di tutte le distribuzioni di R.</p>
+
+<p>Va segnalata, almeno per la distribuzione normale, che esiste la funzione <code>qqnorm</code> che permette di confrontare graficamente i quantili dei propri dati con quelli della distribuzione normale. Questo è un modo per verificare graficamente se i propri dati seguono una distribuzione normale. Insieme alla richiesta che le misurazioni siano indipendenti, queste due sono ipotesi che abbiamo visto molto spesso.</p>
+
+<h2 id="regressione-lineare">Regressione lineare</h2>
+
+<p>Usare dataset del baseball</p>
+
+<p>Usare dataset titanic</p>
+
+<p>Usare il dataset dei <a href="https://assets.datacamp.com/course/credit-risk-modeling-in-r/loan_data_ch1.rds">mutui</a>.</p>
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
