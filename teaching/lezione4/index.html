@@ -160,7 +160,7 @@ summary(mtcars_reg_hp_wt)
 
 <p>Si scarichi il <a href="https://www.dropbox.com/s/kqnj2gwso686mss/PM10dataSanAndreas.csv?dl=0">dataset</a> dove ho isolato i dati raccolti dall&rsquo;agenzia americana per la tutela dell&rsquo;ambiente che contiene i dati  relativi alle rilevazioni orarie della concentrazione delle PM10 nell&rsquo;aria nella città di San Andrea, CA. Investigheremo questa variabile.</p>
 
-<pre><code>PM10dataSA$DateTime.Local &lt;- as.POSIXct(paste(PM10dataSA[,c(&quot;Date.Local&quot;)] , PM10dataSA[,c(&quot;Time.Local&quot;)] ), format = &quot;%Y-%m-%d %H:%M&quot;,  tz=&quot;America/Los_Angeles&quot;,usetz=TRUE)
+<pre><code class="language-r">PM10dataSA$DateTime.Local &lt;- as.POSIXct(paste(PM10dataSA[,c(&quot;Date.Local&quot;)] , PM10dataSA[,c(&quot;Time.Local&quot;)] ), format = &quot;%Y-%m-%d %H:%M&quot;,  tz=&quot;America/Los_Angeles&quot;,usetz=TRUE)
 </code></pre>
 
 <h1 id="esercizi">Esercizi</h1>
