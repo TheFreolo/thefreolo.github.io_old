@@ -30,12 +30,13 @@ hist(df1[df1$age>0, "age"], main = "Dati rimossi")
 hist(df2$age, main = "Dati sostituiti")
 
 # Confrontando i due istogrammi vediamo che c'è una minima differenza.
-# visto che i dati sono molti i il valore 0 non è "vicino" alle misurazioni
+# Questo non ci sorprende visto che i dati sono molti e il valore assunto, 
+# cioè 0 non è "vicino" alle misurazioni.
 
 
 # Ex3
 
-rm(df1) # rimuoviamo i dataframe 
+rm(df1) # rimuoviamo i dataframe per riusare gli stessi nomi
 rm(df2)
 
 df1 <- read.csv(url("https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv"))
@@ -43,11 +44,11 @@ View(df1)
 names(df1)
 
 # Aggreghiamo i dati rispetto ai continenti e dato che l'esercizio chiede l'"andamento"
-# dobbiamo anche aggiungere la variabile tempo.
+# dobbiamo anche aggiungere la variabile tempo. Aggreghiamo usando la media.
 df2 <- aggregate(cbind(lifeExp, gdpPercap, pop) ~ continent + year,data = df1,  FUN = mean)
 View(df2)
 
-# Visualizziamo gli andamenti richiesti e rendiamoli più leggibili aggiungendo 
+# Visualizziamo gli andamenti richiesti e rendiamoli più leggibili differenziando 
 # i colori in base ai continenti
 par(mfrow = c(3,1))
 par(mfrow = c(3,1), mar=c(3,2,2,1)) #imposto i margini per migliorare la visializzazione
