@@ -1,0 +1,322 @@
+---
+title: "Analizzare i dataset relativi all'inquinamento"
+author: "Federico Reali"
+date: 24/05/2017
+output: 
+  html_notebook:
+    toc: yes
+    toc_depth: 2
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+    number_sections: true
+    theme: yeti
+    highlight: tango
+---
+
+# Inquinamento a San Andreas
+
+Iniziamo scaricando il dataset dal [link](https://www.dropbox.com/s/9zx2dtne9gnafcm/PM10dataSanAndreas.csv?dl=0) dove ho isolato (e pulito) i dati raccolti dall'agenzia americana per la tutela dell'ambiente, relativi alle rilevazioni orarie della concentrazione delle PM10 nell'aria nella città di San Andreas, CA.
+
+Questo dataset è una parte di un dataset molto più grande che si può trovare al [link](http://aqsdr1.epa.gov/aqsweb/aqstmp/airdata/download_files.html#Raw).
+
+Una volta salvato il file nella nostra cartella _data_ passiamo a leggere il suo contenuto.
+
+```{r}
+(PM10dataSA <- read.csv("../data/PM10dataSanAndreas.csv"))
+```
+
+Possiamo iniziare a prendere confidenza con il dataset leggendo alcune informazioni essenziali, come la dimensione, il nome delle variabili, oppure ne possiamo esplorare la struttura, visualizzare le prime o le ultime righe.
+
+```{r}
+dim(PM10dataSA)
+```
+
+Vediamo subito che il dataset contiene più di 2mila osservazioni per 26 variabili. Accediamo i nomi delle variabili per vedere se riusciamo a capirne il significato.
+
+```{r}
+names(PM10dataSA)
+```
+Proseguiamo visualizzando la struttura ed alcune righe dei dati.
+
+```{r}
+str(PM10dataSA)
+head(PM10dataSA)
+tail(PM10dataSA)
+```
+
+Vediamo che i dati contengono indicazioni come coordinate geografiche e lo stato dove sono stati raccolti i dati. Nel caso del dataset originale, queste informazioni sono essenziali per individuare il luogo di raccolta dati, mentre nel nostro caso potrebbero essere omesse, **dopo** aver verificato che siano consistenti in tutto il dataset.
+
+Siamo interessati a capire l'andamento delle PM10 nel nostro dataset durante il tempo in cui sono stati raccolti i dati. Per prima cosa convertiamo i dati riguardanti le date nel giusto formato, cioè in *Date*. Usiamo per ora solo le informazioni relative al fuso orario locale.
+
+```{r}
+PM10dataSA$Date.Local <- as.Date(PM10dataSA$Date.Local)
+```
+Ora che i dati sono in formatO *Date*, R capisce che sono numeri salvati con un particolare formato e non stringhe.
+
+In questo modo possiamo, ad esempio, vedere il periodo temporale che coprono usano i comandi min e max.
+
+```{r}
+paste(min(PM10dataSA$Date.Local), which.min(PM10dataSA$Date.Local))
+
+paste(max(PM10dataSA$Date.Local), which.max(PM10dataSA$Date.Local))
+```
+Possiamo notare che il dataset non supera Aprile e che il max non è assunto nell'ultima osservazione, che sarebbe la 2867. Usando il comando `tail()` vediamo di capire perché.
+
+```{r}
+tail(PM10dataSA$Date.Local, 25)
+```
+
+Fortunatamente vediamo che tutte le ultime 24 rilevazioni sono state fatte durante lo stesso giorno, pertanto il risultato di `which.min()` non è un errore. Ce lo potevamo aspettare, visto che le misurazioni sono ogni ora, ma è sempre meglio controllare.
+
+Usando la funzione `summary()` estrapoliamo altre informazioni dal dataset.
+
+```{r}
+summary(PM10dataSA)
+```
+
+Possiamo notare che alcune delle variabili sono trattate come numeriche anche se dovrebbero essere di tipo Factor. Possiamo o convertirle, o semplicemente tenerlo a mente qualora dovessimo lavorarci. Inoltre potremmo eliminare le colonne che non ci interessano usano l'assegnazione `<- NULL`. Ad esempio, **dopo** aver verificato che latitudine e longitudine sono le stesse in tutto il dataset, e corrispondono alla città di San Andreas, potremmo eliminarle. Va prima verificato che il dataset non contenga dati estranei, altrimenti eliminando una variabile, potremmo non essere più in grado di capirlo!
+
+Tale verifica si può fare (in questo caso, ma può dipende dai dati) o usando il comando `unique()`, o anche leggendo i risultati di `summary()`.
+
+Volendo visualizzare i dati, che sono raccolti giornalmente, potrebbe fare comodo una colonna che riporta data e ora, in un formato che R riconosce. 
+Possiamo ottenere tutto ciò con un solo comando. Va segnalato che il datset che è stato fornito, già contiene tale colonna, che è stata creata con il comando:
+
+```{r}
+PM10dataSA$DateTime.Local <- as.POSIXct(paste(PM10dataSA[,c("Date.Local")] , PM10dataSA[,c("Time.Local")] ), format = "%Y-%m-%d %H:%M",  tz="America/Los_Angeles",usetz=TRUE)
+
+```
+
+Ora possiamo visualizzare i dati usando la funzione `plot()` aggiungendo delle opportune label lungo gli assi per migliorare la leggibilità.
+
+```{r}
+plot(PM10dataSA$DateTime.Local, PM10dataSA$Sample.Measurement, xlab = "2016", ylab= "PM 10 (ug/m3)", cex = .5)
+```
+
+Poiché il grafico contiene un punto per ogni misurazione oraria, il grafico contiene moltissime informazioni. 
+
+Aggiungiamo una linea che indica il limite massimo giornaliero di PM 10 consentito (in Italia).
+
+```{r}
+plot(PM10dataSA$DateTime.Local, PM10dataSA$Sample.Measurement, xlab = "2016", ylab= "PM 10 (ug/m3)", cex = .5)
+abline(h = 50, col = "red")
+# Per salviare l'immagine
+#png(filename="../plot/DailyPM10.png")
+```
+
+Si può notare che (fortunatamente) poche misurazioni superano i limiti consentiti.
+
+# Dati giornalieri
+
+Vediamo di ridurle il numero di dati, aggregandoli per avere misurazioni giornaliere. Possiamo farlo usando la funzione `aggregate()` che ci permette di applicare una funzione ad un dataset indicando. Possiamo, ad esempio, decidere di salvare in un nuovo dataset le misure medie e massime per i dati di SA.
+
+```{r}
+DailyVal <- aggregate(PM10dataSA$Sample.Measurement ~ Date.Local, data = PM10dataSA, FUN = mean)
+DailyVal[,3] <- aggregate(PM10dataSA$Sample.Measurement ~ Date.Local, data = PM10dataSA, FUN = max)[2]
+head(DailyVal)
+```
+
+Possiamo migliorare la leggibilità del dataset cambiando i nomi delle variabili.
+
+```{r}
+names(DailyVal)[2:3] <- c("mean daily PM10", "max daily PM 10")
+head(DailyVal)
+```
+
+Visualizziamo ora i dati medi e massimi giornalieri:
+
+```{r}
+plot(DailyVal$Date.Local, DailyVal$`mean daily PM10`, xlab = "2016", ylab= "PM 10 (ug/m3)", cex = .8, main = "Concentrazione media giornaliera di PM10")
+```
+
+```{r}
+plot(DailyVal$Date.Local, DailyVal$`max daily PM 10`, xlab = "2016", ylab= "PM 10 (ug/m3)", cex = .8, main = "Concentrazione massima giornaliera di PM10")
+abline(h = 50, col = "red")
+```
+
+Potrebbe essere interessante vedere se il giorno della settimana influenza la concentrazione di PM10, ad esempio in giorni con più traffico potremmo aspettarci più inquinamento.
+
+```{r}
+typeof(DailyVal$Date.Local)
+#Sys.setlocale("LC_TIME","C") #Nomi 
+DailyVal$DayOfTheWeek <- weekdays(DailyVal$Date.Local, abbreviate = TRUE)
+head(DailyVal)
+#ordiniamo i giorni in modo che la settimana inizi di lunedì
+# ci sarà utile dopo
+DailyVal$DayOfTheWeek <- ordered(DailyVal$DayOfTheWeek, levels=c( "Lun" , "Mar", "Mer" , "Gio", "Ven" ,  "Sab", "Dom" ))
+```
+
+Vediamo di colorare il grafico precedente usando un colore diverso per ogni giorno della settimana.
+
+```{r}
+plot(DailyVal$Date.Local, DailyVal$`max daily PM 10`, xlab = "2016", ylab= "PM 10 (ug/m3)", cex = .8, main = "Concentrazione massima giornaliera di PM10", col = DailyVal$DayOfTheWeek)
+abline(h = 50, col = "red")
+```
+
+Vediamo che non sembra che i picchi siano raggiunti negli stessi giorni. Comunque una legenda andrebbe aggiunta. Vediamo con dei boxplot come la quantità media di polveri PM10 è distribuita rispetto ai giorni della settimana.
+
+
+```{r}
+boxplot(`mean daily PM10` ~ DayOfTheWeek, data = DailyVal, ylab= "PM 10 (ug/m3)")
+```
+
+Aggiungere ad esempio una linea che indica le media delle misurazioni, aiuta a fare un confronto tra i dati. 
+
+```{r}
+boxplot( `mean daily PM10` ~ DayOfTheWeek, data = DailyVal, ylab= "PM 10 (ug/m3)")
+abline(h = mean(DailyVal$`mean daily PM10`), col = "red")
+```
+
+Vediamo la data in cui è stato assunto il valore massimo:
+
+```{r}
+DailyVal[DailyVal$`mean daily PM10` > 20,]
+```
+
+Che sarà successo quel giorno? Potrebbe essere un errore di lettura?
+
+Se volessimo visualizzare la distribuzione dei dati rispetto ai giorni, possiamo usare la funzione `hist()`. Purtroppo tale funzione non supporta la notazione `~`, perciò dovremo specificare un grafico per giorno della settimana.
+
+```{r, fig.width = 10, fig.height = 15}
+par(mfrow = c(7,1), mar = c(2,2,1,1))
+for (i in levels(DailyVal$DayOfTheWeek) ) {
+  hist( DailyVal[DailyVal$DayOfTheWeek == i, "mean daily PM10"] , freq = FALSE, main = i, ylim = c(0, 0.2) , breaks = seq(0,26,2))
+}
+```
+
+Dal grafico possiamo capire come si distribuiscono le misurazioni rispetto ai giorni della settimana. 
+Si usi l'help per comprendere i parametri che sono stati usati.
+
+## Regressione (Esercizio)
+
+Possiamo analizzare la relazione tra tempo e inquinamento usando un modello lineare? Proviamo e cerchiamo di capire se il modello è adeguato.
+
+
+# (Extra) Inquinamento in California
+
+Decidiamo ora di concentrare la nostra attenzione sull'inquinamento in California e dopo aver letto il [dataset](http://aqsdr1.epa.gov/aqsweb/aqstmp/airdata/daily_81102_2016.zip) che contiene i valori **medi giornalieri** di PM10, salviamo un sottoinsieme di dati che contiene solo dati relativi alla California.
+
+```{r}
+PM10data <- read.csv("../data/daily_81102_2016.csv")
+dim(PM10data)
+```
+
+Vediamo che il file è molto grande, contiene molte righe e molte variabili. R impiega diverso tempo a leggerlo.
+
+```{r}
+(PM10dataCAL <- PM10data[PM10data$State.Name == "California",])
+```
+
+In questo caso il nome della variabile che ci interessa è *Arithmetic.Mean*.
+
+Ora vogliamo visualizzare su una mappa quali sono lo città che superano la soglia di inquinamento consentita durante le osservazioni.  In R, questa operazione è molto semplice usando i pacchetti `maps` o `RgoogleMaps`.
+
+```{r, fig.width = 10, fig.height = 10}
+#install.packages("maps")
+library(maps)
+map("county", "california", xlim=c(-125,-114), ylim=c(32,43))
+points( PM10dataCAL[PM10dataCAL$Arithmetic.Mean > 50,c("Longitude", "Latitude")] ,cex = .8, col = "red")
+```
+
+Se vogliamo usare una mappa di Goole Maps possiamo farlo usando il pacchetto dedicato.
+
+```{r, fig.width = 10, fig.height = 10}
+#install.packages("RgoogleMaps")
+library(RgoogleMaps)
+map <- RgoogleMaps::GetMap(center="California", zoom = 6)
+map1 <- plotmap( lat =  PM10dataCAL[PM10dataCAL$Arithmetic.Mean > 50,c( "Latitude")], lon =  PM10dataCAL[PM10dataCAL$Arithmetic.Mean > 50,c("Longitude")]  ,map = map)
+```
+
+# (Extra) Inquinamento a Los Angeles
+
+Usiamo lo stesso dataset contenente i dati giornalieri relativi alle PM10 negli Stati Uniti e concentriamoci sulla sola città di Los Angeles.
+
+```{r}
+PM10dataLA <- PM10data[PM10data$City.Name== "Los Angeles",]
+dim(PM10dataLA)
+```
+
+Vediamo che sono state raccolte 90 osservazioni relative alla sola città di LA, cerchiamo di capire quando e con che frequenza sono state raccolte.
+
+```{r}
+typeof(PM10dataLA)
+PM10dataLA$Date.Local[1:10]
+```
+
+Vediamo che le date sono state salvate come liste. In realtà, come già visto,  R prevede il formato *Date* che potrebbe essere utile e più maneggevole di una lista per fare "operazioni aritmetiche". Convertiamo quindi la colonna in *Date*.
+
+```{r}
+PM10dataLA$Date.Local <- as.Date(PM10dataLA$Date.Local)
+typeof(PM10dataLA$Date.Local)
+```
+
+La variabile ora risulta di tipo *Date.* Questo ci permette, ad esempio, di vedere quanti giorni passano tra una rilevazione e l'altra.
+
+```{r}
+diff(PM10dataLA$Date.Local)
+```
+
+Salta all'occhio che la frequenza delle registrazioni è circa ogni 6 giorni, ma compare un dato inatteso. Investighiamo meglio cosa è successo.
+
+```{r}
+unique(PM10dataLA$Date.Local)
+length(unique(PM10dataLA$Date.Local))
+```
+
+Capiamo che sebbene le osservazioni siano 90, non tutte si riferiscono a giorni differenti, quindi bisogna capire come gestire le misurazioni ripetute durante lo stesso giorno. Vediamo, ad esempio, cosa caratterizza le misurazioni ripetute del primo giorno dell'anno.
+
+```{r}
+PM10dataLA[PM10dataLA$Date.Local== "2016-01-01",]
+```
+
+Possiamo osservare che ci sono almeno due siti diversi dove vengono raccolti i dati. Questa osservazione segue sia la comparsa di due diversi *Site.Num* per la stessa data, sia le differenze nei valori di _Latitude_ e _Longitude_. Vediamo se esistono solo due siti o più.
+
+```{r}
+paste(unique(PM10dataLA$Site.Num) , unique(PM10dataLA$Latitude), unique(PM10dataLA$Longitude))
+```
+
+Abbiamo appurato che esistono due (e solo due) siti individuati da diverse coordinate geografiche.
+
+Estrapoliamo ora alcune informazioni per le variabili numeriche usando il comando `summary()`.
+
+```{r}
+summary(PM10dataLA)
+```
+
+Possiamo notare che, anche in questo caso, alcune delle variabili sono trattate come numeriche anche se dovrebbero essere di tipo Factor. Possiamo o convertirle, o semplicemente tenerlo a mente qualora dovessimo lavorarci. Possiamo altrimenti rimuoverle come visto prima. 
+
+
+Per prima cosa, definiamo un campo di interesse. Se vogliamo, ad esempio, vedere l'andamento delle misurazioni medie di PM10 nei due siti, molte delle variabili non ci interessano. Possiamo investigare più nel dettaglio le variabili legate alla nostra indagine e non considerare le altre:
+
+
+```{r}
+boxplot(Arithmetic.Mean ~ Site.Num, data = PM10dataLA)
+```
+
+Possiamo notare che uno dei due siti presenta delle misurazioni che in generale sono più alte. 
+
+```{r}
+plot(PM10dataLA$Date.Local , PM10dataLA$Arithmetic.Mean, col= PM10dataLA$Site.Num, xlab = "2016", ylab = "mean PM10")
+legend( "topright", legend = c("1103","5005" ), col= unique(PM10dataLA$Site.Num), pch = c(1,1) )
+```
+
+
+Vediamo spazialmente dove sono posizionati i due punti di monitoraggio, questo potrebbe spiegare le differenze nelle misurazioni.
+
+```{r, fig.width = 10, fig.height = 10}
+mapLA <- RgoogleMaps::GetMap(center="Los Angeles", zoom = 10)
+mapLA1 <- plotmap( lat =  unique(PM10dataLA[,c( "Latitude")]), lon = unique(PM10dataLA[,c("Longitude")])  ,map = mapLA)
+```
+
+Dalla mappa sembra che uno dei due siti (cerchi neri) sia in centro mentre il secondo è più vicino alla spiaggia, dove possiamo aspettarci meno traffico. 
+
+Per avere una comprensione migliore visualizziamo una mappa differente, che mostra sia le strade che l'immagine satellitare della zona.
+
+```{r, fig.width = 10, fig.height = 10}
+mapLA1 <- plotmap( lat =  unique(PM10dataLA[,c( "Latitude")]), lon = unique(PM10dataLA[,c("Longitude")]) , API = "google", maptype = "hybrid", zoom = 11)
+TextOnStaticMap(mapLA1,lat =  unique(PM10dataLA[,c( "Latitude")]), lon = unique(PM10dataLA[,c("Longitude")]),labels= unique(PM10dataLA[,c( "Site.Num")]), add=TRUE, cex = 2, col = "green" , pch = 6) 
+```
+
+Vediamo che il secondo punto di osservazione, sebbene registri valori più bassi, probabilmente perché più vicino alla spiaggia, è comunque vicino all'aeroporto. Questo sicuramente influenza la qualità dell'aria e potrebbe spiegare perché sebbene più bassi, i valori non siano bassissimi. Non ci stupirebbe se altri parametri misurati fossero addirittura peggiori rispetto a quelli registrati in centro. 
+
+Senza opportuni strumenti di visualizzazione dei dati, non saremmo potuti giungere a queste conclusioni.
