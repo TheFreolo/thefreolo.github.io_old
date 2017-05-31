@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-  <title>Teaching &middot; Federico Reali</title>
+  <title>Esercitazione II &middot; Federico Reali</title>
   
 
   
@@ -86,28 +86,40 @@
 
 		<div class="content container">
 			<div class="post">
-			 	<h1>Teaching</h1>
-			  <span class="post-date">Tue, May 9, 2017</span>
-			      <p>This part of the site contains a selection of material useful for the courses I am teaching or teaching assisting.
+			 	<h1>Esercitazione II</h1>
+			  <span class="post-date">Thu, Jun 1, 2017</span>
+			      <h1 id="simulazione-prova-intermedia">Simulazione prova intermedia</h1>
+
+<p><img src="https://pixabay.com/get/e837b90628f0023ed1584d05fb0938c9bd22ffd41db8174393f9c47aa3/hourglass-1289043_1280.jpg" alt="" />
 </p>
 
-<h1 id="calcolo-delle-probabilità-e-statistica-matematica">Calcolo delle probabilità e statistica matematica</h1>
+<h1 id="esercizio-7">Esercizio 7</h1>
 
-<p>The following links provide material for the course I am teaching assisting  that is called <a href="https://sites.google.com/g.unitn.it/bonaccorsi/">Calcolo delle probabilità e statistica matematica</a>. In the part of the course covered by these pages, I introduce R to the students and I show some applications to statistics.</p>
+<p>Si consideri il dataset al <a href="http://archive.ics.uci.edu/ml/machine-learning-databases/00381/PRSA_data_2010.1.1-2014.12.31.csv">link</a> (<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data">descrizione</a>) e si  importi.
+Il dataset contiene i dati relativi all&rsquo;inquinamento da polveri sottili (PM 2.5) nella città di Pechino dal 2010 al 2014.</p>
 
-<p>The course introduces the fundamental concepts related to probability and statistics. It is part of the bachelor degree in Mathematics at the University of Trento (Italy).</p>
+<ul>
+<li>Si esplorino i dati e si individuino i dati mancanti.</li>
+<li>Si sostituiscano i dati mancanti usando i valori medi relativi alle stesse ore e alle stesse condizioni di neve o pioggia (non si considerino i valori, ma solo se piove o nevica).</li>
+<li>Si visualizzino i dati e si confrontino con la soglia limite giornaliera di 50 ug/m3. Quante singole misurazione hanno superato  di cinque volte tale soglia nel 2015?</li>
+<li>Si crei un nuovo dataset contenente i dati aggregati per giorno. Tale dataset deve contenere i valori medi e massimi di PM 2.5 e temperatura media. Inoltre, si aggiunga una colonna che segnali se quel giorno ha nevicato-piovuto-nessuno dei due.</li>
+<li>Si visualizzino i boxplot delle medie giornaliere di PM 2.5 rispetto alle condizioni meteo. Si visualizzi inoltre l&rsquo;andamento delle temperature medie.</li>
+<li>Ci sono giorni di pioggia in cui i valori medi hanno superato il limite giornaliero? Se sì, quanti?</li>
+</ul>
 
-<p>The content of these pages is in Italian.</p>
+<h1 id="esercizio-8">Esercizio 8</h1>
 
-<h4 id="lezione-1-r-e-r-studio-hahahugoshortcode-1hbhb"><a href="https://thefreolo.github.io/teaching/lezione1/">Lezione 1 - R e R Studio</a></h4>
+<p>Si definisca una funzione che dati:</p>
 
-<h4 id="lezione-2-la-sintassi-di-r-hahahugoshortcode-2hbhb-r-notebook-l2-rmd-r-notebook-html-l2-nb-html"><a href="https://thefreolo.github.io/teaching/lezione2/">Lezione 2 - La sintassi di R</a> <a href="/L2.Rmd">(R Notebook)</a> <a href="/L2.nb.html">(R Notebook - html)</a></h4>
+<ul>
+<li>dei valori del predittore;</li>
+<li>i corrispondenti  valori della variabile dipendente;</li>
+<li>i coefficienti di regressione;</li>
+</ul>
 
-<h4 id="lezione-3-manipolare-e-visualizzare-dati-hahahugoshortcode-3hbhb"><a href="https://thefreolo.github.io/teaching/lezione3/">Lezione 3 - Manipolare e visualizzare dati</a></h4>
+<p>restituisca il valore di R quadro.</p>
 
-<h4 id="lezione-4-manipolare-dati-e-regressione-hahahugoshortcode-4hbhb"><a href="https://thefreolo.github.io/teaching/lezione4/">Lezione 4 - Manipolare dati e regressione</a></h4>
-
-<h4 id="lezione-5-statistica-e-applicazioni-hahahugoshortcode-5hbhb"><a href="https://thefreolo.github.io/teaching/lezione5/">Lezione 5 - Statistica e applicazioni</a></h4>
+<p>Si testi tale funzione sul dataset <em>mtcars</em> e si confronti il risultato con quello ottenuto con la funzione <code>summary()</code>.</p>
 			</div>
 
 			
