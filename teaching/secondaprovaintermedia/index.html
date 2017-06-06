@@ -1,0 +1,138 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Seconda Prova Intermedia  &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2017  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Seconda Prova Intermedia </h1>
+			  <span class="post-date">Tue, Jun 6, 2017</span>
+			      <p><img src="/media/clock.jpg" alt="" /></p>
+
+<p></p>
+
+<hr />
+
+<h1 id="esercizio-l1">Esercizio L1</h1>
+
+<p>Si importi il dataset al <a href="https://www.dropbox.com/s/kxf5stijw5n8jxq/Ozone.csv?dl=1">link</a> (<a href="http://aqsdr1.epa.gov/aqsweb/aqstmp/airdata/download_files.html#Raw">descrizione</a>). Il dataset contiene i dati relativi alle misurazioni del livelli di ozono (parti per milione) in alcune città americane nel 2015.</p>
+
+<ul>
+<li>Si selezionino i dati relativi alla città corrispondente al proprio numero di matricola (<a href="https://www.dropbox.com/s/vtx3mf7rxf3lpwl/Citta_Matricola.csv?dl=0">tabella</a>).</li>
+<li>Si esplori la struttura dei dati e si individuino i dati mancanti o errati per le colonne <em>Arithmetic.Mean</em> e <em>X1st.Max.Value</em> che contengono rispettivamente il valore medio ed il valore massimo giornaliero registrato per l&rsquo;ozono.</li>
+<li>Si sostituiscano i valori mancanti/errati con i valori medi relativi agli stessi giorni della settimana.</li>
+<li>Per le variabili di interesse si calcolino: min, max, quartili, media e deviazione standard.</li>
+<li>Si produca un istogramma per la variabile <em>Arithmetic.Mean</em> e vi si sovrapponga una retta rossa, corrispondente al valore medio, ed una verde, corrispondente alla mediana.</li>
+<li>Si visualizzino i boxplot dei valori massimi giornalieri divisi per giorno della settimana. Inoltre si indichino giorno e ora in cui è stato raggiunto il valore massimo.</li>
+</ul>
+
+<p>Si produca uno script funzionante (o un notebook) che contiene tutto il codice per risolvere l’esercizio. I plot devono riportare le opportune <strong>label</strong> lungo gli assi.</p>
+
+<hr />
+
+<h1 id="esercizio-l2">Esercizio L2</h1>
+
+<p>Si considere il dataset bodyfat, disponibile al <a href="https://www.dropbox.com/s/no3zwxhd7vgkpy2/bodyfat.csv?dl=1">link</a> (<a href="http://lib.stat.cmu.edu/datasets/bodyfat">descrizione</a>).</p>
+
+<ul>
+<li>Si considerino le variabili <em>weight</em> (in libre) e <em>biceps</em> (in cm). Dopo aver traformato la varaibile <em>weight</em> in <strong>Kg</strong>, si visualizzino i boxplot per entrambe le variabili. Si analizzino i potenziali outliers e si rimuovano eventuali misurazioni che sono outliers rispetto ad entrambi le variabili.</li>
+<li>Per il dataset così modificato, si producano gli istogrammi per le due variabili.</li>
+<li>Si produca un modello di regressione lineare per la variabile <em>biceps</em> (dipendente) rispetto variabile <em>weight</em> (predittore)  e si commentino i risultati. Si produca un grafico riportante la retta di regressione lineare ed i punti.</li>
+<li>Si produca un grafico che mostra i residui e si commenti rispetto alle ipotesi richieste per un modello di regressione.</li>
+</ul>
+
+<p>Si definisca una funzione che dati due vettori x e y, restituisca la loro <a href="https://it.wikipedia.org/wiki/Covarianza_(probabilit%C3%A0)">covarianza</a>.</p>
+
+<p>La funzione non deve far uso di funzioni di libreria (eccezion fatta per <code>sum()</code> e <code>length()</code>).</p>
+
+<p>Si testi tale funzione sul dataset bodyfat e si confronti il risultato con la funzione di libreria di R.</p>
+
+<p>Si produca uno script funzionante (o un notebook) che contiene tutto il codice per risolvere l’esercizio. I plot devono riportare le opportune <strong>label</strong> lungo gli assi.</p>
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
