@@ -1,0 +1,40 @@
+---
+title: "Tables and plot"
+output: html_document
+---
+
+# Tables
+
+```{r}
+library(knitr)
+kable(mtcars, caption = "A knitr kable.")
+```
+
+```{r}
+library(DT)
+datatable(mtcars,
+          filter = 'top', options = list(
+            pageLength = 12, autoWidth = TRUE
+          ), caption = "An interactive table.")
+```
+
+# Plots
+
+```{r, warning=FALSE, message = FALSE}
+#install.packages("ggplot2")
+#devtools::install_github('hadley/ggplot2', dependencies = TRUE)
+#install.packages("plotly", dependencies = TRUE)
+#devtools::install_github("ropensci/plotly")
+library(ggplot2)
+library(plotly)
+
+set.seed(100)
+d <- diamonds[sample(nrow(diamonds), 1000), ]
+
+p <- ggplot(data = d, aes(x = carat, y = price)) + geom_point(size = 2) +
+  geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
+p <- ggplotly(p)
+p
+
+```
+
