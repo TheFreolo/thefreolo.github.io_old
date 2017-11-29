@@ -1,0 +1,362 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Reports with R Markdown &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2017  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Reports with R Markdown</h1>
+			  <span class="post-date">Wed, Nov 29, 2017</span>
+			      <p><img src="/media/Rlogo.png" alt="" />
+</p>
+
+<h2 id="install-r-studio">Install R Studio</h2>
+
+<p>In analogy with R, R Studio is freely available for the single users. For commercial purposes, specific versions are available under license.</p>
+
+<p>We can <a href="https://www.rstudio.com/products/rstudio/download2/">download</a> the installation packages for Windows, Mac and some Linux distributions.</p>
+
+<p><img src="/media/Rstudio_Versions.png" alt="RStudio - Versions" /></p>
+
+<p>Once you have downloaded the installation package, the installation wizard should work on all the platforms (let&rsquo;s hope so).</p>
+
+<h2 id="use-r-studio">Use R Studio</h2>
+
+<p>When the installation is completed, we can start R Studio and the staring window should appear.</p>
+
+<p><img src="/media/Rstudio_blank.png" alt="RStudio - Versions" /></p>
+
+<p>The graphical interface is divided into three principal windows, <em>i.e.</em> the R console, the <strong>Environment</strong> and <strong>History</strong> window and the <strong>Files</strong>, <strong>Plots</strong>, <strong>Packages</strong>, <strong>Help</strong>, and <strong>Viewer</strong> window.</p>
+
+<p>We start performing a check to control if all the packages installed are up to date.  We can perform this check by selecting Tools.</p>
+
+<p><img src="/media/Rstudio_tool.png" alt="RStudio - Versions" /></p>
+
+<p>In case some updates are available, please select and update them. If there aren&rsquo;t, R Studio should return a warning.</p>
+
+<p>From the same menu, we can install new packages, if needed.</p>
+
+<h2 id="r-markdown">R Markdown</h2>
+
+<p>We can then install the R Markdown package using either the <strong>console</strong></p>
+
+<pre><code class="language-r">install.packages(&quot;rmarkdown&quot;)
+# and then load the library
+library(rmarkdown)
+</code></pre>
+
+<p>or selecting an R Markdown/R Notebook document from the <code>+</code> menu.</p>
+
+<p><img src="/media/Select_Rmd.png" alt="" /></p>
+
+<p>So&hellip;</p>
+
+<p><iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" width="640" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/178485416">What is R Markdown?</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p>
+
+<p>But&hellip; let&rsquo;s go one step back! What is <em>Markdown</em>?</p>
+
+<h2 id="markdown">Markdown</h2>
+
+<p>According to the creators:</p>
+
+<blockquote>
+<p>Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).</p>
+
+<p>Thus, “Markdown” is two things: (1) a plain text formatting syntax; and (2) a software tool, written in Perl, that converts the plain text formatting to HTML.</p>
+
+<p><cite> <a href="https://daringfireball.net/projects/markdown/">The Daring Fireball Company LLC.</a> <cite></p>
+</blockquote>
+
+<p>So, let&rsquo;s have a look at the <a href="https://daringfireball.net/projects/markdown/basics">basic syntax</a> of Markdown.</p>
+
+<h3 id="syntax-basics">Syntax (basics)</h3>
+
+<p>In Markdown, to specify a header (the title of a section or a subsection and so on), we use the hashtag <code>#</code> symbol. For the first and second level headers, there is an alternative syntax.</p>
+
+<pre><code class="language-markdown"># Level 1 header
+## Level 2 header
+### Level 3 header
+</code></pre>
+
+<p>OR</p>
+
+<pre><code class="language-markdown">Level 1 header
+==============
+Level 2 header
+--------------
+</code></pre>
+
+<hr />
+
+<p>We can include links in the text using the <code>&lt; link &gt;</code> syntax, or add the link to a word with the syntax <code>[word](link)</code>.</p>
+
+<p>We can get <em>italic font</em> using the syntax <code>*italic font*</code> or <code>_italic font_</code> and the <strong>bold font</strong> using <code>**bold font**</code> or <code>__bold font__</code></p>
+
+<p>By using the following syntax</p>
+
+<pre><code class="language-markdown">* item 1
+* item 2 
+* item 3
+
+OR 
+
++ item 1
++ item 2 
++ item 3
+
+OR
+
+- item 1
+- item 2 
+- item 3
+
+</code></pre>
+
+<p>we get</p>
+
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+</ul>
+
+<p>Whereas, the code</p>
+
+<pre><code class="language-markdown">1. item
+2. item
+3. item
+</code></pre>
+
+<p>returns a numbered list.</p>
+
+<hr />
+
+<p>We can include parts of code inline using the ` <em>our code</em> ` (back apostrophe) syntax. If we want to include a block of code we use</p>
+
+<p>```</p>
+
+<p><em>line of code1</em></p>
+
+<p><em>line of code2</em></p>
+
+<p>```</p>
+
+<hr />
+
+<p>We can include pictures using the syntax  <code>![alt text](/path/to/img.jpg &quot;Title&quot;)</code> and we can write tables as follows</p>
+
+<pre><code class="language-markdown">| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="right">Cool</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1600</td>
+</tr>
+
+<tr>
+<td>col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+
+<tr>
+<td>zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$1</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p>For those that are used to the <a href="https://www.latex-project.org/">Latex</a> syntax, in <strong>R Markdown</strong>, you can directly include mathematical expressions inline using the  <code>'$e^{1/3}$</code>  notation, or include equation blocks using the</p>
+
+<p><code>$$</code></p>
+
+<p>your math</p>
+
+<p><code>$$</code></p>
+
+<hr />
+
+<p>You can find these and the other syntax examples at the <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">page</a>.</p>
+
+<h2 id="back-to-r-markdown">Back to R Markdown</h2>
+
+<hr />
+
+<h4 id="exercise-1">Exercise 1</h4>
+
+<p>Create an empty <em>R Notebook</em>. Discuss what you notice and practice with the syntax.</p>
+
+<hr />
+
+<p>We can write text in R Markdown using the Markdown syntax that we learned before. Moreover, we can execute R commands and include the results directly in a document. This feature is fundamental to enhance the reproducibility of scientific results.</p>
+
+<p>In fact, an R Markdown document allows anyone to check the correctness of the code, as well as the results, <strong>all in the same document</strong>.</p>
+
+<p>We can easily include R commands in the document either through the keys combination <strong>Cmd</strong> + <strong>Option</strong> + <strong>I</strong> in Mac or <strong>Ctrl</strong> + <strong>Alt</strong> + <strong>I</strong>  in Windows, or using the <strong>insert</strong> button. In addition, we can type the code block as in markdown, as well as the inline code. At the <a href="http://rmarkdown.rstudio.com/lesson-4.html">page</a>, you can find a detailed description of the options and the commands.</p>
+
+<p>As in any R script, we should set a working directory and include the packages we need. Then, we include the chunks of code that we want to run.</p>
+
+<p>As already mentioned, unless some <a href="http://rmarkdown.rstudio.com/lesson-3.html">specific options</a> are included, the code and the output of any command will be included in the document. This is particularly useful for tables that are the output of some commands (such as <code>table</code> or <code>summary</code>) or for plots. In this way, there is no need to save a plot, it will be displayed as it is produced.</p>
+
+<p>Another convenient feature is that the document, at least in the html format, supports interactive tables and plots. The following chunks of code include some examples of the potential of this feature.</p>
+
+<pre><code class="language-r">#Uncomment to install the packages
+#install.packages(&quot;DT&quot;) 
+
+library(DT)
+datatable(mtcars,
+          filter = 'top', options = list(
+            pageLength = 12, autoWidth = TRUE
+          ), caption = &quot;An interactive table.&quot;)
+</code></pre>
+
+<pre><code class="language-r">#From https://plot.ly/ggplot2/getting-started/#plotly-for-r
+
+#Uncomment to install the packages
+#install.packages(&quot;ggplot2&quot;) 
+#install.packages(&quot;plotly&quot;, dependencies=TRUE)
+
+library(ggplot2)
+library(plotly)
+set.seed(100)
+d &lt;- diamonds[sample(nrow(diamonds), 1000), ]
+
+p &lt;- ggplot(data = d, aes(x = carat, y = price)) +
+  geom_point(aes(text = paste(&quot;Clarity:&quot;, clarity)), size = 4) +
+  geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
+
+p &lt;- ggplotly(p)
+</code></pre>
+
+<p>The output of these chunks is available <a href="/Tab_plots.html">here</a> (<a href="/Tab_plots.Rmd">Rmd</a>)</p>
+
+<p>For an extensive tutorial on the use of R Markdown, please visit <a href="http://rmarkdown.rstudio.com/lesson-1.html">this page</a>.</p>
+
+<hr />
+
+<h2 id="time-to-practice">Time to practice</h2>
+
+<h4 id="exercise-2">Exercise 2</h4>
+
+<p>Create an R Markdown document where you import the dataset from the <a href="https://www.dropbox.com/s/boesoonvh04nqym/Gray_Kangaroos.tsv?dl=1">url</a> (<a href="http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html">description</a>). Analyze the data and explore a possible relationship between the two variable. Comment on your results.</p>
+
+<h4 id="exercise-3">Exercise 3</h4>
+
+<p>Modify one of your assignments and import it in R Markdown. Export the file in HTML, Word, and PDF (if it is possible).</p>
+
+<h1 id="useful-links">Useful links</h1>
+
+<ul>
+<li>Notes on R (in Italian) <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">link</a>.</li>
+<li>R commands cheatsheet (in Italian) <a href="https://cran.r-project.org/doc/contrib/Frascati-FormularioStatisticaR.pdf">link</a>.</li>
+<li><a href="https://github.com/kjhealy/vissoc.co">Here</a>, you can find the R Markdown of a good course on data visualization, previously hosted at <a href="http://vissoc.co/">http://vissoc.co/</a></li>
+</ul>
+
+<p> &copy; 2017  Federico Reali</p>
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
