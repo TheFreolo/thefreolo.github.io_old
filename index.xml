@@ -6,10 +6,20 @@
     <description>Recent content on Federico Reali</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Feb 2018 14:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 01 May 2018 10:49:04 +0200</lastBuildDate>
     
 	<atom:link href="https://thefreolo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Teaching</title>
+      <link>https://thefreolo.github.io/teaching/teaching/</link>
+      <pubDate>Tue, 01 May 2018 10:49:04 +0200</pubDate>
+      
+      <guid>https://thefreolo.github.io/teaching/teaching/</guid>
+      <description>&lt;p&gt;This part of the site contains a selection of material useful for the courses I am teaching or teaching assisting.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Prova di esame 05/02/2018</title>
@@ -17,7 +27,7 @@
       <pubDate>Mon, 05 Feb 2018 14:00:00 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/teaching/esame5/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/Time-Pocket-Watch.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Time-Pocket-Watch.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -28,7 +38,7 @@
       <pubDate>Mon, 15 Jan 2018 14:00:00 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/teaching/esame4/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/Antique-Clock-Pocket-Watch.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Antique-Clock-Pocket-Watch.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -39,7 +49,7 @@
       <pubDate>Wed, 29 Nov 2017 16:00:00 +0100</pubDate>
       
       <guid>https://thefreolo.github.io/teaching/lezionermd/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;</description>
     </item>
     
@@ -49,7 +59,7 @@
       <pubDate>Mon, 28 Aug 2017 14:00:00 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/teaching/esame3/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/Clock3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Clock3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -60,7 +70,7 @@
       <pubDate>Thu, 13 Jul 2017 14:00:00 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/teaching/esame2/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/Museum-Clock-Tower-Movement-Historically-Clock-Face-190677.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Museum-Clock-Tower-Movement-Historically-Clock-Face-190677.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -71,7 +81,7 @@
       <pubDate>Tue, 13 Jun 2017 14:00:00 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/teaching/esame1/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/Clock.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Clock.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -82,7 +92,7 @@
       <pubDate>Tue, 06 Jun 2017 14:00:00 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/teaching/secondaprovaintermedia/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/clock.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/clock.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -95,7 +105,7 @@
       <guid>https://thefreolo.github.io/teaching/esercitazione2/</guid>
       <description>&lt;h1 id=&#34;simulazione-prova-intermedia&#34;&gt;Simulazione prova intermedia&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/hourglass.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/hourglass.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -135,7 +145,7 @@ Originally posted &lt;a href=&#34;https://xkcd.com/605/&#34;&gt;here&lt;/a&gt;.&
       <guid>https://thefreolo.github.io/teaching/lezione3/</guid>
       <description>&lt;h1 id=&#34;lavorare-con-i-dati&#34;&gt;Lavorare con i dati&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/Data_matrix.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Data_matrix.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -148,7 +158,7 @@ Originally posted &lt;a href=&#34;https://xkcd.com/605/&#34;&gt;here&lt;/a&gt;.&
       <guid>https://thefreolo.github.io/teaching/lezione2/</guid>
       <description>&lt;h1 id=&#34;primi-comandi-di-r&#34;&gt;Primi comandi di R&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/abacus.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/abacus.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -161,7 +171,7 @@ Originally posted &lt;a href=&#34;https://xkcd.com/605/&#34;&gt;here&lt;/a&gt;.&
       <guid>https://thefreolo.github.io/teaching/lezione1/</guid>
       <description>&lt;h1 id=&#34;primi-passi-con-r&#34;&gt;Primi passi con R&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&#34;HTTPS://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;perché-r&#34;&gt;Perché R&lt;/h2&gt;
 
@@ -184,16 +194,6 @@ It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;
       <description>2017  Reali F, Priami C and Marchetti L, Optimization algorithms for computational systems biology, Frontiers In Applied Mathematics And Statistics, v. 3, (2017). DOI: 10.3389/fams.2017.00006 URL: http://journal.frontiersin.org/article/10.3389/fams.2017.00006/full
  Reali F, Morine MJ, Kahramanoğulları O, Raichur S, Schneider HS, Crowther D and Priami C, Mechanistic interplay between ceramide and insulin resistance, Scientific Reports, v 7, (2017), p. 41231. DOI: 10.1038/srep4123. URL: http://www.nature.com/articles/srep41231
   2016  Marchetti L, Reali F, Dauriz M, Brangani C, Boselli L, Ceradini G, Bonora E, Bonadonna RC and Priami C, A Novel Insulin/Glucose Model after a Mixed-Meal Test in Patients with Type 1 Diabetes on Insulin Pump Therapy, Scientific Reports, v.</description>
-    </item>
-    
-    <item>
-      <title>Teaching</title>
-      <link>https://thefreolo.github.io/teaching/teaching/</link>
-      <pubDate>Tue, 09 May 2017 10:49:04 +0200</pubDate>
-      
-      <guid>https://thefreolo.github.io/teaching/teaching/</guid>
-      <description>&lt;p&gt;This part of the site contains a selection of material useful for the courses I am teaching or teaching assisting.
-&lt;/p&gt;</description>
     </item>
     
     <item>
