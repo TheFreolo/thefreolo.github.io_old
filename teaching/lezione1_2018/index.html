@@ -1,0 +1,262 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.36.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Lezione1 &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2018  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Lezione1</h1>
+			  <span class="post-date">Tue, May 1, 2018</span>
+			      <h1 id="primi-passi-con-r">Primi passi con R</h1>
+
+<p><img src="/media/Rlogo.png" alt="" /></p>
+
+<h2 id="perché-r">Perché R</h2>
+
+<blockquote>
+<p>R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
+
+<p><cite> The R Foundation <cite></p>
+</blockquote>
+
+<p></p>
+
+<p>R è un versatile linguaggio di programmazione che sta particolarmente a cuore alla comunità che si occupa di statistica, per questo esistono molte pagine volte ad insegnarne l&rsquo;uso, così come molti blog e forum dove gli utenti possono cercare risposte alle loro domande realtive all&rsquo;uso.</p>
+
+<p>R è un software libero disponibile per le maggiori piattaforme, inclusi Windows, Mac e diverse distribuzioni di Linux.</p>
+
+<p>Per esempio, possiamo trovare molte guide su come installare R sul nostro computer Windows, Mac o Linux. Una semplice ricerca su google produce innumerevoli guide e tutorial su come farlo.</p>
+
+<p><img src="/media/Google_Install_R.png" alt="" /></p>
+
+<p>Noi seguiremo una via molto diretta che segue due passi fondamentali:</p>
+
+<ul>
+<li>l&rsquo;istallazione di R vera e propria;</li>
+<li>l&rsquo;istallazione di un interfaccia.</li>
+</ul>
+
+<p>Installeremo la <a href="https://www.r-project.org/">versione</a> di R rilasciata il 23/04/2018 e tra le innumerevoli interfacce per R, noi useremo <a href="https://www.rstudio.com/products/rstudio/">R Studio</a>.</p>
+
+<p><img src="/media/R_release_2018.png" alt="Release di R" /></p>
+
+<h2 id="installare-r">Installare R</h2>
+
+<p>Procediamo con l&rsquo;istallazione di R</p>
+
+<h3 id="scaricare-r">Scaricare R</h3>
+
+<p>Le varie release di R sono disponibili attraverso il sito <a href="https://cran.r-project.org/">cran</a>, dove è possibilie selezionare il server più vicino da cui fare il download dei file di istallazione.</p>
+
+<p>Ad esempio possiamo scegliere il server relativo all&rsquo;<a href="https://cran.stat.unipd.it/">Università di Padova</a>. Da qui troviamo i link per scaricare le release di R per le varie piattaforme.</p>
+
+
+<figure >
+    
+        <img src="/media/cran_unipa.png" alt="Il server cran ospitato presso l&#39;Università di Padova" />
+    
+    
+    <figcaption>
+        <p>
+        Il server cran ospitato presso l&#39;Università di Padova
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+<p>R è un progetto open source, quindi oltre agli installer è possibile scaricare il codice sorgente di R, ed è possibile apportare modifiche e/o compilarlo personalmente.</p>
+
+<p>Noi scaricheremo invece l&rsquo;applicazione relativa al vostro sistema operativo  (nelle immagine Mac) e procederemo con l&rsquo;installazione.</p>
+
+<p>La pagina di download permette di scaricare anche versioni meno recenti di R.
+Questo può essere importante qualora si usino delle estensioni (chiamate <strong><em>pacchetti</em></strong>), che potrebbero non essere state aggiornate per l&rsquo;ultima versione. Noio considereremo per questo tutorial l&rsquo;istallazione della versione 3.5.0.</p>
+
+<p><img src="/media/R350down.png" alt="Example image" /></p>
+
+<p>Si noti che l&rsquo;istallazione su Mac richiede l&rsquo;istallazione di <a href="https://www.xquartz.org/">XQuartz</a></p>
+
+<p>Alcuni computer meno aggiornati potrebbero non supportare la versione più recente (tipo il mio). In tal caso, si consiglia l&rsquo;istallazione della versione 3.3.3.</p>
+
+<p><img src="/media/R330down.png" alt="Example image" /></p>
+
+<p>Nel caso in cui si stesse installando R sulla distribuzione linux Ubuntu, è possibile farlo da terminale attraverso i comandi:</p>
+
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install r-base
+</code></pre>
+
+<p>Il sito descrive la procedura anche per le altre distribuzioni.</p>
+
+<h2 id="installare-r-1">Installare R</h2>
+
+<p>Nell&rsquo;istallazione su Mac o Windows si segue la procedura standard una volta scaricati i file.
+Per installare R su linux, basta usare i comandi descritti precedentemente per Ubuntu, o utilizzare gli equivalenti per le altre distribuzioni.</p>
+
+<h2 id="usare-r">Usare R</h2>
+
+<p>Una volta istallato R, è già possibile usarne tutte le funzionalità. Infatti andando in <strong>Applicazioni</strong> si può già trovare R tra esse. Pigiando la relativa icona si avvia la <strong>R console</strong>, una interfaccia molto semplice che però permette di usufruire di <strong>tutte</strong> le potenzialità del software.</p>
+
+<p><img src="/media/R_open.png" alt="Example image" /></p>
+
+<p>Ad esempio digitando</p>
+
+<pre><code class="language-r">2+2
+</code></pre>
+
+<p>oppure</p>
+
+<pre><code class="language-r">3*5
+</code></pre>
+
+<p>è possibile utilizzare la console come calcolatrice. Ovviamente questo tipo di uso sfrutta solo una minima parte delle potenzialità del software.</p>
+
+<p>Sebbene tutto quello che faremo sarà possibile farlo anche direttamente da console, noi useremo un software che si interfaccia ad R, ma che presenta un&rsquo;interfaccia grafica più completa. Tale programma è <a href="https://www.rstudio.com/products/rstudio/">R Studio</a>.</p>
+
+<h2 id="installare-r-studio">Installare R Studio</h2>
+
+<p>Come R, anche R Studio è disponibile gratuitamente per utenti singoli, anche se sono previste anche versioni commerciali a pagamento. Inoltre è possibile <a href="https://www.rstudio.com/products/rstudio/download2/">scaricare</a> pacchetti di installazione sia per Windows, Mac e alcune distribuzioni di Linux.</p>
+
+<p><img src="/media/Rstudio_Versions_2018.png" alt="RStudio - Versions" /></p>
+
+<p>Una volta scaricati i pacchetti di installazione, la procedura automatica dovrebbe installare R Studio per tutte le piattaforme (speriamo!).</p>
+
+<h2 id="usare-r-studio">Usare R Studio</h2>
+
+<p>Una volta installato R Studio, avviamolo e (se l&rsquo;istallazione è andata a buon fine) dovrebbe apparire la schermata iniziale:</p>
+
+<p><img src="/media/Rstudio_blank.png" alt="RStudio - Versions" /></p>
+
+<p>L&rsquo;interfaccia grafica si presenta con 3 principali finestre che riportano la console di R (la stessa che abbiamo visto prima singolarmente), la finestra <strong>Enviroment</strong> e <strong>History</strong> e quella contenente <strong>Files</strong>, <strong>Plots</strong>, <strong>Packages</strong>, <strong>Help</strong> e <strong>Viewer</strong>.</p>
+
+<p>Per prima cosa controlliamo che tutti i pacchetti contenuti nell&rsquo;installazione siano aggiornati. Selezionando da Tools:</p>
+
+<p><img src="/media/Rstudio_tool.png" alt="RStudio - Versions" /></p>
+
+<p>Se risultano pacchetti da aggiornare, selezionateli tutti e aggiornateli. In caso non vi siano, R Studio vi dovrebbe avvisare.</p>
+
+<h3 id="cartelle">Cartelle</h3>
+
+<p>E&rsquo; possibile usare degli appositi comandi per capire in quale cartella sta lavorando R. Questo è essenziale se si vuole salvare dei file o leggerne il contenuto.</p>
+
+<pre><code class="language-r">getwd()
+</code></pre>
+
+<p>Questo comando <em>get working directory</em> restituisce il path della cartella corrente. R può facilmente leggere o salvare file in questa cartella.</p>
+
+<p>E&rsquo; possibile impostare una cartella diversa. Ad esempio possiamo creare una cartella relativa al corso di <strong>Calcolo delle probabilità e statistica matematica (CPeSM)</strong> e possiamo creare lì dentro una cartella chiamata R, dove possiamo salvare i nostri file.</p>
+
+<pre><code class="language-r">setwd('IL-Vostro-path/CPeSM/R/Lezione1')
+</code></pre>
+
+<p>Una volta capito dove siamo e dove dovremmo essere, possiamo iniziare ad usare una delle funzionalità per cui abbiamo scelto R Studio: la possibilità di creare degli script nella stessa interfaccia grafica e di lanciare comandi dagli stessi.</p>
+
+<p>Selezioniamo <strong>File|New File|R Script</strong> apriamo in R Studio una nuova finestra che permette di editare (scrivere) uno script.</p>
+
+<p><img src="/media/Rstudio_NewScript.png" alt="RStudio - Versions" /></p>
+
+<p><img src="/media/Rstudio_4tab.png" alt="RStudio - Versions" /></p>
+
+<p>Ora non rimane che spendere un po&rsquo; di tempo a familiarizzare con l&rsquo;interfaccia e con R!</p>
+
+<h1 id="link-utili">Link utili</h1>
+
+<ul>
+<li>A questo <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">link</a> è possibile reperire delle utili dispense sull&rsquo;uso di R.</li>
+<li>A questo <a href="https://cran.r-project.org/doc/contrib/Frascati-FormularioStatisticaR.pdf">link</a> è possibile reperire un utile formulario che descrive moltissimi comandi di R.</li>
+<li>A questo <a href="http://tryr.codeschool.com/">link</a> è possibile seguire un veloce tutorial che introduce molti dei comandi di base di R (in inglese).</li>
+</ul>
+
+<p> &copy; 2017-2018  Federico Reali</p>
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
