@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://thefreolo.github.io/teaching/lezione2_2018/</loc>
+    <lastmod>2018-05-02T11:51:48+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://thefreolo.github.io/teaching/lezione1_2018/</loc>
     <lastmod>2018-05-01T10:49:04+02:00</lastmod>
   </url>
@@ -69,7 +74,7 @@
   
   <url>
     <loc>https://thefreolo.github.io/</loc>
-    <lastmod>2018-05-01T10:49:04+02:00</lastmod>
+    <lastmod>2018-05-02T11:51:48+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -80,7 +85,7 @@
   
   <url>
     <loc>https://thefreolo.github.io/teaching/</loc>
-    <lastmod>2018-05-01T10:49:04+02:00</lastmod>
+    <lastmod>2018-05-02T11:51:48+02:00</lastmod>
     <priority>0</priority>
   </url>
   

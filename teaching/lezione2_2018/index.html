@@ -1,0 +1,424 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.36.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Lezione2 &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2018  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Lezione2</h1>
+			  <span class="post-date">Wed, May 2, 2018</span>
+			      <h1 id="primi-comandi-di-r">Primi comandi di R</h1>
+
+<p><img src="/media/abacus.jpg" alt="" /></p>
+
+<p></p>
+
+<h3 id="before-starting">Before Starting!</h3>
+
+<p><a href="">Abbiamo già visto</a> come spostare la <em>working directory</em> in R Studio. Usando i comandi <code>getwd()</code> e <code>setwd()</code> ricordiamoci di selezionare la cartella relativa a questo corso.</p>
+
+<h2 id="operazioni-aritmetiche">Operazioni Aritmetiche</h2>
+
+<p>Come abbiamo già visto è possibile usare R per svolgere operazioni matematiche, usando i simboli standard.</p>
+
+<p>Ad esempio, l&rsquo;uso di <code>+</code> più tra due numeri farà comparire la loro somma.
+In modo analogo è possibile farne la differenza (<code>-</code>), il prodotto (<code>*</code>) e la divisione(<code>/</code>).</p>
+
+<pre><code class="language-r">2+2 
+2-2
+2*2
+2/2
+</code></pre>
+
+<p>Le potenze si possono esprimere usando il simbolo <code>^</code>. Lo stesso simbolo si può utilizzare per il calcolo delle radici, anche se è possibile richiamare la radice quadrata usando il comando <code>sqrt()</code>. Si noti che tale funzione accetta anche valori complessi.</p>
+
+<p>Per la divisione intera tra due numeri è possibile usare il simbolo <code>%/%</code>, mentre <code>%%</code> restituisce il resto di tale divisione.</p>
+
+<p>Un altro comando di base che può risultare utile è il calcolo del valore assoluto ottenuto con il comando <code>abs()</code>.</p>
+
+<p>In modo analogo sono già definite alcune delle funzioni che sono alla base dei calcoli matematici più frequenti. Le vedremo nei prossimi paragrafi.</p>
+
+<h2 id="esponenziale-e-logaritmi">Esponenziale e logaritmi</h2>
+
+<p>E&rsquo; possibile calcolare i valori della funzione esponenziale usando il comando <code>exp()</code> mentre per il calcolo dei logaritmi è possibile usare più funzioni:
+<code>log(), log10()</code> e <code>log2()</code> che restituiscono il logaritmo naturale, base 10 e base 2 rispettivamente. Il comando <code>log()</code> permette anche di specificare una base differente da <strong><em>e</em></strong>, che è quella di default. Ad esempio, <code>log( 5 , base = 3)</code> restituisce il logaritmo in base 3 di 5.</p>
+
+<h2 id="funzioni-trigonometriche">Funzioni Trigonometriche</h2>
+
+<p>Le principali funzioni trigonometriche sono già implementate in R e si possono richiamare usando i comandi elencati sotto, i cui nomi richiamano le funzioni stesse. Va notato che l&rsquo;input di queste funzioni è atteso in radianti, <strong>non gradi</strong>.</p>
+
+<pre><code class="language-r">sin() # seno
+cos() # cosen
+tan() # tangente
+</code></pre>
+
+<p>E&rsquo; possibile utilizzare le stesse funzioni ma con desinenza <strong><em>pi</em></strong> (<code>sinpi()</code>, <code>cospi()</code> e <code>tanpi()</code>) se si intende considerare dei multipli di pi-greco.</p>
+
+<p>Anche le funzioni inverse sono già implementate e si possono richiamare con i comandi <code>acos(), asin(), atan()</code>.</p>
+
+<h2 id="assegnazione-e-vettori">Assegnazione e vettori</h2>
+
+<p>Fin ora abbiamo usato R per calcolare dei singoli valori, in modo analogo a come avremmo usato una calcolatrice. Tuttavia R permette di fare molto di più.</p>
+
+<p>Come primo passo per scoprirne  le potenzialità vedremo la possibilità di assegnare valori e di richiamarli successivamente, così come di lavorare con vettori o matrici, invece che con singoli valori.</p>
+
+<p>Questa parte, così come alcune successive sono anche coperte dalle utili <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">dispense</a>, di cui ho già consigliato la lettura.</p>
+
+<p>E&rsquo; possibile assegnare un valore ad una variabile usando la freccina <code>-&gt;</code>. Stesso risultato si può ottenere usando <code>=</code> oppure <code>assign()</code>, tuttavia il primo è decisamente il comando più usato e di più facile lettura. <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and">Qui</a> è possibile leggere una discussione sulle differenze nell&rsquo;uso di <code>=</code> o di <code>-&gt;</code>.</p>
+
+<pre><code class="language-r">x  &lt;- 6
+</code></pre>
+
+<p>Usando il precedente comando viene assegnato il valore 6 alla variabile x. In questo modo è possibile richiamarla successivamente, così come è possibile scrivere espressioni più complesse che coinvolgono x a prescindere dal suo valore. Questo sarà particolarmente utile se dovremo definire delle funzioni a cui è possibile passare per argomento diversi valori.
+Si noti che il comando <code>6 -&gt; x</code> produce gli stessi risultati del precedente.</p>
+
+<p>Oltre ad assegnare un singolo valore, è possibile  considerati dei vettori.
+Il comando</p>
+
+<pre><code class="language-r">y &lt;- c(1,2,3,4)
+y[1]
+</code></pre>
+
+<p>assegna a y i valori contenuti nel comando <code>c()</code>. Tale comando combina i valori in un vettore colonna ( ma viene visualizzato come riga). L&rsquo;accesso ai vettori avviene attraverso indicandone il nome, seguito da parentesi quadre. Ovviamente è possibile svolgere operazioni aritmetiche anche tra vettori, usando la stessa sintassi vista prima.
+Di default R considera operazioni puntuali tra vettori, cioè l&rsquo;operazione richiesta viene svolta entrata per entrata. Questo richiede le dimensioni siano le stesse. Qualora non lo fossero, il contenuto del vettore più piccolo viene ripetuto un numero di volte sufficienti da rendere possibile l&rsquo;operazione. Questo viene anche segnalato da un warning.</p>
+
+<p>E&rsquo; possibile ottenere le dimensioni di un vettore usando il comando <code>length()</code>.</p>
+
+<p>Un comando utile tra vettori è <code>t()</code> che traspone il vettore passato per argomento.</p>
+
+<pre><code class="language-r">z &lt;- t(y)
+y
+print(z)
+z
+</code></pre>
+
+<p>Chiamare una variabile senza indicare operazioni ne permette la stampa a video. Inserendo l&rsquo;assegnazione tra parentesi tonde si ottiene lo stesso risultato. Anche il comando <code>print()</code> permetta la stampa a video. Inoltre questo comando, diversamente dai precedenti, permette di mostrare l&rsquo;output anche quando è chiamata dentro una funzione o uno script.</p>
+
+<p>Dal comando precedente vediamo che y e z hanno stessi valori ma dimensioni diverse. Tuttavia R permette di svolgere operazioni matematiche su di essi senza warning o errori.</p>
+
+<p>Per svolgere operazioni tra vettori, come il prodotto righe per colonne si può considerare il comando <code>%*%</code>. In questo caso il risultato dipende dall&rsquo;ordine.</p>
+
+<pre><code class="language-r">y %*% z
+z %*% y
+</code></pre>
+
+<h2 id="sequenze">Sequenze</h2>
+
+<p>Nel caso si debba indicare una successione di valori è possibile farlo senza indicarli espressamente tutti, purché essi siano una sequenza regolare.</p>
+
+<p>Ad esempio con <code>a:b</code> possiamo usare i due punti per indicare una sequenza di valori con passo 1  da <em>a</em> fino a <em>b</em> . Per indicare un passo diverso possiamo usare il comando <code>seq(a,b,passo)</code> che  produrrà una sequenza di elementi da <em>a</em> fino a <em>b</em> distanziati di un valore uguale al <em>passo</em> indicato. Se il passo viene omesso è considerato 1 di default.</p>
+
+<p>Per tutte le funzioni è possibile accedere all&rsquo;help di R usando il comando <code>help(Nome_funzione)</code>. Leggendo l&rsquo;help di <code>seq()</code> vediamo ad esempio che possiamo anche indicare in ordine diverso i parametri, a patto di specificarli usando il nome indicato nell&rsquo;help. Ad esempio <code>seq(to = b, by = passo, from = a)</code> restituisce lo stesso output di <code>seq(a,b,passo)</code>.</p>
+
+<p>Inoltre è possibile ripetere un valore o un vettore usando il comando <code>rep()</code>, ad esempio <code>rep(1,5)</code> restituisce cinque volte il valore 1. Nel caso di un vettore, il comando ripeterà 5 volte il vettore.</p>
+
+<h2 id="operazioni-su-vettori">Operazioni su vettori</h2>
+
+<p>Oltre alle operazioni che abbiamo già visto esistono altre funzioni di R appositamente pensate per i vettori. Ad esempio le funzioni <code>min</code> e <code>max</code> restituiscono, rispettivamente, il minimo ed il massimo valore contenuto in un vettore. Per accedere alla posizione di tali valori si combinano i precedenti comandi con <code>which</code>. Ad esempio</p>
+
+<pre><code class="language-r">x &lt;- c(3, 5, 7, 1, 3, 3, 9, 8)
+min(x)
+which.min(x)
+max(x)
+which.max(x)
+</code></pre>
+
+<p>Altre funzioni molto utili per lavorare con i vettori sono la funzione <code>sum()</code> che calcola la somma di tutti gli elementi di un vettore e la funzione <code>diff()</code>
+che calcola la differenza di un valore da uno dei precedenti (è possibile indicare quanto prima &ldquo;guardare&rdquo;).</p>
+
+<pre><code class="language-r">sum(x)
+diff(x)
+diff(x,2)
+</code></pre>
+
+<h2 id="operatori-relazionali-e-logici">Operatori relazionali e logici</h2>
+
+<p>R ci permette anche di valutare espressioni relazionali o logiche. Il loro risultato sarà un valore logico indicato con TRUE o FALSE.</p>
+
+<pre><code class="language-r">6 &gt; 10
+6 &lt;= 10
+is_bigger &lt;- 6&gt; 10
+is_bigger
+as.integer(is_bigger)
+</code></pre>
+
+<p>R permette di valutare diverse espressioni relazionari, oltre a maggiore (uguale) o minore (uguale). Ad esempio è possibile valutare se due valori o variabili siano diversi <code>!=</code> o uguali <code>==</code>. Questo può essere particolarmente utile quando si definiscono delle funzioni proprie e si valuta se una condizione è soddisfatta.</p>
+
+<p>R permette anche di valutare gli operatori logici <code>&amp;</code> (and), <code>|</code> (or), <code>xor</code> e <code>!</code> (not).</p>
+
+<p>Questi operatori possono essere valutati sia su vettori logici, che di numeri qualsiasi. Nel secondo caso, tuttavia, tutto ciò che è diverso da zero conterà come TRUE, e solo lo 0 conterà come FALSE. Nel caso in cui si definiscano dei vettori misti (dove sono presenti sia valori logici che interi/reali/complessi), verranno tutti convertiti nel formato numerico presente.</p>
+
+<h2 id="matrici">Matrici</h2>
+
+<p>Come abbiamo visto i vettori sono considerati in generale vettori riga, e non è possibile generare una matrice usando il comando <code>c()</code>.</p>
+
+<p>Tuttavia le matrici esistono e si possono definire usando la funzione <code>cbind()</code> che unisce i vettori passati come argomento in una matrice dove i vettori argomento sono le colonne. La funzione <code>rbind()</code> ha la stessa funzione, ma i vettori passati come argomento saranno le righe della matrice. In tutti e due i casi, i vettori passati come argomento devono avere stessa dimensione (no uno riga e uno colonna). La funzione <code>dim()</code> restituisce le dimensioni dell&rsquo;oggetto passato come argomento. La funzione <code>length()</code> (che avevamo visto con i vettori) ci restituisce il <em>prodotto</em> delle dimensioni.</p>
+
+<pre><code class="language-r">a &lt;- cbind(c(1, 2, 3), c(4, 5, 6))
+dim(a)
+b &lt;- rbind(c(1, 2, 3), c(4, 5, 6))
+dim(b)
+a
+b
+</code></pre>
+
+<p>E&rsquo; possibile variare la dimensione di un oggetto usando gli stessi comandi <code>length</code> e <code>dim</code> come assegnazioni.</p>
+
+<pre><code class="language-r">dim(a) &lt;- c(2,3)
+a
+</code></pre>
+
+<p>Il comando precedente cambia la forma della matrice, secondo la forma indicata. Tali comandi vanno comunque usati con attenzione, visto che non si ha controllo su come il contenuto verrà ridistribuito.</p>
+
+<p>Altra utile funzione per creare matrici è la funzione <code>array()</code> che chiede di specificare gli elementi della matrice e le dimensioni. Risultato analogo si può otenere con la funzione <code>matrix(elementi, num righe, num colonne)</code>. Si noti che con <code>array()</code> è possibile definire strutture con più di due dimensioni.</p>
+
+<p>Gli elementi una matrice si accedono usando le parentesi quadre, indicando la posizione dell&rsquo;elemento.</p>
+
+<pre><code class="language-r">a[2,3]
+</code></pre>
+
+<p>Se si intende selezionare un&rsquo;intera riga o colonna, basta lasciare vuoto tale campo. Per esempio <code>a[1,]</code> restitusce l&rsquo;intera prima riga.</p>
+
+<p>Alcune funzioni come <code>contour(), persp(), image()</code> permettono di ottenere dei grafici, partendo da matrici.</p>
+
+<h2 id="stringhe-vettori-di-caratteri">Stringhe (vettori di caratteri)</h2>
+
+<p>R permette di manipolare anche vettori di caratteri, o stringhe, che possono essere salvati anche come vettori. Le stringhe vengono delimitate da doppie virgolette <code>&quot; &quot;</code> (o anche semplici virgolette <code>' '</code>).</p>
+
+<pre><code class="language-r">nomi &lt;- c(&quot;Francesco&quot;, &quot;Sofia&quot;, &quot;Alessandro&quot;)
+nomi[1]
+
+nomi_e_numeri &lt;- c(&quot;Francesco&quot;, &quot;Sofia&quot;, &quot;Alessandro&quot;, 45)
+</code></pre>
+
+<p>In R non possono convivere nello stesso array caratteri e numeri. Se ad esempio nell&rsquo;assegnazione indichiamo nomi e numeri, questi ultimi verranno convertiti in caratteri.</p>
+
+<p>Una funzione molto utile per maneggiare stringhe, ma anche altri risultati, è la funzione <code>paste()</code> che concatena dei vettori dopo averli trasformati in stringhe.</p>
+
+<pre><code class="language-r">paste(1:12) 
+
+(nth &lt;- paste0(1:12, c(&quot;st&quot;, &quot;nd&quot;, &quot;rd&quot;, rep(&quot;th&quot;, 9))))
+</code></pre>
+
+<p>Questa funzione può essere molto utile, ad esempio, se si devono creare vettori di nomi per delle variabili.</p>
+
+<p>Per capire il tipo di dati contenuto in un vettore possiamo usare il comando <code>typeof()</code> o <code>class()</code>.</p>
+
+<h2 id="liste-e-data-frame">Liste e data frame</h2>
+
+<p>Possiamo pensare ad una matrice come ad un metodo efficace per immagazzinare informazioni numeriche, ed è così! Però se il tipo di informazioni che dobbiamo immagazzinare è misto, ad esempio contiene sia numeri che caratteri, la loro efficienza viene meno e si possono preferire altri metodi.</p>
+
+<p>Una lista è un insieme ordinato di oggetti. Si possono definire liste usando il comando <code>list()</code>.</p>
+
+<pre><code class="language-r">c &lt;- list(destinazione = c(&quot;London&quot;, &quot;Madrid&quot;), compagnia = c(&quot;Ryanair&quot;, &quot;EasyJet&quot;), costo = c(60, 80), valuta = c(&quot;£&quot;, &quot;€&quot;) ).
+</code></pre>
+
+<p>Si può accedere al contenuto di una lista sia per posizione con le doppie parentesi <code>c[[2]]</code>  oppure per nome <code>c[[&quot;compagnia&quot;]]</code> o <code>c$compagnia</code>. Tutti  i precedenti comandi restituiscono il contenuto della lista definito da <em>compagnia</em>. Se vogliamo accedere direttamente ad un elemento possiamo usare indifferentemente i comandi <code>c[[2]][2]</code>, <code>c[[&quot;compagnia&quot;]][2]</code> o <code>c$compagnia[2]</code>.</p>
+
+<h3 id="data-frame">Data frame</h3>
+
+<p>Un&rsquo;altra struttura dati che permette di immagazzinate dati di tipo misto sono i <em>data frame</em>. Questa struttura è di gran lunga la più usata per leggere e manipolare dati in R.</p>
+
+<p>I <em>data frame</em> sono liste di tipo &ldquo;data.frame&rdquo; contenenti variabili con lo stesso numero di righe, il cui identificativo è univoco.</p>
+
+<pre><code class="language-r">L3 &lt;- LETTERS[1:3]
+fac &lt;- sample(L3, 10, replace = TRUE)
+(d &lt;- data.frame(x = 1, y = 1:10, fac = fac))
+</code></pre>
+
+<pre><code class="language-r">data.frame(1, 1:10, fac)
+</code></pre>
+
+<pre><code class="language-r">## The &quot;same&quot; with automatic column names:
+data.frame(rep(1,10), 1:10, fac)
+data.frame(1, 1:10, sample(L3, 10, replace = TRUE))
+</code></pre>
+
+<h3 id="tidy-data-please">Tidy data, please!</h3>
+
+<blockquote>
+<p>A huge amount of effort is spent cleaning data to get it ready for
+analysis, but there has been little research on how to make data cleaning as easy and effective as possible. This paper tackles a small, but important, component of data cleaning: data tidying. <strong>Tidy datasets</strong> are easy to manipulate, model and visualize, and <strong>have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table</strong>. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets. This structure also makes it easier to develop tidy tools for data analysis, tools that both input and output tidy datasets. The advantages of a consistent data structure and matching tools are demonstrated with a case study free from mundane data manipulation chores.</p>
+
+<p><cite> <a href="https://www.jstatsoft.org/article/view/v059i10">Tidy data</a> - Hadley Wickham <cite></p>
+</blockquote>
+
+<p>Visto l&rsquo;importanza dei dati nel mondo moderno e l&rsquo;innegabile importanza del tempo nella nostra società, evitiamo di perdere troppo tempo a risistemare i nostri dati e cerchiamo di uniformarci ai <em>tidy data</em> da quando creiamo un dataset in poi. Questo ci farà risparmiare molto tempo e migliorerà la ripetibilità delle nostre analisi!</p>
+
+<h2 id="programmazione-in-r">Programmazione in R</h2>
+
+<p>R permette di eseguire comandi che permetto l&rsquo;iterazione, la valutazione di espressioni condizionali e la definizione di funzioni.</p>
+
+<h3 id="condizioni-if">Condizioni: if</h3>
+
+<pre><code class="language-r">if (condizione) comando1 else comando2
+#Oppure
+ifelse(condizione,comando1,comando2)
+</code></pre>
+
+<p>La prima espressione verifica una <em>condizione</em> <strong>solo</strong> su singolo elemento. Al contrario, il comando <code>ifelse</code> permette di vettorializzare il controllo. Se la <em>condizione</em> è va valutata su un vettore, il comando <code>ifelse</code> la valuta su tutte le entrate e applica <em>comando1</em> se soddisfatta per quell&rsquo;entrata e <em>comando2</em> in caso contrario. Qualora venisse passato un vettore all&rsquo;espressione <code>if</code>, questo valuterebbe la <em>condizione</em> solo rispetto al primo elemento del vettore ed eseguirebbe il comando opportuno.</p>
+
+<p>Si possono raggruppare più comandi usando le parentesi graffe e il punto e virgola. Ad esempio, nell&rsquo;<code>if</code> è possibile in questo modo fare più operazioni per ogni caso.</p>
+
+<h3 id="iterazioni-for-while-repeat">Iterazioni: for - while - repeat</h3>
+
+<p>Si possono iterare dei comandi usando i comandi <code>for</code>, <code>while</code>o <code>repeat</code>.</p>
+
+<pre><code class="language-r">for (i in sequenza) comando1
+</code></pre>
+
+<p><code>for</code> permette di iterare comando1 al variare di una variabile, in questo caso <em>i</em>. Questa espressione è molto utile quando si visitano dei vettori e alle diverse entrate viene applicato comando1. Usando le parentesi graffe è possibile indicare più comandi.</p>
+
+<pre><code class="language-r">while (condizione) comando1
+</code></pre>
+
+<p><code>while</code> ripete comando1 finche la condizione è vera. L&rsquo;uso di <code>while</code> può essere rischioso qualora la condizione sia sempre soddisfatta e si rimanga bloccati in un <em>loop infinito</em>.</p>
+
+<p><code>repeat</code> ripete semplicemente un comando. <code>break</code> permette di interrompere qualsiasi iterazione ed è l&rsquo;unico modo per fermare un ciclo <code>repeat</code>.</p>
+
+<h3 id="definire-funzioni">Definire funzioni</h3>
+
+<p>R permette all&rsquo;utente di definire funzioni, attraverso il comando <code>function</code>.</p>
+
+<pre><code class="language-r">nomeFunzione &lt;- function( lista_argomenti ) comando1
+return(valore)
+</code></pre>
+
+<p>La sintassi precedente permette di definire una funzione chiamata <em>nomeFunzione</em> che valuterà comando1 e restituirà <em>valore</em>.</p>
+
+<p>L&rsquo;uso di funzioni <em>user-defined</em> permette di richiamare nei passaggi successivi la funzione che è stata definita passando diversi argomenti. Usando le parentesi graffe è possibile specificare più comandi.</p>
+
+<pre><code class="language-r">my_fun &lt;- function( a , b , c) {
+return(a*b + c)    
+}
+</code></pre>
+
+<pre><code class="language-r">my_fun2 &lt;- function( a , b , c) {
+    y &lt;- a**b 
+return(y + a*b + c)    
+}
+</code></pre>
+
+<p>Si possono salvare funzioni e script (usando l&rsquo;estensione .R), che possono essere poi eseguiti attraverso il comando <code>source(“nome_della_funzione.R”)</code>. Per richiamare tali funzioni è essenziale che siano nella cartella di lavoro, altrimenti va indicato il path per raggiungere il file.</p>
+
+<h2 id="esercizi">Esercizi</h2>
+
+<h3 id="esercizio-1">Esercizio 1</h3>
+
+<p>Si trovino 2 modi differenti per calcolare la somma dai cavalli vapore (hp) di quelle auto contenute in mtcars che hanno più di 100 cavalli (hp).
+<em>Suggerimento:</em> In un caso si definisca una funzione apposita (senza usare funzioni di libreria) e nell&rsquo;altro si usino i comandi visti, così da ottenere il risultato con una sola riga di comandi.</p>
+
+<h2 id="esercizio-2">Esercizio 2</h2>
+
+<p>Si definisca una funzione chiamata my_max che senza usare funzioni di libreria restituisce il massimo di un vettore.</p>
+
+<h2 id="esercizio-3">Esercizio 3</h2>
+
+<p>Si definisca una funzione chiamata funzione my_mean che senza usare funzioni di libreria restituisce la media di un vettore.</p>
+
+<h2 id="esercizio-4">Esercizio 4</h2>
+
+<p>Si definisca una funzione chiamata my_cov che verifica se una matrice può essere la matrice di covarianza di due variabili aleatorie.</p>
+
+<h2 id="esercizio-5">Esercizio 5</h2>
+
+<p>Si definisca una funzione chiamata my_monte che al variare del numero di punti N, approssimi l&rsquo;integrale delle funzioni, usando un metodo Monte Carlo:</p>
+
+<p><a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;x^2,&space;x&space;\in&space;(-1,1)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)&space;=&space;x^2,&space;x&space;\in&space;(-1,1)" title="f(x) = x^2, x \in (-1,1)" /></a></p>
+
+<p><a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;e^{-x^2},&space;x&space;\in&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)&space;=&space;e^{-x^2},&space;x&space;\in&space;\mathbb{R}" title="f(x) = e^{-x^2}, x \in \mathbb{R}" /></a></p>
+
+<h1 id="link-utili">Link utili</h1>
+
+<ul>
+<li>A questo <a href="http://tryr.codeschool.com/">link</a> è possibile seguire un veloce tutorial che introduce molti dei comandi di base di R (in inglese).</li>
+<li>Esistono molti corsi online gratuiti o a pagamento che insegnano le basi di R. Tra i tanti segnalo quello di <a href="https://www.datacamp.com/courses/free-introduction-to-r">Data Camp</a> che è gratuito (in inglese). Come questo ne esistono innumerevoli, sia in inglese che in italiano.</li>
+</ul>
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>

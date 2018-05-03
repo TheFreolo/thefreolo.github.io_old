@@ -6,10 +6,23 @@
     <description>Recent content on Federico Reali</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 May 2018 10:49:04 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 02 May 2018 11:51:48 +0200</lastBuildDate>
     
 	<atom:link href="https://thefreolo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lezione2</title>
+      <link>https://thefreolo.github.io/teaching/lezione2_2018/</link>
+      <pubDate>Wed, 02 May 2018 11:51:48 +0200</pubDate>
+      
+      <guid>https://thefreolo.github.io/teaching/lezione2_2018/</guid>
+      <description>&lt;h1 id=&#34;primi-comandi-di-r&#34;&gt;Primi comandi di R&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/abacus.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Lezione1</title>
