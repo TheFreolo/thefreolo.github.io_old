@@ -154,7 +154,7 @@ biocLite(&quot;RnaSeqTutorial&quot;)
 
 <p>La funzione read.csv accetta anche <em>url</em> come argomento. In questo modo R scaricherà da solo il dataset e lo salverà nella variabile indicata.</p>
 
-<pre><code class="language-r">(BodyTemperature &lt;- read.csv(url('http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt')), sep=&quot; &quot;)
+<pre><code class="language-r">(BodyTemperature &lt;- read.csv(url('http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt'), sep=&quot; &quot;))
 </code></pre>
 
 <p>Gli argomenti del comando, oltre a specificare il percorso in cui si trova il file da leggere, indicano che sono presenti degli <em>header</em>, cioè intestazioni che riportano il nome delle variabili, e che il separatore usato nel file per indicare i diversi elementi delle righe è lo spazio. Lo spazio è il separatore di default di <code>read.table()</code> ma è possibile indicarne di diversi. Se il file fosse stato un csv (<em>comma separated values</em>) avremmo indicato <code>sep=&quot;,&quot;</code>. Allo stesso modo avremmo potuto usare la funzione <code>read.csv()</code> che considera la virgola come separatore di default. Se i valori fossero stati separati da punto e virgola avremmo potuto usare <code>read.csv2()</code> e <code>read.delim()</code> se separate da tab (\t).</p>
