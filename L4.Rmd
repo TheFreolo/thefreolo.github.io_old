@@ -1,7 +1,7 @@
 ---
 title: "Analizzare i dataset relativi all'inquinamento"
 author: "Federico Reali"
-date: 24/05/2017
+date: 15/05/2018
 output: 
   html_notebook:
     toc: yes
@@ -52,7 +52,7 @@ Siamo interessati a capire l'andamento delle PM10 nel nostro dataset durante il 
 ```{r}
 PM10dataSA$Date.Local <- as.Date(PM10dataSA$Date.Local)
 ```
-Ora che i dati sono in formatO *Date*, R capisce che sono numeri salvati con un particolare formato e non stringhe.
+Ora che i dati sono in formato *Date*, R capisce che sono numeri salvati con un particolare formato e non stringhe.
 
 In questo modo possiamo, ad esempio, vedere il periodo temporale che coprono usano i comandi min e max.
 
@@ -192,9 +192,9 @@ Si usi l'help per comprendere i parametri che sono stati usati.
 Possiamo analizzare la relazione tra tempo e inquinamento usando un modello lineare? Proviamo e cerchiamo di capire se il modello è adeguato.
 
 
-# (Extra) Inquinamento in California
+# Inquinamento in California
 
-Decidiamo ora di concentrare la nostra attenzione sull'inquinamento in California e dopo aver letto il [dataset](http://aqsdr1.epa.gov/aqsweb/aqstmp/airdata/daily_81102_2016.zip) che contiene i valori **medi giornalieri** di PM10, salviamo un sottoinsieme di dati che contiene solo dati relativi alla California.
+Decidiamo ora di concentrare la nostra attenzione sull'inquinamento in California e dopo aver letto il [dataset](https://www.dropbox.com/s/z926dmp2lvdz48p/daily_81102_2016.csv?dl=1) che contiene i valori **medi giornalieri** di PM10, salviamo un sottoinsieme di dati che contiene solo dati relativi alla California.
 
 ```{r}
 PM10data <- read.csv("../data/daily_81102_2016.csv")
@@ -227,7 +227,7 @@ map <- RgoogleMaps::GetMap(center="California", zoom = 6)
 map1 <- plotmap( lat =  PM10dataCAL[PM10dataCAL$Arithmetic.Mean > 50,c( "Latitude")], lon =  PM10dataCAL[PM10dataCAL$Arithmetic.Mean > 50,c("Longitude")]  ,map = map)
 ```
 
-# (Extra) Inquinamento a Los Angeles
+# Inquinamento a Los Angeles
 
 Usiamo lo stesso dataset contenente i dati giornalieri relativi alle PM10 negli Stati Uniti e concentriamoci sulla sola città di Los Angeles.
 
