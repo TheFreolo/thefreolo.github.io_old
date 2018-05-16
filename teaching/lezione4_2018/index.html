@@ -1,0 +1,198 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.36.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Lezione4 &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2018  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Lezione4</h1>
+			  <span class="post-date">Mon, May 14, 2018</span>
+			      <h1 id="manipolare-dati-e-regressione">Manipolare dati e regressione</h1>
+
+<p><img src="https://imgs.xkcd.com/comics/extrapolating.png" alt="" />
+Originally posted <a href="https://xkcd.com/605/">here</a>.</p>
+
+<p></p>
+
+<p>In questa lezione lavorerete molto più voi di me, e per questo ci saranno meno note. Nonostante questo, inizieremo vedendo alcuni comandi e funzioni che risultano utili. Ricordiamoci di inizializzare la cartella relativa a questa lezione con le ormai note cartelle.</p>
+
+<h1 id="manipolare-dati-continua">Manipolare dati (continua)</h1>
+
+<p>Abbiamo ampiamente visto come lavorare e manipolare i dati. Tuttavia un importante funzione che permette di raggruppare i dati non è stata spiegata in classe: si tratta di <code>aggregate()</code>. Tale comando, permette di applicare una funzione ad un sottoinsieme dei dati, seguendo uno schema preciso. Vediamo alcuni esempi.</p>
+
+<p>Altro utile comando è <code>merge()</code> che permette di unire dataframe indicando il campo da usare per confrontare le entrate. In modo più semplice, e dopo essersi assicurati che le osservazioni siano &ldquo;allineate&rdquo;, è possibile usare anche i comandi <code>rbin()</code> e <code>cbind()</code> che sono già stati trattati.</p>
+
+<h1 id="distribuzioni-di-probabilità">Distribuzioni di probabilità</h1>
+
+<p>R ci permette di accedere a molte distribuzioni di probabilità attraverso delle apposite funzioni che sono contenuto nel pacchetto <em>stast</em>, che va quindi caricato.</p>
+
+<p>Le distribuzioni sono accessibili attraverso delle funzioni che richiamano il nome della distribuzione, ad esempio con <em>norm</em>, <em>binom</em> e <em>gamma</em>, solo per citarne alcune, si accede alla distribuzione normale, binomiale e gamma. A tale nome si aggiunge un <em>prefisso</em>, che serve a specificare se si è interessati alla funzione densità (<em>d</em>), alla distribuzione (<em>p</em>), alla funzione che riporta i quantili (<em>q</em>) o se si vogliono generare dei numeri usando tale distribuzione (<em>r</em>).</p>
+
+<p>Cercando <em>distribution</em> nell&rsquo;help è possibile accedere all&rsquo;elenco di tutte le distribuzioni di R. Il fatto che R permetta di accedere facilmente alle distribuzioni tornerà particolarmente utile quando lavoreremo con gli intervalli di confidenza, e potremmo interrogare R, piuttosto che lavorare con la versione tabulare delle stesse.</p>
+
+<p>Va segnalata, almeno per la distribuzione normale, che esiste la funzione <code>qqnorm</code> che permette di confrontare graficamente i quantili dei propri dati con quelli della distribuzione normale. Questo è un modo per verificare graficamente (e quindi non formalmente) se i propri dati seguono una distribuzione normale. Insieme alla richiesta che le misurazioni siano indipendenti, queste due sono delle ipotesi che abbiamo visto molto spesso, specialmente nell&rsquo;uso di teoremi limite.</p>
+
+<h1 id="facciamo-un-po-di-pratica-l4-nb-html"><a href="/L4.nb.html">Facciamo un po&rsquo; di pratica!</a></h1>
+
+<p><a href="/L4.Rmd">(R notebook)</a></p>
+
+<h1 id="regressione-lineare">Regressione lineare</h1>
+
+<p>Al <a href="/Regression.nb.html">link</a> è possibile trovare delle note sulla regressione.</p>
+
+<p>Ricordiamo che per applicare la regressione lineare dobbiamo essere sicuri che le ipotesi siano soddisfatte. In particolare dovremo assicurarci che i residui seguano una distribuzione normale centrata in 0 e siano indipendenti.</p>
+
+<p>Alcune delle funzioni già viste possono aiutarci in questo compito.</p>
+
+<p>Definire e richiamare un modello lineare in R è molto semplice. Basta infatti  utilizzare la funzione <code>lm()</code>, dove va specificata la <em>variabile dipendente</em> e il <em>predittore</em> ed i dati da usare per definire il modello.</p>
+
+<p>Sebbene i modelli di <em>regressione multipla</em> siano concettualmente e praticamente più complessi, R li supporta usando la stessa funzione e la stessa notazione. In tal caso, invece che indicare un predittore, se ne indicano più usando il simbolo <code>+</code> per elencarli.</p>
+
+<h3 id="mtcars">Mtcars</h3>
+
+<p>Vediamo alcuni esempi usando il dataset <code>mtcars</code>.</p>
+
+<p>Supponiamo di voler investigare se il consumo di carburante e il numero di cavalli seguono una relazione lineare.</p>
+
+<p>Un ottimo metodo per intuire se la relazione possa essere in qualche modo lineare è quello di disegnare la variabile dipendente in funzione del predittore.</p>
+
+<pre><code class="language-r">plot(mpg ~ hp, data = mtcars)
+</code></pre>
+
+<p>Secondo i risultati della nostra analisi preliminare sembra plausibile che la relazione sia lineare. Continuiamo la nostra investigazione definendo il modello con la funzione <code>lm()</code> e visualizzando il risultato usando la ben nota funzione <code>summary()</code>.</p>
+
+<pre><code class="language-r">mtcars_reg &lt;- lm(mpg ~ hp, data = mtcars)
+summary(mtcars_reg)
+</code></pre>
+
+<p>Si può accedere ai vari elementi elencati da <code>summary()</code> usando la notazione <code>$</code>.</p>
+
+<p>Tra le informazioni che fornisce summary, è presente anche il valore <strong>R-squared</strong> (R quadro), che è la <strong>proporzione di varianza della variabile dipendente che viene spiegata dal predittore</strong>. Tale valore è compreso tra 0 e 1. Valori vicino a 1 indicano un buon modello, mentre valori bassi possono indicare o che il modello non spieghi completamente/correttamente i dati, o che la varianza dei residui è molto alta.</p>
+
+<h4 id="esercizio">Esercizio</h4>
+
+<p>In modo analogo a quanto fato sopra, si investighi la relazione tra consumo e peso delle auto in esame.</p>
+
+<h2 id="regressione-multipla">Regressione multipla</h2>
+
+<p>Come anticipato, se volessimo considerare una regressione multipla, e per esempio considerare come predittori sia la potenza (cavalli) che il  peso, possiamo implementare il modello in modo simile in R.</p>
+
+<pre><code class="language-r">mtcars_reg_hp_wt &lt;- lm(mpg ~ hp + wt, data = mtcars)
+summary(mtcars_reg_hp_wt)
+</code></pre>
+
+<h1 id="esercizi">Esercizi</h1>
+
+<h2 id="esercizio-1">Esercizio 1</h2>
+
+<p>Si importi il <a href="https://www.dropbox.com/s/boesoonvh04nqym/Gray_Kangaroos.tsv?dl=0">dataset</a> (<a href="http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html">descrizione</a>) e si analizzi la relazione tra le due variabili usando la regressione lineare. Si analizzino i risultati e si visualizzino i residui.</p>
+
+<h2 id="esercizio-2">Esercizio 2</h2>
+
+<p>Si trovi un modo adeguato per importare i dati relativi al <a href="http://docs.google.com/spreadsheet/pub?key=0ArfEDsV3bBwCdGhJcHAwanc2aFdZeXl1WTVZQnJjb1E&amp;output=xlsx">reddito nazionale lordo pro capite</a> e alla <a href="http://docs.google.com/spreadsheet/pub?key=0AkBd6lyS3EmpdDBKd2V5VmxkYlJuUHAtOURzUkZzNEE&amp;output=xlsx">percentuale di strade asfaltate</a> in R. Dopo aver analizzato e preparato i dataset, si usino i dati per investigare le due variabili rispetto ad un paese del G7, un paese in via di sviluppo ed un paese del terzo mondo a scelta, nel periodo dal 1990 al 2009.
+Si analizzino i dati e si visualizzino. Inoltre si usi la regressione lineare per analizzare la relazione tra le variabili. Si commentino e discutano i risultati.</p>
+
+<h2 id="a-name-l4ex3-a-exercizio-3"><a name="L4Ex3"></a>Exercizio 3</h2>
+
+<p>Usando il dataset ottenuto nell&rsquo;<a href="../lezione3#L3Ex3">Esercizio 3 della lezione precedente</a>, si investighi usando la regressione lineare la relazione tra prodotto interno lordo e aspettativa di vita per ognuno dei continenti. Si usi la funzione <code>predict()</code> per valutare il modello su dati diversi da quelli usati per definirlo. In particolare, si valuti il modello ottenuto per l&rsquo;America sui dati europei e viceversa. Si visualizzino e si discutano i risultati ottenuti, dandone anche un interpretazione.</p>
+
+<h2 id="a-name-l4ex4-a-esercizo-4"><a name="L4Ex4"></a>Esercizo 4</h2>
+
+<p>Si considerino i modelli ottenuto nell&rsquo;<a href="./#L4Ex3">Esercizio 3</a>. Si valuti separatamente il modello ottenuto per l&rsquo;America e quello l&rsquo;Europa usando i dati dei paesi <em>Canada</em>, <em>Italy</em>, <em>Argentina</em> e <em>Sierra Leone</em> contentuti nel dataset originale. Si valutino i valori di R quadro ottenuti e si discutano i risultati.</p>
+
+<p><em>Suggerimento</em> si usi la formulazione equivalente di R quadro:
+<a href="https://www.codecogs.com/eqnedit.php?latex=R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" title="R^2 = 1 - \frac{SS_{res}}{SS_{tot}}, \, \text{ dove } SS_{res} = \sum_i (y_i - \hat{y}_i)^2 \text{ e } SS_{tot} = \sum_i (y_i - \bar{y})^2" /></a></p>
+
+<h2 id="esercizio-5">Esercizio 5</h2>
+
+<p>Si svolga il primo capitolo del <a href="https://www.datacamp.com/courses/introduction-to-credit-risk-modeling-in-r">corso online</a> di DataCamp che riguarda i modelli di rischio nel credito. Il primo capitolo del corso (in inglese) è gratuito.</p>
+
+<h4 id="soluzioni-svolgimentoesl4-r"><a href="/SvolgimentoEsL4.R">Soluzioni</a></h4>
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
