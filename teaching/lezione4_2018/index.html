@@ -117,78 +117,87 @@ Originally posted <a href="https://xkcd.com/605/">here</a>.</p>
 
 <p><a href="/L4.Rmd">(R notebook)</a></p>
 
-<h1 id="regressione-lineare">Regressione lineare</h1>
+<!---
 
-<p>Al <a href="/Regression.nb.html">link</a> è possibile trovare delle note sulla regressione.</p>
+# Regressione lineare
 
-<p>Ricordiamo che per applicare la regressione lineare dobbiamo essere sicuri che le ipotesi siano soddisfatte. In particolare dovremo assicurarci che i residui seguano una distribuzione normale centrata in 0 e siano indipendenti.</p>
+Al [link](/Regression.nb.html) è possibile trovare delle note sulla regressione.
 
-<p>Alcune delle funzioni già viste possono aiutarci in questo compito.</p>
+Ricordiamo che per applicare la regressione lineare dobbiamo essere sicuri che le ipotesi siano soddisfatte. In particolare dovremo assicurarci che i residui seguano una distribuzione normale centrata in 0 e siano indipendenti. 
 
-<p>Definire e richiamare un modello lineare in R è molto semplice. Basta infatti  utilizzare la funzione <code>lm()</code>, dove va specificata la <em>variabile dipendente</em> e il <em>predittore</em> ed i dati da usare per definire il modello.</p>
+Alcune delle funzioni già viste possono aiutarci in questo compito.
 
-<p>Sebbene i modelli di <em>regressione multipla</em> siano concettualmente e praticamente più complessi, R li supporta usando la stessa funzione e la stessa notazione. In tal caso, invece che indicare un predittore, se ne indicano più usando il simbolo <code>+</code> per elencarli.</p>
+Definire e richiamare un modello lineare in R è molto semplice. Basta infatti  utilizzare la funzione `lm()`, dove va specificata la *variabile dipendente* e il *predittore* ed i dati da usare per definire il modello.
 
-<h3 id="mtcars">Mtcars</h3>
+Sebbene i modelli di *regressione multipla* siano concettualmente e praticamente più complessi, R li supporta usando la stessa funzione e la stessa notazione. In tal caso, invece che indicare un predittore, se ne indicano più usando il simbolo `+` per elencarli.
 
-<p>Vediamo alcuni esempi usando il dataset <code>mtcars</code>.</p>
+### Mtcars
 
-<p>Supponiamo di voler investigare se il consumo di carburante e il numero di cavalli seguono una relazione lineare.</p>
+Vediamo alcuni esempi usando il dataset `mtcars`.
 
-<p>Un ottimo metodo per intuire se la relazione possa essere in qualche modo lineare è quello di disegnare la variabile dipendente in funzione del predittore.</p>
+Supponiamo di voler investigare se il consumo di carburante e il numero di cavalli seguono una relazione lineare.
 
-<pre><code class="language-r">plot(mpg ~ hp, data = mtcars)
-</code></pre>
+Un ottimo metodo per intuire se la relazione possa essere in qualche modo lineare è quello di disegnare la variabile dipendente in funzione del predittore.
 
-<p>Secondo i risultati della nostra analisi preliminare sembra plausibile che la relazione sia lineare. Continuiamo la nostra investigazione definendo il modello con la funzione <code>lm()</code> e visualizzando il risultato usando la ben nota funzione <code>summary()</code>.</p>
+```{r}
+plot(mpg ~ hp, data = mtcars)
+```
 
-<pre><code class="language-r">mtcars_reg &lt;- lm(mpg ~ hp, data = mtcars)
+Secondo i risultati della nostra analisi preliminare sembra plausibile che la relazione sia lineare. Continuiamo la nostra investigazione definendo il modello con la funzione `lm()` e visualizzando il risultato usando la ben nota funzione `summary()`.
+
+```{r}
+mtcars_reg <- lm(mpg ~ hp, data = mtcars)
 summary(mtcars_reg)
-</code></pre>
+```
 
-<p>Si può accedere ai vari elementi elencati da <code>summary()</code> usando la notazione <code>$</code>.</p>
+Si può accedere ai vari elementi elencati da `summary()` usando la notazione `$`.
 
-<p>Tra le informazioni che fornisce summary, è presente anche il valore <strong>R-squared</strong> (R quadro), che è la <strong>proporzione di varianza della variabile dipendente che viene spiegata dal predittore</strong>. Tale valore è compreso tra 0 e 1. Valori vicino a 1 indicano un buon modello, mentre valori bassi possono indicare o che il modello non spieghi completamente/correttamente i dati, o che la varianza dei residui è molto alta.</p>
+Tra le informazioni che fornisce summary, è presente anche il valore **R-squared** (R quadro), che è la **proporzione di varianza della variabile dipendente che viene spiegata dal predittore**. Tale valore è compreso tra 0 e 1. Valori vicino a 1 indicano un buon modello, mentre valori bassi possono indicare o che il modello non spieghi completamente/correttamente i dati, o che la varianza dei residui è molto alta. 
 
-<h4 id="esercizio">Esercizio</h4>
 
-<p>In modo analogo a quanto fato sopra, si investighi la relazione tra consumo e peso delle auto in esame.</p>
+#### Esercizio
+In modo analogo a quanto fato sopra, si investighi la relazione tra consumo e peso delle auto in esame.
 
-<h2 id="regressione-multipla">Regressione multipla</h2>
+## Regressione multipla
 
-<p>Come anticipato, se volessimo considerare una regressione multipla, e per esempio considerare come predittori sia la potenza (cavalli) che il  peso, possiamo implementare il modello in modo simile in R.</p>
+Come anticipato, se volessimo considerare una regressione multipla, e per esempio considerare come predittori sia la potenza (cavalli) che il  peso, possiamo implementare il modello in modo simile in R.
 
-<pre><code class="language-r">mtcars_reg_hp_wt &lt;- lm(mpg ~ hp + wt, data = mtcars)
+```{r}
+mtcars_reg_hp_wt <- lm(mpg ~ hp + wt, data = mtcars)
 summary(mtcars_reg_hp_wt)
-</code></pre>
+```
 
-<h1 id="esercizi">Esercizi</h1>
+# Esercizi
+
+## Esercizio 1
+Si importi il [dataset](https://www.dropbox.com/s/boesoonvh04nqym/Gray_Kangaroos.tsv?dl=0) ([descrizione](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html)) e si analizzi la relazione tra le due variabili usando la regressione lineare. Si analizzino i risultati e si visualizzino i residui.
+--->
 
 <h2 id="esercizio-1">Esercizio 1</h2>
 
-<p>Si importi il <a href="https://www.dropbox.com/s/boesoonvh04nqym/Gray_Kangaroos.tsv?dl=0">dataset</a> (<a href="http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html">descrizione</a>) e si analizzi la relazione tra le due variabili usando la regressione lineare. Si analizzino i risultati e si visualizzino i residui.</p>
+<p>Si trovi un modo adeguato per importare i dati relativi al <a href="http://docs.google.com/spreadsheet/pub?key=0ArfEDsV3bBwCdGhJcHAwanc2aFdZeXl1WTVZQnJjb1E&amp;output=xlsx">reddito nazionale lordo pro capite</a> e alla <a href="http://docs.google.com/spreadsheet/pub?key=0AkBd6lyS3EmpdDBKd2V5VmxkYlJuUHAtOURzUkZzNEE&amp;output=xlsx">percentuale di strade asfaltate</a> in R. Dopo aver analizzato e preparato i dataset, si usino i dati per investigare le due variabili rispetto ad un paese del G7, un paese in via di sviluppo ed un paese del terzo mondo a scelta, nel periodo dal 1990 al 2009.
+Si analizzino i dati e si visualizzino.
+<!--- Inoltre si usi la regressione lineare per analizzare la relazione tra le variabili. Si commentino e discutano i risultati. ---></p>
+
+<!---
+## <a name="L4Ex3"></a>Exercizio 3
+Usando il dataset ottenuto nell'[Esercizio 3 della lezione precedente](../lezione3#L3Ex3 ), si investighi usando la regressione lineare la relazione tra prodotto interno lordo e aspettativa di vita per ognuno dei continenti. Si usi la funzione `predict()` per valutare il modello su dati diversi da quelli usati per definirlo. In particolare, si valuti il modello ottenuto per l'America sui dati europei e viceversa. Si visualizzino e si discutano i risultati ottenuti, dandone anche un interpretazione.
+
+## <a name="L4Ex4"></a>Esercizo 4
+Si considerino i modelli ottenuto nell'[Esercizio 3](./#L4Ex3). Si valuti separatamente il modello ottenuto per l'America e quello l'Europa usando i dati dei paesi _Canada_, _Italy_, _Argentina_ e _Sierra Leone_ contentuti nel dataset originale. Si valutino i valori di R quadro ottenuti e si discutano i risultati.
+
+_Suggerimento_ si usi la formulazione equivalente di R quadro:
+<a href="https://www.codecogs.com/eqnedit.php?latex=R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" title="R^2 = 1 - \frac{SS_{res}}{SS_{tot}}, \, \text{ dove } SS_{res} = \sum_i (y_i - \hat{y}_i)^2 \text{ e } SS_{tot} = \sum_i (y_i - \bar{y})^2" /></a>
+
+--->
 
 <h2 id="esercizio-2">Esercizio 2</h2>
 
-<p>Si trovi un modo adeguato per importare i dati relativi al <a href="http://docs.google.com/spreadsheet/pub?key=0ArfEDsV3bBwCdGhJcHAwanc2aFdZeXl1WTVZQnJjb1E&amp;output=xlsx">reddito nazionale lordo pro capite</a> e alla <a href="http://docs.google.com/spreadsheet/pub?key=0AkBd6lyS3EmpdDBKd2V5VmxkYlJuUHAtOURzUkZzNEE&amp;output=xlsx">percentuale di strade asfaltate</a> in R. Dopo aver analizzato e preparato i dataset, si usino i dati per investigare le due variabili rispetto ad un paese del G7, un paese in via di sviluppo ed un paese del terzo mondo a scelta, nel periodo dal 1990 al 2009.
-Si analizzino i dati e si visualizzino. Inoltre si usi la regressione lineare per analizzare la relazione tra le variabili. Si commentino e discutano i risultati.</p>
-
-<h2 id="a-name-l4ex3-a-exercizio-3"><a name="L4Ex3"></a>Exercizio 3</h2>
-
-<p>Usando il dataset ottenuto nell&rsquo;<a href="../lezione3#L3Ex3">Esercizio 3 della lezione precedente</a>, si investighi usando la regressione lineare la relazione tra prodotto interno lordo e aspettativa di vita per ognuno dei continenti. Si usi la funzione <code>predict()</code> per valutare il modello su dati diversi da quelli usati per definirlo. In particolare, si valuti il modello ottenuto per l&rsquo;America sui dati europei e viceversa. Si visualizzino e si discutano i risultati ottenuti, dandone anche un interpretazione.</p>
-
-<h2 id="a-name-l4ex4-a-esercizo-4"><a name="L4Ex4"></a>Esercizo 4</h2>
-
-<p>Si considerino i modelli ottenuto nell&rsquo;<a href="./#L4Ex3">Esercizio 3</a>. Si valuti separatamente il modello ottenuto per l&rsquo;America e quello l&rsquo;Europa usando i dati dei paesi <em>Canada</em>, <em>Italy</em>, <em>Argentina</em> e <em>Sierra Leone</em> contentuti nel dataset originale. Si valutino i valori di R quadro ottenuti e si discutano i risultati.</p>
-
-<p><em>Suggerimento</em> si usi la formulazione equivalente di R quadro:
-<a href="https://www.codecogs.com/eqnedit.php?latex=R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" title="R^2 = 1 - \frac{SS_{res}}{SS_{tot}}, \, \text{ dove } SS_{res} = \sum_i (y_i - \hat{y}_i)^2 \text{ e } SS_{tot} = \sum_i (y_i - \bar{y})^2" /></a></p>
-
-<h2 id="esercizio-5">Esercizio 5</h2>
-
 <p>Si svolga il primo capitolo del <a href="https://www.datacamp.com/courses/introduction-to-credit-risk-modeling-in-r">corso online</a> di DataCamp che riguarda i modelli di rischio nel credito. Il primo capitolo del corso (in inglese) è gratuito.</p>
 
-<h4 id="soluzioni-svolgimentoesl4-r"><a href="/SvolgimentoEsL4.R">Soluzioni</a></h4>
+<!--- 
+#### [Soluzioni](/SvolgimentoEsL4.R)
+--->
 			</div>
 
 			
