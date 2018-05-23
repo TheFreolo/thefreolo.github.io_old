@@ -109,6 +109,10 @@ Originally posted <a href="http://www.tylervigen.com/spurious-correlations">here
 <li>Si visualizzino i dati mediante uno scatterplot.</li>
 </ol>
 
+<h4 id="soluzione-sollez5-r"><a href="/SolLez5.R">Soluzione</a></h4>
+
+<p>Il dataset completo e una discussione riguardo i dati usati per l&rsquo;esercizio sono disponibili <a href="https://www.autodeskresearch.com/publications/samestats">qui</a>.</p>
+
 <h1 id="regressione-lineare">Regressione lineare</h1>
 
 <p>Al <a href="/Regression.nb.html">link</a> è possibile trovare delle note sulla regressione.</p>
@@ -141,6 +145,21 @@ summary(mtcars_reg)
 <p>Si può accedere ai vari elementi elencati da <code>summary()</code> usando la notazione <code>$</code>.</p>
 
 <p>Tra le informazioni che fornisce summary, è presente anche il valore <strong>R-squared</strong> (R quadro), che è la <strong>proporzione di varianza della variabile dipendente che viene spiegata dal predittore</strong>. Tale valore è compreso tra 0 e 1. Valori vicino a 1 indicano un buon modello, mentre valori bassi possono indicare o che il modello non spieghi completamente/correttamente i dati, o che la varianza dei residui è molto alta.</p>
+
+<p>Una volta definito il modello, è importante visualizzare i risultati per valutarne la bontà e per capire il comportamento dei residui. In questo modo è infatti possibile verificare <strong>quantitativamente</strong> (non formalmente) se i residui soddisfano le ipotesi di indipendenza (non si devono osservare dei pattern) e che la distribuzione dei quantili sia confrontabile con quella di una normale.</p>
+
+<p>I seguenti comandi permettono di visualizzare la retta di regressione, i quantili e di confrontarli con la distribuzione in quantili di una normale.</p>
+
+<pre><code class="language-r">par(mfrow = c(3,1), mar = c(2,2,1,1))
+# Retta di regressione
+plot(mpg ~ hp, data = mtcars)
+abline(mtcars_reg$coefficients, col = &quot;red&quot;)
+# Pattern nei residui
+plot(mtcars_reg$residuals, main = &quot;Residui&quot;)
+# Distribuzione in quantili 
+qqnorm(mtcars_reg$residuals)
+qqline(mtcars_reg$residuals)
+</code></pre>
 
 <h4 id="esercizio-a">Esercizio A</h4>
 
@@ -180,9 +199,7 @@ Si analizzino i dati e si visualizzino. Inoltre si usi la regressione lineare pe
 <p><em>Suggerimento</em> si usi la formulazione equivalente di R quadro:
 <a href="https://www.codecogs.com/eqnedit.php?latex=R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" title="R^2 = 1 - \frac{SS_{res}}{SS_{tot}}, \, \text{ dove } SS_{res} = \sum_i (y_i - \hat{y}_i)^2 \text{ e } SS_{tot} = \sum_i (y_i - \bar{y})^2" /></a></p>
 
-<!---
-#### [Soluzioni](/SvolgimentoEsL4.R)
---->
+<h4 id="soluzioni-svolgimentoesl5-r"><a href="/SvolgimentoEsL5.R">Soluzioni</a></h4>
 			</div>
 
 			
