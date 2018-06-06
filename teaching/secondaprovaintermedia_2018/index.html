@@ -1,0 +1,133 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.36.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Seconda Prova Intermedia  &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2018  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Seconda Prova Intermedia </h1>
+			  <span class="post-date">Tue, Jun 5, 2018</span>
+			      <p><img src="/media/clock.jpg" alt="" /></p>
+
+<p></p>
+
+<hr />
+
+<h1 id="esercizio-1">Esercizio 1</h1>
+
+<p>Si importi il <a href="https://www.dropbox.com/s/nntvi0mspzjrqgv/shares.tsv?dl=1">dataset</a> relativo ai valori delle azioni delle aziende Apple, Microsoft e IBM.</p>
+
+<ol>
+<li>Si selezionino i dati relativi al periodo che va dal 01/01/1991 sino alla propria data di nascita, inclusa. Tutte le analisi successive si intendono su questo dataset.</li>
+<li>Si analizzino i dati e si identifichino tutti gli errori nei dati. Si sostituiscano gli errori con la media tra il dato precedente ed il successivo all&rsquo;errore.</li>
+<li>Si calcolino media, varianza e deviazione standard dei valori delle azioni. Si calcolino inoltre il secondo, quinto e ottavo decile per le tre variabili.</li>
+<li>Si determini l&rsquo;intervallo di confidenza unilaterale superiore (+∞) per la media delle azioni Apple, quello inferiore per le azioni Microsoft e quello bilatero per le azioni IBM.</li>
+<li>Si usino gli istogrammi per visualizzare la <strong>densità relativa</strong> delle tre variabili. Basandosi sui grafici, cosa si può dire del valore delle azioni delle tre aziende negli anni 90?</li>
+</ol>
+
+<hr />
+
+<h1 id="esercizio-2">Esercizio 2</h1>
+
+<p>Si consideri il <a href="https://www.dropbox.com/s/vipxnjvpvyh258i/data.csv?dl=1">dataset</a> contenente alcuni dati economici e demografici di 154 nazioni (alfabetizzazione (%), prodotto interno lordo (mld $), salario medio ($) e spesa militare ($)).</p>
+
+<ol>
+<li><p>Si consideri un modello di regressione lineare che analizza l&rsquo;andamento della variabile <em>literacy</em> (alfabetizzazione) al variare del logaritmo in base 10 del predittore <em>gdp</em> (PIL). Si visualizzi la retta di regressione rispetto ai dati, i residui, la loro distribuzione e la distribuzione dei quantili rispetto alla normale. Cosa possiamo dire del modello?</p></li>
+
+<li><p>Si definisca una funzione che dati due vettori x e y, prima rimuova gli NA, poi verifichi che abbiano la stessa lunghezza ed in caso affermativo, effettui il prodotto riga per colonna dei due vettori. La funzione non deve far uso di funzioni di libreria (eccezion fatta per <code>length()</code>). Si testi la funzione con le colonne del precedente dataset.</p></li>
+</ol>
+
+<h2 id="si-produca-uno-script-funzionante-o-un-notebook-che-contiene-tutto-il-codice-per-risolvere-gli-esercizi-i-plot-devono-riportare-le-opportune-label-lungo-gli-assi">Si produca uno script funzionante (o un notebook) che contiene tutto il codice per risolvere gli esercizi. I plot devono riportare le opportune <strong>label</strong> lungo gli assi.</h2>
+
+<!-- 
+Per esami futuri.
+2. Si determini se _military_ (spesa militare) di paesi il cui il _gdp_ è maggiore di YYY è statisticamente differente da quella dei paesi con _gdp_ inferiore. 
+3. -->
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
