@@ -1,0 +1,136 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.36.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Esame Giugno 2018  &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2018  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Esame Giugno 2018 </h1>
+			  <span class="post-date">Mon, Jun 11, 2018</span>
+			      <p><img src="/media/ClockGear.jpg" alt="" /></p>
+
+<!-- http://maxpixel.freegreatpicture.com/Clock-Pointer-Time-Pocket-Watch-Nostalgia-Old-2031021 -->
+
+<p></p>
+
+<hr />
+
+<h1 id="esercizio-1">Esercizio 1</h1>
+
+<p>Si consideri il <a href="https://www.dropbox.com/s/4p42bfbcjt7jbmh/data.csv?dl=1">dataset</a> contenente alcuni dati economici e demografici di 154 nazioni: alfabetizzazione (<em>literacy</em> - %), prodotto interno lordo (<em>gpd</em> - mld $), salario medio (<em>income</em> - $) e spesa militare (<em>military</em> - $). Si importi anche il <a href="https://www.dropbox.com/s/yy6poi7q4vvo27e/conts.txt?dl=1">dataset</a> contente 242 paesi ed il continente di appartenenza.</p>
+
+<ol>
+<li>Si uniscano i due dataset in modo da averne tutte le informazioni in uno solo.</li>
+<li>Si analizzi il dataset e si rimuovano i paesi per cui non si hanno informazioni sul continente. Inoltre, si individuino eventuali errori nei dati. Si sostituiscano gli NA con <strong>la mediana della stessa variabile nello stesso continente</strong>.</li>
+<li>Si calcoli media, varianza e quartili delle variabili numeriche. Si visualizzino le righe relative ai primi e ultimi 5 paesi rispetto al valore di <em>gdp</em>.</li>
+<li>Si visualizzi la distribuzione delle variabili <em>income</em> e <em>gdp</em>. Si visualizzino inoltre i boxplot per la variabili <em>income</em> e <em>military</em> per continente.</li>
+<li>Considerando la soglia di confidenza del 95%, si verifichi se la  spesa militare (<em>military</em>) media tra i paesi dei continenti <em>AS</em> e <em>EU</em> differiscono in modo significativo. Cosa di può dire della medie della variabile <em>income</em>? Si commentino i risultati.</li>
+</ol>
+
+<hr />
+
+<p>Si produca uno script funzionante (o un notebook) che contiene tutto il codice per risolvere gli esercizi. I plot devono riportare le opportune <strong>label</strong> lungo gli assi.</p>
+
+<!-- # Esercizio 2
+
+Si consideri il [dataset](https://www.dropbox.com/s/vipxnjvpvyh258i/data.csv?dl=1) contenente alcuni dati economici e demografici di 154 nazioni (alfabetizzazione (%), prodotto interno lordo (mld $), salario medio ($) e spesa militare ($)).
+
+1. Si consideri un modello di regressione lineare che analizza l'andamento della variabile _literacy_ (alfabetizzazione) al variare del logaritmo in base 10 del predittore _gdp_ (PIL). Si visualizzi la retta di regressione rispetto ai dati, i residui, la loro distribuzione e la distribuzione dei quantili rispetto alla normale. Cosa possiamo dire del modello?
+
+2. Si definisca una funzione che dati due vettori x e y, prima rimuova gli NA, poi verifichi che abbiano la stessa lunghezza ed in caso affermativo, effettui il prodotto riga per colonna dei due vettori. La funzione non deve far uso di funzioni di libreria (eccezion fatta per `length()`). Si testi la funzione con le colonne del precedente dataset.
+
+
+------------ -->
+
+<!-- 
+Per esami futuri.
+2. Si determini se _military_ (spesa militare) di paesi il cui il _gdp_ è maggiore di YYY è statisticamente differente da quella dei paesi con _gdp_ inferiore. 
+3. -->
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
