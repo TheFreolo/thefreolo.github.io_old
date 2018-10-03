@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-  <title>Lezione2 &middot; Federico Reali</title>
+  <title>LezioneR &middot; Federico Reali</title>
   
 
   
@@ -86,17 +86,84 @@
 
 		<div class="content container">
 			<div class="post">
-			 	<h1>Lezione2</h1>
-			  <span class="post-date">Wed, May 2, 2018</span>
-			      <h1 id="primi-comandi-di-r">Primi comandi di R</h1>
+			 	<h1>LezioneR</h1>
+			  <span class="post-date">Tue, Oct 2, 2018</span>
+			      <h1 id="usare-r">Usare R</h1>
 
-<p><img src="/media/abacus.jpg" alt="" /></p>
+<p><img src="/media/Rlogo.png" alt="" /></p>
+
+<h2 id="perché-r">Perché R</h2>
+
+<blockquote>
+<p>R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
+
+<p><cite> The R Foundation <cite></p>
+</blockquote>
 
 <p></p>
 
-<h3 id="before-starting">Before Starting!</h3>
+<p>R è un versatile linguaggio di programmazione che sta particolarmente a cuore alla comunità che si occupa di statistica, per questo esistono molte pagine volte ad insegnarne l&rsquo;uso, così come molti blog e forum dove gli utenti possono cercare risposte alle loro domande realtive all&rsquo;uso.</p>
 
-<p><a href="https://thefreolo.github.io/teaching/lezione1_2018/">Abbiamo già visto</a> come spostare la <em>working directory</em> in R Studio. Usando i comandi <code>getwd()</code> e <code>setwd()</code> ricordiamoci di selezionare la cartella relativa a questo corso.</p>
+<p>R è un software libero disponibile per le maggiori piattaforme, inclusi Windows, Mac e diverse distribuzioni di Linux.</p>
+
+<h2 id="usare-r-1">Usare R</h2>
+
+<p>Una volta istallato R, è già possibile usarne tutte le funzionalità. Infatti andando in <strong>Applicazioni</strong> si può già trovare R tra esse. Pigiando la relativa icona si avvia la <strong>R console</strong>, una interfaccia molto semplice che però permette di usufruire di <strong>tutte</strong> le potenzialità del software.</p>
+
+<p><img src="/media/R_open.png" alt="Example image" /></p>
+
+<p>Ad esempio digitando</p>
+
+<pre><code class="language-r">2+2
+</code></pre>
+
+<p>oppure</p>
+
+<pre><code class="language-r">3*5
+</code></pre>
+
+<p>è possibile utilizzare la console come calcolatrice. Ovviamente questo tipo di uso sfrutta solo una minima parte delle potenzialità del software.</p>
+
+<p>Sebbene tutto quello che faremo sarà possibile farlo anche direttamente da console, noi useremo un software che si interfaccia ad R, ma che presenta un&rsquo;interfaccia grafica più completa. Tale programma è <a href="https://www.rstudio.com/products/rstudio/">R Studio</a>.</p>
+
+<h2 id="usare-r-studio">Usare R Studio</h2>
+
+<p>Una volta installato R Studio, avviamolo e (se l&rsquo;istallazione è andata a buon fine) dovrebbe apparire la schermata iniziale:</p>
+
+<p><img src="/media/Rstudio_blank.png" alt="RStudio - Versions" /></p>
+
+<p>L&rsquo;interfaccia grafica si presenta con 3 principali finestre che riportano la console di R (la stessa che abbiamo visto prima singolarmente), la finestra <strong>Enviroment</strong> e <strong>History</strong> e quella contenente <strong>Files</strong>, <strong>Plots</strong>, <strong>Packages</strong>, <strong>Help</strong> e <strong>Viewer</strong>.</p>
+
+<p>Per prima cosa controlliamo che tutti i pacchetti contenuti nell&rsquo;installazione siano aggiornati. Selezionando da Tools:</p>
+
+<p><img src="/media/Rstudio_tool.png" alt="RStudio - Versions" /></p>
+
+<p>Se risultano pacchetti da aggiornare, selezionateli tutti e aggiornateli. In caso non vi siano, R Studio vi dovrebbe avvisare.</p>
+
+<h3 id="cartelle">Cartelle</h3>
+
+<p>E&rsquo; possibile usare degli appositi comandi per capire in quale cartella sta lavorando R. Questo è essenziale se si vuole salvare dei file o leggerne il contenuto.</p>
+
+<pre><code class="language-r">getwd()
+</code></pre>
+
+<p>Questo comando <em>get working directory</em> restituisce il path della cartella corrente. R può facilmente leggere o salvare file in questa cartella.</p>
+
+<p>E&rsquo; possibile impostare una cartella diversa. Ad esempio possiamo creare una cartella relativa al corso di <strong>Calcolo delle probabilità e statistica matematica (CPeSM)</strong> e possiamo creare lì dentro una cartella chiamata R, dove possiamo salvare i nostri file.</p>
+
+<pre><code class="language-r">setwd('IL-Vostro-path/BioStat2/R/Lezione1')
+</code></pre>
+
+<p>Una volta capito dove siamo e dove dovremmo essere, possiamo iniziare ad usare una delle funzionalità per cui abbiamo scelto R Studio: la possibilità di creare degli script nella stessa interfaccia grafica e di lanciare comandi dagli stessi.</p>
+
+<p>Selezioniamo <strong>File|New File|R Script</strong> apriamo in R Studio una nuova finestra che permette di editare (scrivere) uno script.</p>
+
+<p><img src="/media/Rstudio_NewScript.png" alt="RStudio - Versions" /></p>
+
+<p><img src="/media/Rstudio_4tab.png" alt="RStudio - Versions" /></p>
+
+<p>Ora non rimane che spendere un po&rsquo; di tempo a familiarizzare con l&rsquo;interfaccia e con R!</p>
 
 <h2 id="operazioni-aritmetiche">Operazioni Aritmetiche</h2>
 
@@ -382,41 +449,17 @@ return(y + a*b + c)
 
 <p>Si possono salvare funzioni e script (usando l&rsquo;estensione .R), che possono essere poi eseguiti attraverso il comando <code>source(“nome_della_funzione.R”)</code>. Per richiamare tali funzioni è essenziale che siano nella cartella di lavoro, altrimenti va indicato il path per raggiungere il file.</p>
 
-<h2 id="esercizi">Esercizi</h2>
-
-<h3 id="esercizio-1">Esercizio 1</h3>
-
-<p>Si trovino 2 modi differenti per calcolare la somma dai cavalli vapore (hp) di quelle auto contenute in mtcars che hanno più di 100 cavalli (hp).
-<em>Suggerimento:</em> In un caso si definisca una funzione apposita (senza usare funzioni di libreria) e nell&rsquo;altro si usino i comandi visti, così da ottenere il risultato con una sola riga di comandi.</p>
-
-<h2 id="esercizio-2">Esercizio 2</h2>
-
-<p>Si definisca una funzione chiamata my_max che senza usare funzioni di libreria restituisce il massimo di un vettore.</p>
-
-<h2 id="esercizio-3">Esercizio 3</h2>
-
-<p>Si definisca una funzione chiamata funzione my_mean che senza usare funzioni di libreria restituisce la media di un vettore.</p>
-
-<h2 id="esercizio-4">Esercizio 4</h2>
-
-<p>Si definisca una funzione chiamata my_cov che verifica se una matrice può essere la matrice di covarianza di due variabili aleatorie.</p>
-
-<!-- 
-## Esercizio 5
-Si definisca una funzione chiamata my_monte che al variare del numero di punti N, approssimi l'integrale delle funzioni, usando un metodo Monte Carlo:
-
-<a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;x^2,&space;x&space;\in&space;(-1,1)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)&space;=&space;x^2,&space;x&space;\in&space;(-1,1)" title="f(x) = x^2, x \in (-1,1)" /></a>
-
-<a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;e^{-x^2},&space;x&space;\in&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)&space;=&space;e^{-x^2},&space;x&space;\in&space;\mathbb{R}" title="f(x) = e^{-x^2}, x \in \mathbb{R}" /></a>
-
----->
-
 <h1 id="link-utili">Link utili</h1>
 
 <ul>
+<li>A questo <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">link</a> è possibile reperire delle utili dispense sull&rsquo;uso di R.</li>
+<li>A questo <a href="https://cran.r-project.org/doc/contrib/Frascati-FormularioStatisticaR.pdf">link</a> è possibile reperire un utile formulario che descrive moltissimi comandi di R.</li>
+<li>A questo <a href="http://tryr.codeschool.com/">link</a> è possibile seguire un veloce tutorial che introduce molti dei comandi di base di R (in inglese).</li>
 <li>A questo <a href="http://tryr.codeschool.com/">link</a> è possibile seguire un veloce tutorial che introduce molti dei comandi di base di R (in inglese).</li>
 <li>Esistono molti corsi online gratuiti o a pagamento che insegnano le basi di R. Tra i tanti segnalo quello di <a href="https://www.datacamp.com/courses/free-introduction-to-r">Data Camp</a> che è gratuito (in inglese). Come questo ne esistono innumerevoli, sia in inglese che in italiano.</li>
 </ul>
+
+<p> &copy; 2017-2018  Federico Reali</p>
 			</div>
 
 			
