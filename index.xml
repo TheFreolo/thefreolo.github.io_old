@@ -6,10 +6,32 @@
     <description>Recent content on Federico Reali</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Feb 2019 05:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 10:49:04 +0200</lastBuildDate>
     
 	<atom:link href="https://thefreolo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lezione1</title>
+      <link>https://thefreolo.github.io/teaching/lezione1_2019/</link>
+      <pubDate>Mon, 15 Apr 2019 10:49:04 +0200</pubDate>
+      
+      <guid>https://thefreolo.github.io/teaching/lezione1_2019/</guid>
+      <description>&lt;h1 id=&#34;primi-passi-con-r&#34;&gt;Primi passi con R&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;perché-r&#34;&gt;Perché R&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;/p&gt;
+
+&lt;p&gt;&lt;cite&gt; The R Foundation &lt;cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Esame Febbraio 2019 </title>
