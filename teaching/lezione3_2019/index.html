@@ -1,0 +1,245 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.36.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Lezione3 &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2019  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Lezione3</h1>
+			  <span class="post-date">Tue, May 7, 2019</span>
+			      <h1 id="lavorare-con-i-dati">Lavorare con i dati</h1>
+
+<p><img src="/media/Data_matrix.jpg" alt="" /></p>
+
+<p></p>
+
+<h3 id="before-starting">Before Starting!</h3>
+
+<p><a href="https://thefreolo.github.io/teaching/lezione1_2019/">Abbiamo già visto</a> come spostare la <em>working directory</em> in R Studio. Usando i comandi <code>getwd()</code> e <code>setwd()</code> ricordiamoci di selezionare la cartella relativa a questo corso. Per la lezione di oggi vediamo di organizzare la cartella del corso nel seguente modo.
+La cartella, chiamata <em>R</em>, deve contenere a sua volta due cartelle: <em>data</em> e <em>source</em>. Nella prima salveremo i dataset che ci interessano, nella seconda lo script R della lezione.</p>
+
+<h2 id="pacchetti">Pacchetti</h2>
+
+<p>R, come molti altri linguaggi di programmazione, ha un core di funzioni già scritte che sono disponibili all&rsquo;utente, come quelle che abbiamo visto nelle lezioni precedenti. Tuttavia, con il passare del tempo, sono state sviluppate sempre più funzioni che risolvono nuovi problemi e aumentano le potenzialità di R. Tuttavia non è possibile, ne desiderabile, aggiungere tutte queste funzioni al pacchetto base di R: questo lo renderebbe più lento, occuperebbe più memoria e sarebbe pieno di funzioni che l&rsquo;utente medio non userebbe!</p>
+
+<p>Questa filosofia è applicata a molti altri linguaggi di programmazione che propongono un set fondamentale di funzioni accessibile a tutti (<em>base</em>), e la possibilità di istallare o caricare delle estensioni per svolgere ulteriori compiti particolari.</p>
+
+<p>In R queste estensioni sono i <em>pacchetti</em> (package). Si può accedere alla lista dei pacchetti installati usando il comando <code>library()</code>, senza indicare argomento. Se si indica come argomento il nome di un pacchetto, R caricherà il pacchetto ed il suo contenuto sarà disponibile per l&rsquo;utente.</p>
+
+<p>Ad esempio, possiamo caricare il pacchetto <em>MASS</em>, che ci sarà utile in seguito, con il comando <code>library(MASS)</code>.</p>
+
+<p>Non tutti i pacchetti sono già installati in R, ad esempio il pacchetto <em>hflights</em> non lo è.</p>
+
+<pre><code class="language-r">library(hflights)
+# Il comando da errore in quanto il pacchetto non è installato.
+# lo installiamo  usando il comando
+install.packages('hflights')
+library(hflights)
+# ora il pacchetto viene caricato senza errori!
+</code></pre>
+
+<p>Alcuni pacchetti potrebbero dipendere da altri pacchetti non installati per funzionare. Per indicare a R di installare anche le dipendenze, basta inserire nel comando, dopo il nome del pacchetto l&rsquo;istruzione <code>install.packages( nome_pacchetto , dependencies = TRUE)</code>.</p>
+
+<p>Il comando <code>search()</code> elenca i pacchetti caricati nella sessione.</p>
+
+<p>I pacchetti possono essere prodotti da qualsiasi utente e solitamente sono reperibili usando il comando indicato sopra. Di default R Studio si appoggia al sito <a href="https://cran.r-project.org/">cran</a> per reperire i pacchetti.</p>
+
+<p>Qualora il pacchetto desiderato non fosse presente, è possibile indicare un diverso server. Ad esempio, il comando seguente permette di installare un pacchetto presente nei server di Bioconductor.</p>
+
+<pre><code class="language-r">source(&quot;https://bioconductor.org/biocLite.R&quot;)
+biocLite(&quot;RnaSeqTutorial&quot;)
+</code></pre>
+
+<p>Analogamente, R Studio permette di installare i pacchetti manualmente, dal menù <strong>Tools | Install Packages&hellip; | Install from: | Package Archive File</strong>.</p>
+
+<p>L&rsquo;uso del nome del pacchetto seguito da <code>::</code>, permette di accedere le funzioni e i dataset contenuti nel pacchetto. Questo è molto utile nel caso di omonimia tra funzioni. Specificando il pacchetto si può essere sicuri di usare la funzione desiderata.</p>
+
+<h2 id="manipolare-dati">Manipolare dati</h2>
+
+<p>R fornisce alcuni dataset già disponibili all&rsquo;uso, mentre altri se ne possono aggiungere usando specifici pacchetti.</p>
+
+<p>Ad esempio, nella lezione precedente abbiamo lavorato con il dataset <em>mtcars</em> che è già disponibile. Usando i comandi precedenti abbiamo in realtà richiamato il pacchetto MASS che contiene diversi dataset e installato <em>hflights</em> che contiene un altro dataset che ci tornerà utile.</p>
+
+<h3 id="leggere-e-scrivere-file">Leggere e scrivere file</h3>
+
+<p>Quando si parla di dati o dataset, è possibile acquisirne in diversi modi, non solo attraverso i pacchetti. Uno dei modi più semplici e intuitivi è la lettura da file. Esistono molti formati di che possono contenere dati. I più semplici e diffusi sono i file <em>.csv</em> (comma sepatated values) o i  <em>.tsv</em> (tab separated values).</p>
+
+<p>Uno dei comandi più usati per leggere file è il comando <code>read.table()</code>. Questo permette di leggere un file e di salvarlo come data frame. Facciamo un esempio pratico.</p>
+
+<p>Consideriamo il dataset <a href="http://extras.springer.com/2012/978-1-4614-1301-1">body temperature</a> che contiene i dati relativi alla temperatura corporea di alcuni pazienti. Salviamo il dataset nella cartella <em>data</em> e leggiamolo usando la funzione <code>read.table()</code>.</p>
+
+<pre><code class="language-r">BodyTemperature &lt;- read.table(file = &quot;../data/BodyTemperature.txt&quot;, header = TRUE, sep = &quot; &quot;)
+</code></pre>
+
+<p>La funzione read.csv accetta anche <em>url</em> come argomento. In questo modo R scaricherà da solo il dataset e lo salverà nella variabile indicata.</p>
+
+<pre><code class="language-r">(BodyTemperature &lt;- read.csv(url('http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt'), sep=&quot; &quot;))
+</code></pre>
+
+<p>Gli argomenti del comando, oltre a specificare il percorso in cui si trova il file da leggere, indicano che sono presenti degli <em>header</em>, cioè intestazioni che riportano il nome delle variabili, e che il separatore usato nel file per indicare i diversi elementi delle righe è lo spazio. Lo spazio è il separatore di default di <code>read.table()</code> ma è possibile indicarne di diversi. Se il file fosse stato un csv (<em>comma separated values</em>) avremmo indicato <code>sep=&quot;,&quot;</code>. Allo stesso modo avremmo potuto usare la funzione <code>read.csv()</code> che considera la virgola come separatore di default. Se i valori fossero stati separati da punto e virgola avremmo potuto usare <code>read.csv2()</code> e <code>read.delim()</code> se separate da tab (\t).</p>
+
+<p>In modo del tutto simile, la funzione <code>write.table()</code> permette di scrivere un data frame (o una variabile) in un file. Ad esempio, il comando seguente scrive il dataset scaricato da internet nella cartella data come file csv.</p>
+
+<pre><code class="language-r">write.csv(BodyTemperature, &quot;./data/BodyTemperature.txt&quot;)
+</code></pre>
+
+<h3 id="esplorare-i-file">Esplorare i file</h3>
+
+<p>Una volta letto o caricato il dataset che ci interessa è ora di iniziare ad analizzare i <a href="http://phdcomics.com/comics.php?f=1816">dati</a> che contiene. Spesso i dataset sono accompagnati da delle descrizioni che ne spiegano il contenuto ed è buona regola leggerle.</p>
+
+<p>Possiamo visualizzare la testa del dataset o la coda, usando i comandi <code>head()</code> e <code>tail()</code> o anche visualizzare l&rsquo;intero dataset in una finestra di R Studio usando il comando <code>View()</code>. Possiamo conoscerne le dimensioni con la funzione <code>dim()</code> e possiamo conoscere i nomi delle colonne con la funzione <code>names()</code>.
+<code>str()</code> restituisce invece informazioni sulla struttura del dataset. In R Studio, l&rsquo;equivalente di questo comando è accessibile nella finesta <strong>Environment</strong>. L&rsquo;uso di queste funzioni è sempre utile per iniziare a capire i dati con cui si ha a che fare.</p>
+
+<p>Una funzione utilissima è <code>summary()</code>. Questa restituisce diverse informazioni per le <em>variabili numeriche</em>: minimo, massimo, media e i quartili. Va specificato <em>numeriche</em> in quanto un data frame potrebbe anche contenere delle variabili non numeriche. Nel caso di BodyTemperature ad esempio, la prima colonna è la variabile categorica del sesso del paziente.</p>
+
+<p>Altre funzione utili sono le funzioni come <code>mean()</code> e <code>sd()</code> che ci restituiscono media e standard deviation dell&rsquo;argomento passato.
+Le funzioni <code>IQR()</code> e <code>range()</code>  restituiscono la distanza interquartile ed il range.</p>
+
+<p>Un utile comando per applicare funzioni pensate per elementi scalari agli elementi di un array o una matrice è la funzione <code>apply()</code>. Tale funzione è utile anche per applicare funzioni lungo una sola dimensione. Le varianti <code>lapply()</code> e <code>tapply()</code> funzionano in modo simile. Un altro comando per la manipolazione di dati è <code>round()</code> che arrotonda un valore o un vettore all&rsquo;intero più vicino, o indicando il numero di cifre decimali, arrotonda fino alle cifre decimali indicati.</p>
+
+<p>Altre funzioni utili sono <code>sort()</code>, che ordina gli elementi di un vettore, <code>unique()</code> che rimuove le entrate ripetute da array o data frame. Le funzioni come  <code>any()</code> e <code>which()</code> verificano se una condizione è soddisfatta. La prima restituisce <code>TRUE</code> se almeno un elemento che verifica la condizione, mentre <code>which()</code> che riporta l&rsquo;indice degli elementi che la soddisfano.</p>
+
+<p>Vediamo alcuni esempi con il dataset <code>BodyTemperature</code>.</p>
+
+<h3 id="factors">Factors</h3>
+
+<p>A volte alcune variabili categoriche sono salvate come variabili numeriche. Esploriamo ad esempio il dataset <em>birthwt</em> (birth weight) contenuto nel pacchetto MASS. Possiamo notare che alcune variabili, sebbene siano numeriche, rappresentano delle categorie: ad esempio fumatori o no, o ipertesi o no. Tuttavia, se usiamo il comando <code>summary()</code>, vediamo che vengono trattate come variabili numeriche. Il comando <code>as.factor()</code> permette di convertire variabili numeriche in variabili categoriche.</p>
+
+<pre><code class="language-r">birthwt1 &lt;- birthwt
+birthwt1$race &lt;- as.factor(birthwt1$race)
+</code></pre>
+
+<p>Dalla descrizione delle variabili fornita da R Studio nella finestra <strong>Environment</strong>, possiamo vedere che dopo l&rsquo;assegnazione, race è indicato come factor, non più integer.</p>
+
+<p>La funzione <code>table()</code> costruisce una contingency table tra le combinazioni di factors mentre <code>levels()</code> restituisce gli attributi di livello di una variabile. Usando <code>levels()</code> è anche possibile assegnare o variare gli attributi di livello.</p>
+
+<h2 id="missing-data">Missing data</h2>
+
+<p>Spesso i dati forniti contengono valori non affidabili, oppure ci sono errori in qualche riga o ancora mancano dei valori. Questo è un grande problema, sia perché, se non riconosciuti in anticipo, questi valori possono influenzare i nostri risultati, sia perché non esistono protocolli standard per affrontare questi casi.</p>
+
+<p>Alcuni elementi posso non essere stati inseriti ed essi solitamente vengono segnalati con NA (not available). R ha una funzione dedicata per trovare questi elementi: <code>is.na()</code>. Tale funzione restituisce valori booleani per indicare se il contenuto è NA o no. Analogamente, <code>na.omit()</code> restituisce l&rsquo;argomento privato delle righe contenenti NA.</p>
+
+<p>In modo del tutto analogo funziona il comando <code>is.nan()</code> che però verifica se il contenuto è NaN (not a number). Esistono anche i controlli <code>is.infinite()</code> e <code>is.finite()</code> che verificano se ci sono valori <code>Inf/-Inf</code>.</p>
+
+<h1 id="visualizzare-i-dati-l3visual-nb-html"><a href="/L3visual.nb.html">Visualizzare i dati</a></h1>
+
+<p><a href="/L3visual.Rmd">R notebook</a></p>
+
+<h1 id="esercizi">Esercizi</h1>
+
+<h2 id="esercizio-1">Esercizio 1</h2>
+
+<p>Si scarichi il dataset <a href="http://extras.springer.com/2012/978-1-4614-1301-1">AstmaLOS.txt</a> (<a href="https://www.dropbox.com/s/kjhafwojufpwaga/AsthmaLOS_description.txt?dl=0">descrizione</a>).  Dopo averlo analizzato ed aver individuato eventuali errori nei dati relativi ad age e owner.type, si analizzi e visualizzi la variabile age. Si provino almeno due tecniche di rimozione degli errori dai dati e si confrontino i risultati.</p>
+
+<h2 id="esercizio-2">Esercizio 2</h2>
+
+<p>Si analizzi il dataset <em>hflights</em> e si scelga una destinazione. Si analizzino e visualizzino i dati relativi a lunghezza del volo e ritardi per tale destinazione. Inoltre si determini:</p>
+
+<ul>
+<li>il giorno in cui è possibile volare con minore probabilità di subire ritardo.</li>
+<li>il giorno in cui è possibile volare con maggiore probabilità di subire la cancellazione del volo.</li>
+</ul>
+
+<h2 id="a-name-l3ex3-a-esercizio-3"><a name="L3Ex3"></a>Esercizio 3</h2>
+
+<p>Si importi il <a href="https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv">dataset</a> contenente i dati relativi alla aspettativa di vita, popolazione e prodotto interno lordo pro capite di 142 paesi del mondo.
+Si aggreghino i dati per continenti e si visualizzi l&rsquo;andamento dell&rsquo;aspettativa di vita rispetto alle variabili tempo, reddito pro capite e popolazione.
+Si investighi una possibile trasformazione dei dati per rendere più informativa l&rsquo;analisi e si ripetano le analisi sui dati trasformati.</p>
+
+<!-- #### [Soluzioni](/SvolgimentoEsL3.R) --->
+
+<h1 id="link-utili">Link utili</h1>
+
+<ul>
+<li><p>Questo sito presenta diversi <a href="http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html">datasets</a> che possono essere interessanti da esaminare.</p></li>
+
+<li><p>A questo link è possibile trovare gli appunti di un ottimo corso di <a href="http://vissoc.co">data visualization</a> (in inglese).</p></li>
+</ul>
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
