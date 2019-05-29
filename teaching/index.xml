@@ -6,10 +6,24 @@
     <description>Recent content in Teachings on Federico Reali</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 May 2019 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2019 12:30:00 +0100</lastBuildDate>
     
 	<atom:link href="https://thefreolo.github.io/teaching/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lezione6</title>
+      <link>https://thefreolo.github.io/teaching/lezione6_2019/</link>
+      <pubDate>Tue, 28 May 2019 12:30:00 +0100</pubDate>
+      
+      <guid>https://thefreolo.github.io/teaching/lezione6_2019/</guid>
+      <description>&lt;h1 id=&#34;fare-pratica-con-i-dati-e-regressione&#34;&gt;Fare pratica con i dati e regressione&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/spurCorr.png&#34; alt=&#34;&#34; /&gt;
+Originally posted &lt;a href=&#34;http://www.tylervigen.com/spurious-correlations&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Lezione5</title>
