@@ -1,0 +1,91 @@
+---
+title: " Regressione lineare"
+author: "Federico Reali"
+date: 29/05/2019
+output: 
+  html_notebook:
+    toc: yes
+    toc_depth: 2
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+    number_sections: false
+    theme: yeti
+    highlight: tango
+---
+
+Si consideri il problema, piuttosto comune, di voler esprimere  una variabile, ad esempio $y$, in funzione di altre variabili, ad esempio $x_1, \dots , x_n$, più delle perturbazioni aleatorie.
+
+# Regressione lineare
+
+Prendiamo in considerazione il caso in cui tale funzione sia lineare. Parleremo di *regressione lineare*. Ciò significa che assumiamo che la variabile $y$, detta *dipendente*, si possa esprimere come 
+$$
+y = \beta_0 + \beta_1 \cdot x + \omega
+$$
+dove $\beta_0, \beta_1$ sono parametri da determinare e  $\omega$ è una perturbazione stocastica con distribuzione normale di media 0 e varianza $\sigma^2$. I parametri $\beta_0, \beta_1$ vengono solitamente determinati in base a diversi valori di $x$ e $y$.
+
+Se abbiamo più osservazioni per la variabile $y$, ottenute rispetto a diversi valori di $x$, indicheremo con $y_i$ e $x_i$ tali valori.
+
+Se l'assunzione che la dipendenza sia lineare è plausibile, ci aspettiamo che per le varie osservazioni valga:
+$$
+y_i = \beta_0 + \beta_1 x_i + \omega_i, \quad i= 1, \dots , n
+$$
+con $\omega_i$ indipendenti e tutti con distribuzione $N(0,\sigma^2)$, con $\sigma^2$ che non dipende da $i$.
+
+# Stimare $\beta_0$ e $\beta_1$
+
+Il problema di stimare $\beta_0, \beta_1$ viene risolto andando a trovare quei valori per i parametri che minimizzano la distanza tra i dati osservati ($y_i$) e i valori prodotti dal modello:
+$$
+\hat{y_i} = \beta_0 + \beta_1 x_i
+$$
+La formulazione diviene quindi: 
+$$
+\min_{\beta_0, \beta_1 } S = S(\beta_0, \beta_1 ) = \sum_{i=1}^n \left( y_i - \beta_0 + \beta_1 x_i \right)^2
+$$
+
+Questo problema di minimizzazione quadratica ammette soluzione (unica) e si può ottenere andando ad imporre che il gradiente si annulli. Questo porta alla soluzione $(b_0, b_1)$ tale che:
+$$
+b_0  = \bar{y} - b_1 \bar{x}
+$$
+
+
+$$
+b_1 = \frac{\sum_i (y_i - \bar{y}) x_i}{\sum_i x_i (x_i - \bar{x})} = \frac{\bar{\sigma}
+_{x y }} {\bar{\sigma_{x}^2}}
+$$
+con
+$$
+ \bar{x} = \frac{1}{n} \sum_i x_i \, \text{ e } \bar{y} = \frac{1}{n} \sum_i y_i
+$$
+I valori di $b_0$ e $b_1$ così ottenuti sono _stimatori_ per i parametri $\beta_0$ e $\beta_1$. In particolare è possibile dimostrare che sono degli stimatori **non distorti**.
+
+Inoltre c'è tutta una serie di risultati (che non dimostreremo) che permettono di provare, usando anche le ipotesi sugli $\omega_i$, che:
+$$
+b_0 \sim N\left( \beta_0, \sigma^2 (\frac{1}{n} + \frac{\bar{x}^2}{\bar{\sigma}_x^2}) \right), \, b_1 \sim N\left( \beta_1, \frac{\sigma^2}{\bar{\sigma}_x^2}) \right)
+$$
+Ovviamente è possibile associare degli intervalli di confidenza ai valori ottenuti, così come eseguire altri test statistici, ma noi non tratteremo questa parte.
+
+Se indichiamo con $r_i = y_i - \hat{y_i}$, i così detti **residui**, possiamo definire:
+$$
+s^2 = \frac{1}{n-2} \sum_i r_i^2 
+$$
+che è uno stimatore non distorto di $\sigma^2$, la varianza (sconosciuta) delle perturbazioni aleatorie. Inoltre vale che:
+$$
+\frac{s^2}{\sigma^2}(n-2) \sim \chi^2(n-2)
+$$
+dove $\chi^2$ indica la distribuzione [Chi quadrato](https://it.wikipedia.org/wiki/Distribuzione_chi_quadrato).
+Usando R con il comando `lm()` è possibile non solo definire un modello di regressione lineare, ma anche accedere a molte di queste informazioni.
+
+# Valutare il modello: $R^2$
+
+Un utile valore per valutare la correttezza del modello, è il valore di $R^2$, definito come:
+$$
+R^2 = \frac{\sum_i (\hat{y_i} - \bar{y} )^2}{\sum_i (y_i - \bar{y})^2} = 1 -\frac{\sum_i (y_i - \hat{y_i})^2}{\sum_i (y_i - \bar{y})^2} 
+$$
+
+Questo valore, che assume valori tra 0 e 1, quantifica la proporzione di varianza dei dati che è spiegata dal modello. Più tale valore si avvicina a 1, migliore è il modello. Se invece tale valore è piccolo, o il modello è inadeguato (relazione non lineare o ipotesi non soddisfatte), o $\sigma^2$ potrebbe avere un valore elevato.
+
+-------------------
+
+# Referenze bibliografiche
+Il contenuto di questo capitolo si basa sull'omonimo capitolo del libro [ Calcolo delle probabilità e statistica](http://www.catalogo.mcgraw-hill.it/catLibro.asp?item_id=2557) di Paolo Baldi.
