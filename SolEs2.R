@@ -16,6 +16,9 @@ library("openxlsx")
 dfPPP <- read.xlsx("./data/indicatorGNIpercapitaPPP.xlsx")
 dfroad <- read.xlsx("./data/roads paved.xlsx")
 
+dfPPP <- read.xlsx("../../Lezione 5/data/indicatorGNIpercapitaPPP.xlsx")
+dfroad <- read.xlsx("../../Lezione 5/data/roads paved.xlsx")
+
 # Seleziono SOLO le colonne relative agli anni che mi interessano per le analsi
 # e ovviamente la prima colonna con i nomi
 
@@ -53,10 +56,24 @@ View(dfPPP2)
 summary(dfroad2)
 summary(dfPPP2)
 
-# Studiamo il summary per paese
+# Studiamo il summary per paese (si puo' fare in piu' modi)
 
-summary(t(dfroad2) )
-summary(t(dfPPP2) )
+dfroad3 <- t(dfroad2)[-1,]
+dfroad3 <- as.data.frame(dfroad3)
+names(dfroad3) <- t(dfroad2)[1,]
+summary(dfroad3)
+
+
+summary(t(dfPPP2)[-1,] )
+dfPPP3 <- t(dfPPP2)[-1,]
+dfPPP3 <- as.data.frame(dfPPP3)
+names(dfPPP3) <- t(dfPPP2)[1,]
+
+dfPPP3$Morocco <- as.numeric(as.character(dfPPP3$Morocco))
+dfPPP3$Ukraine <- as.numeric(as.character(dfPPP3$Ukraine))
+dfPPP3$`United Kingdom` <- as.numeric(as.character(dfPPP3$`United Kingdom`))
+summary(dfPPP3)
+# Fine parte opzionale
 
 # Visualizzo i dati
 par(mfrow = c(3,2))
@@ -66,7 +83,7 @@ for (i in 1:3){
 }
 
 
-# COdice per avere i nomi dei paesi nei boxplot, invece che il numero di riga originale
+# Codice per avere i nomi dei paesi nei boxplot, invece che il numero di riga originale
 row.names(dfroad2) <- dfroad2[,1]
 row.names(dfPPP2) <- dfPPP2[,1]
 
@@ -102,5 +119,5 @@ hist(reg1$residuals)
 # anche se osservando i residui, risulta piu' adeguato rispetto alle prime osservazioni del dataset (GPD piu' basso).
 # I residui non presentano pattern evidenti, mentre la distribuzione in quantili si allontanta da quella di riferimento per i valori piu' grandi.
 
-## 25/05/2018
+## 29/05/2019
 ## Federico Reali
