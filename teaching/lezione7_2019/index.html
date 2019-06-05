@@ -1,0 +1,182 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.36.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Lezione7 &middot; Federico Reali</title>
+  
+
+  
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Federico Reali" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+  <script src=" HTTPS://use.fontawesome.com/6e7963dec2.js"></script>
+    <div class="sidebar-about">
+      <a href="https://thefreolo.github.io/"><h1>Federico Reali</h1></a>
+      <p class="lead">
+       Where I briefly write about my work, my interests and... the teaching! 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+
+      <div> 
+    
+        <li><a href="/teaching/teaching/">Teaching</a></li>
+
+        <li><a href="/publications/">Publications</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+       </div>
+
+
+    <div> 
+    
+      <li>
+        <a href="HTTPS://twitter.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-twitter fa-lg"></i>
+          <span class="network-name">twitter</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://github.com/TheFreolo" class="btn btn-default btn-lg">
+          <i class="fa fa-github fa-lg"></i>
+          <span class="network-name">github</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="HTTPS://www.linkedin.com/in/federico-reali-9379b4116/" class="btn btn-default btn-lg">
+          <i class="fa fa-linkedin fa-lg"></i>
+          <span class="network-name">linkedin</span>
+        </a>
+      </li>
+    
+    </div> 
+
+    <p>&copy; 2019  Federico Reali </p>
+
+
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Lezione7</h1>
+			  <span class="post-date">Tue, Jun 4, 2019</span>
+			      <h1 id="statistica-e-applicazioni">Statistica e applicazioni</h1>
+
+<p><img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Illumination-Artificial-Trees-Buildings-Colorful-945387.jpg" alt="" /></p>
+
+<p></p>
+
+<h1 id="ipotesi-statistiche-test-nb-html"><a href="/Test.nb.html">Ipotesi statistiche</a></h1>
+
+<p>Le note riportano una breve introduzione sui test statistici con R.</p>
+
+<h1 id="esercizio-1">Esercizio 1</h1>
+
+<p>Si importino i dataset relativi ai valori delle azioni delle aziende <a href="https://www.dropbox.com/s/66pfg69pozo8zue/AAPL.csv?dl=1">Apple</a>, <a href="https://www.dropbox.com/s/7cihygcyet2hf2x/MSFT.csv?dl=1">Microsoft</a> e <a href="https://www.dropbox.com/s/70wwc05x2e9rixv/IBM.csv?dl=1">IBM</a>.</p>
+
+<ul>
+<li>Si verifichi la correttezza del contenuto e si analizzino i dati. Si uniscano in un unico dataset.</li>
+<li>Si visualizzi l&rsquo;andamento dei valori delle tre azioni al variare del tempo.
+Si analizzino inoltre gli indici di dispersione IQR, Range e deviazione standard.</li>
+<li>Per ognuna delle tre azioni, si calcolino gli intervalli di confidenza bilateri al livello 95% per la media dei prezzi assunti negli anni dal 2013 al 2015 usando il comando <code>t.test</code>.</li>
+<li>Si consideri un modello di regressione lineare per analizzare l&rsquo;andamento dei prezzi delle azioni di Microsoft rispetto a quello delle azioni di IBM per il periodo dal Dicembre 1990 (incluso) al Giugno 2007 (incluso). Si visualizzi la retta di regressione rispetto ai dati e si calcoli il coefficiente di <a href="../lezione6_2019">correlazione</a>.  Che conclusioni si possono trarre?</li>
+</ul>
+
+<p>Si produca uno script <strong>funzionante</strong> (o un notebook) che contiene tutto il codice per risolvere l&rsquo;esercizio.</p>
+
+<!-- ### [Soluzione](/SolLez7.R) -->
+
+<!-- # Esercizio 2
+
+Si definisca una funzione che dati: 
+
+- dei valori del predittore (anche diversi da quelli usati per definire il modello);
+- i corrispondenti valori della variabile dipendente;
+- i coefficienti di regressione;
+
+restituisca il valore di R quadro. -->
+
+<!-- # Esercizio 2
+
+Si consideri il dataset *Pima.tr2* contenuto nel pacchetto *MASS*.
+
+- Si verifichi la correttezza dei dati e si visualizzino i box plot di *bmi* e *glu* al variare di *type*.
+
+- Vogliamo usare le informazioni relative a *bmi* e *glu* per *predirre* i valori mancanti di *skin*.
+- - Dividiamo i dati in due dataset: Pima_skin e Pima_NoSkin a seconda che il valore *skin* sia definito o no.
+- - Dividiamo il dataset Pima_slin
+
+
+Si definisca una funzione che dati: 
+
+- dei valori della variabile predittrice (anche diversi da quelli usati per definire il modello);
+- i corrispondenti  valori della variabile dipendente;
+- i coefficienti di regressione;
+
+restituisca il valore di R quadro.
+
+Si usi tale funzione per valutare il  -->
+
+<!-- # <a name="Corr"></a> Link utili 
+- Una sintetica descrizione della [correlazione](https://it.wikipedia.org/wiki/Correlazione_(statistica)) ed una simpatica pagina web che fa intuire i limiti di questo approccio [limiti](http://www.tylervigen.com/spurious-correlations).
+ -->
+
+<!---
+
+# Una breve riflessione
+
+Questo paragrafo, vuole solo raccontare con semplicità alcune delle applicazioni della statistica (descrittiva) nelle moderne scienze e nella tecnologia.
+
+La statistica è uno strumento fondamentale che accompagna scoperte in [moltissimi campi](https://en.wikipedia.org/wiki/List_of_fields_of_application_of_statistics) delle scienze naturali e fisiche, così come le scienze biologiche o sociologiche. Allo stesso modo, accompagna moltissimi risultati in economia o nelle scienze attuariali.
+
+Molti dei risultati, che vengono pubblicati anche su importantissime riviste scientifiche, come [Nature](https://www.nature.com/) o [Science](http://www.sciencemag.org/), sono spesso supportati da strumenti di statistica come quelli che abbiamo visto in questo corso.  
+
+Allo stesso modo, con la diffusione dell'analisi dei dati, ed in particolare dei **big data**, diventa sempre più importante saper sintetizzare e processare l'esorbitante mole di informazioni che vengono create ogni giorno (e ogni ora).
+
+Che tali informazioni siano dati che possono aiutare a capire o controllare l'inquinamento nelle città  o degli stati (*ring a bell?*), o a capire quale sia linea aerea più affidabile con cui viaggiare, ci sono innumerevoli domande a cui possiamo dare risposta usando strumenti statistici. E la comunità scientifica lo fa da molto tempo.
+
+Nello stesso modo, grandi operatori di internet (e non solo) usano questi strumenti per capire quali film o video, o quale pubblicità suggerirci (o prodotti, in generale), partendo dalle informazioni dei contenuti di cui abbiamo già fruito o basandosi sulle nostre ricerche.
+
+Analogamente, i tanto discussi [machine learning, deep learning ed  intelligenza artificiale](http://www.economist.com/blogs/economist-explains/2015/05/economist-explains-14?fsrc=scn/fb/te/bl/ed/), affondano le loro radici nei concetti di probabilità e statistica affrontati in questo corso. La combinazione di queste conoscenze, unite alle capacità di programmazione in R richieste, sono già sufficienti per avvicinarsi a queste applicazioni, così come a tante altre.
+
+Per chi fosse affascinato da questi temi, e se la sentisse di mettersi in gioco, esistono molte piattaforme che ospitano competizione per lo sviluppo di modelli che hanno lo scopo di predire le più disparate quantità. Si vedano ad esempio [Kaggle](https://www.kaggle.com) o [Innocentive](https://www.innocentive.com/). Le stesse piattaforme forniscono spunti e idee (e dataset) con cui migliorare le proprie capacità.
+
+La matematica, la probabilità e la statistica possono aprire moltissime lavorative, così come possono aiutare a soddisfare la naturale *curiosità* che dovrebbe contraddistinguere uno scienziato, ed in particolare un matematico!
+--->
+
+<p> &copy; 2017-2019  Federico Reali</p>
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
