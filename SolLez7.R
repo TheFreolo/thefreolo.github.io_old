@@ -76,6 +76,9 @@ par(mfrow = c(1,1))
 plot(MSFT~IBM, data = df2)
 abline(reg$coefficients, col = "red")
 
+cor(na.omit(df2[,c("IBM", "MSFT")]) )
+0.9514939^2
+
 #4 . Conclusioni
 # Il modello sembra spiegare piuttosto bene i dati, tuttavia sembra 
 # strano che l'andamento di uno causi cambiamenti nell'andamento dell'altro
