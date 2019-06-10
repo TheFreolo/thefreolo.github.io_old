@@ -6,10 +6,21 @@
     <description>Recent content in Teachings on Federico Reali</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jun 2019 12:30:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://thefreolo.github.io/teaching/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Esame Giugno 2019</title>
+      <link>https://thefreolo.github.io/teaching/esamegiugno2019/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0100</pubDate>
+      
+      <guid>https://thefreolo.github.io/teaching/esamegiugno2019/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.maxpixel.net/static/photo/1x/Mechanical-Vintage-Timekeeping-Omega-Watch-Pocket-2762449.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>II Prova Intermedia 2019</title>
@@ -141,10 +152,10 @@ It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;
     <item>
       <title>Esame Febbraio 2019 </title>
       <link>https://thefreolo.github.io/teaching/esamefebbraio2019/</link>
-      <pubDate>Sun, 10 Feb 2019 05:00:00 +0200</pubDate>
+      <pubDate>Sat, 09 Feb 2019 00:00:00 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/teaching/esamefebbraio2019/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Sveglia_old.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.maxpixel.net/static/photo/1x/Mechanical-Vintage-Timekeeping-Omega-Watch-Pocket-2762449.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

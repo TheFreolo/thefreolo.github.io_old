@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-  <title>Esame Febbraio 2019  &middot; Federico Reali</title>
+  <title>Esame Giugno 2019 &middot; Federico Reali</title>
   
 
   
@@ -86,30 +86,28 @@
 
 		<div class="content container">
 			<div class="post">
-			 	<h1>Esame Febbraio 2019 </h1>
-			  <span class="post-date">Sat, Feb 9, 2019</span>
+			 	<h1>Esame Giugno 2019</h1>
+			  <span class="post-date">Mon, Jun 10, 2019</span>
 			      <p><img src="https://www.maxpixel.net/static/photo/1x/Mechanical-Vintage-Timekeeping-Omega-Watch-Pocket-2762449.jpg" alt="" /></p>
 
 <p></p>
 
-<hr />
-
 <h1 id="esercizio-1">Esercizio 1</h1>
 
-<p>Si consideri il <a href="https://www.dropbox.com/s/rhmriuidom42qwd/sleep.csv?dl=1">dataset</a> contenente i dati relativi ad alcune informazioni (come peso e alle ore di sonno) di alcuni animali (<a href="https://www.dropbox.com/s/r78low1xmk5jbij/sleep.txt?dl=1">descrizione</a>).</p>
+<p>Si consideri il <a href="https://www.kaggle.com/ronitf/heart-disease-uci">dataset</a> che riporta 14 parametri di 303 pazienti con problemi di cuore.</p>
 
-<ol>
-<li><p><strong>(2 punti)</strong> Si importi il dataset e considerino solo le variabili <code>BodyWt</code>, <code>BrainWt</code> e <code>TotSleep</code>. Si verifichi se ci sono errori nei dati. Se ci sono, li si sostituisca con la media dei dati relativi alla stessa variabile. Nel fare ciò, si escludano i dati errati.</p></li>
-
-<li><p><strong>(2 punti)</strong> Si calcolino quartili, media e mediana  dei dati. Inolte, si visualizzino le variabili usando degli istogrammi ed i boxplot. Si commentino i grafici e la presenza di potenziali outliers.</p></li>
-
-<li><p><strong>(2 punti)</strong> Si crei un modello di regressione lineare tra li variabili <code>BodyWt</code> e <code>BrainWt</code>. Si visualizzino i dati, la retta di regressione,
-la distribuzione dei residui e si confrontino i quantili dei residui con i quantili della normale. Si commentino i risultati grafici e il valore di R quadro.</p></li>
-</ol>
+<ul>
+<li><strong>(1 punto)</strong> Si importi il dataset in R e si verifichi la correttezza del contenuto.</li>
+<li><strong>(2 punti)</strong> Si dividano i dati un due dataset in base ai valori della variabile <code>Target</code>. Se <code>Target</code> è uguale a 0, il paziente non ha avuto malattie cardiache. Se <code>Target</code> è uguale a 1 ne ha avute. Le seguenti analisi si intendono su entrambi i dataset.</li>
+<li><strong>(3 punti)</strong> Per entrambi i dataset, si visualizzino potenziali outliers della variabile <code>chol</code> usando i boxplot e si rimuovano le righe relative agli outliers. Dopo si verifichi la corretta rimozione di tutti gli outliers.  Quante righe abbiamo rimosso? Si commentino i risultati. Le seguenti analisi si intendono sui dataset dove sono state rimosse queste righe.</li>
+<li><strong>(2 punti)</strong> Si calcolino media, mediana, quartili  e deviazione standard per le variabili <code>chol</code> e <code>thalach</code>.</li>
+<li><strong>(2 punti)</strong> Si calcolino gli intervalli di confidenza bilateri (95%) per la variabile <code>thalach</code> dei dataset sani e malati. Si commentino i risultati. <em>(suggerimento: si usi <code>t.test</code>)</em></li>
+<li><strong>(1 punto)</strong> Si determini se la differenza delle medie è statisticamente significativa (p-value) e si commenti il risultato.</li>
+</ul>
 
 <hr />
 
-<p>Si produca uno script funzionante (o un notebook) che contiene tutto il codice per risolvere gli esercizi. I plot devono riportare le opportune <strong>label</strong> lungo gli assi.</p>
+<p>Si produca uno script funzionante (o un notebook) che contiene tutto il codice per risolvere l’esercizio.</p>
 			</div>
 
 			
